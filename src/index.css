@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #ffffff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font-family: var(--sans);
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #3366c0;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+  }
+}
+
+@media print {
+  /* 1. Hide contents */
+  body * {
+    visibility: hidden;
+  }
+
+  nav, 
+  .table-container, 
+  .variant-list,
+  footer {
+    display: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    position: absolute !important;
+    overflow: hidden !important;
+  }
+  
+  /* 2. Show ONLY the analysis panel and its children */
+  /* Replace '.analysis-panel' with the actual ID or class of your right container */
+  #analysis-panel-container, 
+  #analysis-panel-container * {
+    visibility: visible;
+  }
+
+  /* 3. Reset the position so it's not "stuck" to the right side of a blank page */
+  #analysis-panel-container {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 10px;
+    width: 95% !important;
+    margin: 0 !important;
+    padding: 10px !important;
+    box-shadow: none !important;
+  }
+
+  /* 4. Hide the "Download" and "Close" icons in the PDF itself */
+  .action-icon-group {
+    display: none !important;
+  }
+
+  /* 5. Clean up page margins */
+  @page {
+    margin: 1cm;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  display: block;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+h1, h2, h3 {
+  color: var(--text-h);
+  font-family: var(--sans);
+  margin-top: 0;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  background: var(--code-bg);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+.msp-plugin {
+  border-radius: 0.75rem !important;
+}
+
+.msp-viewport-controls {
+  background: rgba(255, 255, 255, 0.1) !important;
+}

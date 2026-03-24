@@ -1,0 +1,951 @@
+import React, { useState, useMemo, useEffect} from 'react';
+import { useMutationData } from './hooks/useMutationData';
+import { useUniProt } from './hooks/useUniProt';
+import { GOViewer} from './components/GOViewer';
+import { StructureViewer } from './components/StructureViewer';
+import { SequenceViewer } from './components/SequenceViewer';
+import { ExpressionChart } from './components/ExpressionChart';
+
+const parseUniProtTxt = (txt) => {
+  const lines = txt.split('\n');
+  let sequence = "";
+  let inSequence = false;
+
+  for (const line of lines) {
+    if (line.startsWith('SQ   ')) {
+      inSequence = true;
+      continue;
+    }
+    if (line.startsWith('//')) {
+      break;
+    }
+    if (inSequence) {
+      sequence += line.replace(/\s+/g, '');
+    }
+  }
+  return sequence;
+};
+
+function App() {
+
+  const { data, loading } = useMutationData();
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedVariant, setSelectedVariant] = useState(null);
+  const [history, setHistory] = useState([]);
+  const [activeClass, setActiveClass] = useState('ALL');
+  const [activeESM1b, setActiveESM1b] = useState('ALL');
+  const [activeMech, setActiveMech] = useState('ALL');
+  const [sequence, setSequence] = useState("");
+  const [loadingSeq, setLoadingSeq] = useState(false);
+  
+  const navLinks = [
+    { name: 'Documentation', url: 'https://github.com/queraltmartinsaladich/amino-map/blob/main/README.md' },
+    { name: 'Beltrao Group', url: 'https://imsb.ethz.ch/research/beltrao.html' },
+    { name: 'Tutorial', url: 'tutorial.pdf' },
+    { name: 'GitHub repository', url: 'https://github.com/queraltmartinsaladich/amino-map/tree/main' },
+    { name: 'References', url: 'https://github.com/queraltmartinsaladich/amino-map/blob/main/references.md' },
+  ];
+
+  useEffect(() => {
+    const savedHistory = localStorage.getItem('amino_map_session');
+    if (savedHistory) {
+      try {
+        setHistory(JSON.parse(savedHistory));
+      } catch (e) {
+        console.error("Failed to parse saved session");
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('amino_map_session', JSON.stringify(history));
+  }, [history]);
+
+  const handleImportSession = (event) => {
+    const file = event.target.files[0];
+    if (!file || !data) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const text = e.target.result;
+      const rows = text.split('\n').slice(1);
+      
+      const importedIds = rows
+        .map(row => row.split(',')[0]?.replace(/"/g, '').trim())
+        .filter(id => id);
+
+      const matchedHistory = data.filter(item => 
+        importedIds.includes(String(item.variant_id))
+      );
+
+      if (matchedHistory.length > 0) {
+        setHistory(prev => {
+          const existingIds = new Set(prev.map(item => item.variant_id));
+          const newItems = matchedHistory.filter(item => !existingIds.has(item.variant_id));
+          return [...prev, ...newItems];
+        });
+      }
+    };
+    reader.readAsText(file);
+    event.target.value = ''; // Reset
+  };
+
+  const filteredData = useMemo(() => {
+    if (!data) return [];
+    return data.filter(item => {
+      const matchesSearch = !searchTerm.trim() || 
+        String(item.variant_id).toLowerCase().includes(searchTerm.toLowerCase().trim()) ||
+        String(item.ESM1b_is_pathogenic).toLowerCase().includes(searchTerm.toLowerCase().trim()) ||
+        String(item.am_class).toLowerCase().includes(searchTerm.toLowerCase().trim());
+      const matchesClass = activeClass === 'ALL' || item.am_class === activeClass;
+      const matchesESM1b = activeESM1b === 'ALL' || item.ESM1b_is_pathogenic == activeESM1b;
+      const matchesMech = activeMech === 'ALL' || (item.mechanistic_label || 'Unassigned') === activeMech;
+      return matchesSearch && matchesClass && matchesESM1b && matchesMech;
+    });
+  }, [data, searchTerm, activeClass, activeESM1b, activeMech]);
+
+  const handleRowSelect = (row) => {
+    setSelectedVariant(row);
+    setHistory((prevHistory) => {
+      const isAlreadyInHistory = prevHistory.some(
+        (item) => item.variant_id === row.variant_id
+      );
+      if (isAlreadyInHistory) return prevHistory;
+      return [row, ...prevHistory];
+    });};
+
+  const selectedUniprotId = useMemo(() => {
+      return selectedVariant?.variant_id?.split('/')[0] || null;
+    }, [selectedVariant]);
+    
+  const { bioData, loading: uniProtLoading } = useUniProt(selectedUniprotId);
+
+  const clearHistory = () => {
+    console.log("History cleared"); 
+    setHistory([]);};
+
+  const DataPoint = ({ label, value, color = "text-slate-900", decimals = 3 }) => {
+    let displayValue;
+    if (typeof value === 'number') {
+      displayValue = value.toFixed(decimals);
+    } else if (typeof value === 'boolean') {
+      displayValue = value ? 'YES' : 'NO';
+    } else {
+      displayValue = value ?? 'N/A';
+    }
+    return (
+      <div className="flex justify-between items-baseline h-[30px]">
+        <p className="text-[16px] font-black text-slate-300 uppercase tracking-widest leading-none">
+          {label}
+        </p>
+        <p className={`text-[16px] font-mono font-bold uppercase leading-none ${color}`}>
+          {displayValue}
+        </p>
+      </div>
+    );};
+
+  const loadCSV = (event) => {
+    const file = event.target.files[0];
+    if (!file || !data) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const text = e.target.result;
+      // Supports IDs separated by newlines, commas, or tabs
+      const uploadedIds = text.split(/[\n,\t]+/).map(id => id.trim().toLowerCase()).filter(id => id);
+      
+      const matchedData = data.filter(item => 
+        uploadedIds.includes(String(item.variant_id).toLowerCase()));
+
+      if (matchedData.length > 0) {
+        const headers = ["variant_id", "am_class", "am_pathogenicity", "am_label", "pred_ddg", "pred_ddg_label", "ESM1b_LLR", "ESM1b_is_pathogenic",	"interface_label",	"pocket_label", "mechanistic_label"];
+        const csvContent = [
+          headers.join(','),
+          ...matchedData.map(row => headers.map(field => `"${row[field] ?? 'N/A'}"`).join(','))
+        ].join('\n');
+
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = `bulk_export_${matchedData.length}_variants.csv`;
+        link.click();
+      } else {
+        alert("No matching variants found in the uploaded file.");
+      }
+    };
+    reader.readAsText(file);
+    event.target.value = '';};
+
+  const downloadCSV = () => {
+    if (history.length === 0) return alert("No search history to export.");
+    const headers = ["variant_id", "am_class", "am_pathogenicity", "am_label", "pred_ddg", "pred_ddg_label", "ESM1b_LLR", "ESM1b_is_pathogenic",	"interface_label",	"pocket_label", "mechanistic_label"];
+    const csvRows = [
+      headers.join(','),
+      ...history.map(row => headers.map(fieldName => {
+        const value = row[fieldName] ?? "N/A";
+        return `"${value}"`;
+      }).join(','))];
+    const csvContent = csvRows.join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", `amino_map_history_${new Date().toISOString().split('T')[0]}.csv`);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);};
+
+  const mutationPos = useMemo(() => {
+    if (!selectedVariant || !selectedVariant.variant_id) return null;
+    // 1. Split the string: ["Q7Z4H8", "A126C"]
+    const parts = selectedVariant.variant_id.split('/');
+    // 2. Take the second part: "A126C"
+    const mutationPart = parts[1]; 
+    if (!mutationPart) return null;
+    // 3. Extract numbers from "A126C" -> 126
+    const match = mutationPart.match(/\d+/);
+    return match ? parseInt(match[0], 10) : null;
+  }, [selectedVariant]);
+
+  const proteinID = useMemo(() => {
+    if (!selectedVariant || !selectedVariant.variant_id) return null;
+    // 1. Split the string: ["Q7Z4H8", "A126C"]
+    const parts = selectedVariant.variant_id.split('/');
+    // 2. Take the first part: "Q7Z4H8"
+    const proteinPart = parts[0]; 
+    return proteinPart || null;
+  }, [selectedVariant]);
+
+  useEffect(() => {
+  if (!proteinID) {
+    setSequence("");
+    return;
+  };
+
+  let isMounted = true;
+  setLoadingSeq(true);
+
+  fetch(`https://rest.uniprot.org/uniprotkb/${proteinID}.txt`)
+    .then(res => {
+      if (!res.ok) throw new Error("Entry not found");
+      return res.text();
+    })
+    .then(data => {
+      if (isMounted) {
+        const cleanedSequence = parseUniProtTxt(data);
+        setSequence(cleanedSequence);
+        setLoadingSeq(false);
+      }
+    })
+    .catch(err => {
+      console.error("Sequence fetch failed:", err);
+      if (isMounted) setLoadingSeq(false);
+    });
+
+  return () => { isMounted = false; }; // Cleanup
+  }, [proteinID]);
+
+  const AA_PROPERTIES = {
+    'A': 'Small hydrophobic',  'R': 'Large positive (basic)', 
+    'N': 'Polar uncharged',     'D': 'Small negative (acidic)',
+    'C': 'Sulfur-containing (nucleophilic)', 'E': 'Large negative (acidic)',
+    'Q': 'Large polar',         'G': 'Tiny (flexible)',
+    'H': 'Positive (aromatic)', 'I': 'Large hydrophobic',
+    'L': 'Large hydrophobic',   'K': 'Large positive (basic)',
+    'M': 'Hydrophobic (thioether)', 'F': 'Large aromatic',
+    'P': 'Rigid (cyclic)',      'S': 'Small polar (hydroxyl)',
+    'T': 'Small Polar (hydroxyl)', 'W': 'Bulky aromatic',
+    'Y': 'Aromatic (hydroxyl)', 'V': 'Medium hydrophobic'};
+
+  // IMPORTANT!!!! Change this for whatever proteins want to be included in the scoring. In this case I did it for the ones provided.
+  const proteinNature = useMemo(() => {
+    const mapping = {
+      'P12235': { label: 'Rigid / Structural Lock', isRigid: true, flexScore: '1/10' },
+      'Q7Z4H8': { label: 'Moderate / Enzymatic Hinge', isRigid: false, flexScore: '5/10' },
+      'Q8IUR5': { label: 'Highly Flexible / Scaffold', isRigid: false, flexScore: '9/10' }};
+    return mapping[selectedUniprotId] || { label: "Globular / Standard", isRigid: false, flexScore: '4/10' };
+  }, [selectedUniprotId]);
+
+  const propertyShift = useMemo(() => {
+    if (!selectedVariant) return null;
+    
+    const mutationPart = selectedVariant.variant_id.split('/')[1]; // "A126C"
+    const fromAA = mutationPart.charAt(0); // "A"
+    const toAA = mutationPart.slice(-1);   // "C"
+
+    const fromProp = AA_PROPERTIES[fromAA] || "Unknown";
+    const toProp = AA_PROPERTIES[toAA] || "Unknown";
+
+    return `${fromProp} → ${toProp}`;
+  }, [selectedVariant]);
+
+  const mutationAnalysis = useMemo(() => {
+    if (!selectedVariant) return { shift: null, isChargeReversal: false };
+    
+    const mutationPart = selectedVariant.variant_id.split('/')[1];
+    const fromAA = mutationPart.charAt(0);
+    const toAA = mutationPart.slice(-1);
+
+    const pos = ['R', 'K', 'H']; 
+    const neg = ['D', 'E'];
+
+    const isChargeReversal = 
+      (pos.includes(fromAA) && neg.includes(toAA)) || 
+      (neg.includes(fromAA) && pos.includes(toAA));
+
+    return {
+      shift: `${AA_PROPERTIES[fromAA]} → ${AA_PROPERTIES[toAA]}`,
+      isChargeReversal
+    };
+  }, [selectedVariant]);
+
+  const structuralContext = useMemo(() => {
+    if (!bioData?.features || !mutationPos) return "Loop / Unstructured";
+
+    // Find if the mutation position is inside a Helix or Beta Strand
+    const feature = bioData.features.find(f => 
+      (f.type === 'Helix' || f.type === 'Strand') && 
+      mutationPos >= f.location.start.offset && 
+      mutationPos <= f.location.end.offset
+    );
+
+    if (!feature) return "Loop / Flexible";
+    return feature.type === 'Strand' ? "Beta Sheet (Rigid)" : "Alpha Helix (Coil)";
+  }, [bioData, mutationPos]);
+
+  const handleDownload = () => {
+    if (!selectedVariant) return;
+    // 1. Clean the ID for a filename (replace / with -)
+    const safeId = selectedVariant.variant_id.replace('/', '-');
+    const originalTitle = document.title;
+    // 2. Set temporary title for the browser's PDF engine
+    document.title = `Report_${safeId}`;
+    // 3. Trigger Print
+    window.print();
+    // 4. Restore original title after a tiny delay
+    setTimeout(() => {
+      document.title = originalTitle;
+    }, 100);};
+
+  // LOADING APPEARANCE
+  if (loading) {
+    return (
+      <div className="h-screen flex items-center justify-center bg-white">
+        <div className="text-slate-400 font-black tracking-[0.5em] animate-pulse">LOADING</div>
+      </div>
+    );
+  }
+  
+  // RETURN FUNCTION - MAIN
+  return (
+    <div className="bg-white ml-[40px] mr-[40px] mt-[20px] pl-[10px] pr-[10px] text-slate-900">
+      <div className="mx-auto">
+
+        {/* MAIN TITLE -------------------------------------------------------------------------------------------------------------------------- */}
+        <header>
+          <h1 className="text-[40px] font-black font-bold uppercase text-center tracking-[0.2em] mb-[10px]">
+            amino-map
+          </h1>
+          <h1 className="text-[20px] font-mono uppercase text-center tracking-[0.4em] mb-[20px]">
+            An open-source protein mutation browser
+          </h1>
+        </header>
+
+        {/* EXTERNAL RESOURCE NAVIGATION -------------------------------------------------------------------------------------------------------- */}
+        <div className="w-full mb-[20px]">
+          <nav className="border-y border-slate-100/60 mt-[4px] mb-[4px] py-[10px]">
+            <div className="flex justify-between items-center w-full">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative text-[11px] font-bold uppercase tracking-[0.25em] text-slate-400 no-underline hover:text-blue-600 transition-all duration-300"
+                >
+                  <span>{link.name}</span>
+                  
+                  {/* Subtle underline that grows from center on hover */}
+                  <span className="absolute -bottom-[4px] left-1/2 w-0 h-[1px] bg-blue-600 transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                </a>
+              ))}
+            </div>
+          </nav>
+        </div>
+
+        <div className="flex items-start gap-[40px]">
+          
+          {/* LEFT HALF ------------------------------------------------------------------------------------------------------------------------- */}
+          <div className="w-1/2 table-container flex-grow-0 flex-col">
+
+            {/* TOP CONTROL BAR: MODERN AESTHETIC --------------------------------------------------------------------------- */}
+            <div className="w-full mb-[8px] flex justify-between items-center">
+
+              {/* 1. BULK LOAD */}
+              <label 
+                title="Load multiple IDs inside a .txt or .csv file"
+                className="flex items-center text-center px-[20px] py-[2px] border-[2px] border-slate-100 text-slate-400 rounded-[8px] cursor-pointer hover:border-slate-900 hover:text-slate-900 transition-all duration-300 group">
+                <input 
+                  type="file" 
+                  accept=".txt,.csv" 
+                  className="hidden" 
+                  onChange={loadCSV} 
+                />
+                <span className="text-[12px] font-bold uppercase tracking-[0.1em]">Bulk Load</span>
+              </label>
+
+              {/* 2. IMPORT SESSION */}
+              <label 
+                title="Import session history"
+                className="flex items-center text-center px-[20px] py-[2px] border-[2px] border-slate-100 text-slate-400 rounded-[8px] cursor-pointer hover:border-slate-900 hover:text-slate-900 transition-all duration-300 group">
+                <input 
+                  type="file" 
+                  accept=".csv" 
+                  className="hidden" 
+                  onChange={handleImportSession} 
+                />
+                <span className="text-[12px] font-bold uppercase tracking-[0.1em]">Import Session</span>
+              </label>
+
+              {/* 3. EXPORT BUTTON */}
+              <label 
+                onClick={downloadCSV}
+                disabled={history.length === 0}
+                title="Export session history"
+                className="flex items-center text-center px-[20px] py-[2px] border-[2px] border-slate-100 text-slate-400 rounded-[8px] cursor-pointer hover:border-slate-900 hover:text-slate-900 transition-all duration-300 group"
+              >
+                <span className="text-[12px] font-bold uppercase tracking-[0.1em]">Export ({history.length})</span>
+              </label>
+
+              {/* 4. CLEAR HISTORY BUTTON */}
+              <label 
+                onClick={clearHistory}
+                disabled={history.length === 0}
+                title="Clear session history"
+                className="flex items-center text-center px-[20px] py-[2px] border-[2px] border-slate-100 text-slate-400 rounded-[8px] cursor-pointer hover:border-slate-900 hover:text-slate-900 transition-all duration-300 group"              >
+                <span className="text-[12px] font-bold uppercase tracking-[0.1em]">Clear ({history.length})</span>
+              </label>
+                          
+            </div>
+
+            {/* SEARCH INPUT CONTAINER -------------------------------------------------------------------------------------- */}
+            <div className="w-full mb-[2px] mt-[14px] flex justify-between items-center gap-[6px]">
+              <svg 
+                className="w-[20px] h-[20px]" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24" 
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <input 
+                type="text"
+                placeholder="Search Variant ID..."
+                className="
+                  border-0
+                  w-full pl-[10px] py-[5px]
+                  text-[18px] font-mono font-bold uppercase tracking-[0.2em] 
+                "
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+
+            {/* FILTER ROW -------------------------------------------------------------------------------------------------- */}
+            <div className="mb-[4px] flex flex-col gap-[2px] px-[1px]">
+              {/* Class Filters */}
+              <div className="flex items-center gap-[2px]">
+                <span className="mt-[10px] text-[14px] font-mono text-slate-300 tracking-widest">Filter by ESM1b class:</span>
+                <div className="flex gap-[1px]">
+                  {['ALL', 'pathogenic', 'benign'].map(cat => (
+                    <button
+                      key={cat}
+                      onClick={() => setActiveESM1b(cat)}
+                      className={`mt-[10px] mb-[1px] ml-[2px] px-[5px] py-[1px] text-[12px] font-bold uppercase tracking-wider ${
+                        activeESM1b === cat 
+                        ? 'bg-slate-900 border-slate-900 text-white cursor-pointer' 
+                        : 'bg-white text-slate-400 cursor-pointer'
+                      }`}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              {/* AM Class Filters */}
+              <div className="flex items-center gap-[2px]">
+                <span className="text-[14px] font-mono text-slate-300 tracking-widest">Filter by AM class:</span>
+                <div className="flex gap-[1px]">
+                  {['ALL', 'pathogenic', 'benign', 'ambiguous'].map(cat => (
+                    <button
+                      key={cat}
+                      onClick={() => setActiveClass(cat)}
+                      className={`mb-[2px] ml-[2px] px-[5px] py-[1px] text-[12px] font-bold uppercase tracking-wider ${
+                        activeClass === cat 
+                        ? 'bg-slate-900 border-slate-900 text-white cursor-pointer' 
+                        : 'bg-white text-slate-400 cursor-pointer'
+                      }`}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              {/* Mechanism Filters */}
+              <div className="flex items-center gap-[2px]">
+                <span className="text-[14px] font-mono text-slate-300 tracking-widest">Filter by mechanism:</span>
+                <div className="flex gap-[1px]">
+                  {['ALL', 'Unassigned', 'Stability','Pockets','Interface'].map(cat => (
+                    <button
+                      key={cat}
+                      onClick={() => setActiveMech(cat)}
+                      className={`mb-[2px] ml-[2px] px-[5px] py-[1px] text-[12px] font-bold uppercase tracking-wider ${
+                        activeClass === cat 
+                        ? 'bg-slate-900 border-slate-900 text-white cursor-pointer' 
+                        : 'bg-white text-slate-400 cursor-pointer'
+                      }`}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* COUNT SUMMARY ----------------------------------------------------------------------------------------------- */}
+            <div className="flex items-center px-[1px]">
+              <div className="w-[1.5px] h-[1.5px] rounded-full bg-blue-500 animate-pulse"></div>
+              <p className="text-[12px] font-medium text-slate-200 tracking-tight italic">
+                {filteredData.length} entries indexed in master subset
+              </p>
+            </div>
+
+            {/* TABLE ------------------------------------------------------------------------------------------------------- */}
+            <div>
+              <table className="w-full text-left border-collapse">
+                <thead className="sticky top-0 z-50 bg-white">
+                  <tr className="text-[18px] font-black text-slate-900 uppercase tracking-[0.1em]">
+                    <th className="py-[4px] px-[4px] border-b border-slate-200 border-collapse">Variant ID</th>
+                    <th className="py-[4px] px-[4px] text-center border-b border-slate-200 border-collapse">ESM1b Class</th>
+                    <th className="py-[4px] px-[4px] text-center border-b border-slate-200 border-collapse">AM Class</th>
+                    <th className="py-[4px] px-[4px] text-right border-b border-slate-200 border-collapse">Mechanism</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredData.map((row) => (
+                    <tr 
+                      key={row.variant_id}
+                      onClick={() => handleRowSelect(row)} 
+                      className={`group cursor-pointer transition-all last:border-none ${
+                        selectedVariant?.variant_id === row.variant_id 
+                        ? 'bg-blue-600 text-white' 
+                        : 'hover:bg-slate-50 text-slate-600'}`}>
+                      <td className="py-[2px] px-[4px] text-[15px] font-black uppercase tracking-tighter">
+                        {row.variant_id}
+                      </td>
+                      <td className="py-[2px] px-[4px] text-center">
+                        <span className={`text-[15px] font-black uppercase tracking-tighter ${
+                          selectedVariant?.variant_id === row.variant_id 
+                          ? 'text-white' 
+                          : row.ESM1b_is_pathogenic === 'pathogenic' ? 'text-red-600' : 'text-green-600'
+                        }`}>
+                          {row.ESM1b_is_pathogenic}
+                        </span>
+                      </td>
+                      <td className="py-[2px] px-[4px] text-center">
+                        <span className={`text-[15px] font-black uppercase tracking-tighter ${
+                          selectedVariant?.variant_id === row.variant_id 
+                          ? 'text-white' 
+                          : row.am_class === 'pathogenic' ? 'text-red-600' : 'text-green-600'
+                        }`}>
+                          {row.am_class}
+                        </span>
+                      </td>
+                      <td className="py-[2px] px-[4px] text-right">
+                        <span className={`text-[15px] font-black uppercase tracking-tighter ${
+                          selectedVariant?.variant_id === row.variant_id ? 'text-blue-100' : 'text-slate-300 group-hover:text-slate-900'
+                        }`}>
+                          {row.mechanistic_label || 'Unassigned'}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+          {/* RIGHT HALF:  ---------------------------------------------------------------------------------------------------------------------- */}
+          <div id="analysis-panel-container" className="flex-shrink-0 flex-col w-1/2 gap-[10px]">
+            {selectedVariant ? (
+              <div key={selectedVariant.variant_id} className="mt-[-1px] sticky bg-white animate-in fade-in duration-300">
+                
+                  {/* CHOSEN PROTEIN ID ------------------------------------------------------------------------------------- */}
+                  <div className="flex items-start border-slate-900 justify-between">
+                    <div>
+                      <span className="text-blue-600 text-[18px] font-black uppercase tracking-[0.4em]">Analysis of</span>
+                      <h2 className="text-[30px] font-black text-slate-900 font-mono uppercase tracking-tighter mb-[20px]">
+                        {selectedVariant.variant_id}
+                      </h2>
+                    </div>
+                    <div>
+                    <button 
+                      onClick={handleDownload} // Use the new function here 
+                      title="Download analysis as PDF"
+                      className="text-slate-300 hover:text-blue-600 transition-colors group p-1 cursor-pointer action-icon-group"
+                    >
+                      <svg className="w-[20px] h-[20px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4-4v8" />
+                      </svg>
+                    </button>
+                    <button 
+                      onClick={() => setSelectedVariant(null)}
+                      title="Close analysis"
+                      className="text-slate-300 hover:text-blue-600 transition-colors group p-1 cursor-pointer action-icon-group"
+                    >
+                      <svg className="w-[20px] h-[20px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                    </div>
+                  </div>
+                  
+                  {/* UNIPROT DATA ------------------------------------------------------------------------------------------ */}
+                  <div className="mb-[20px] bg-slate-50">
+                  {uniProtLoading ? (
+                    <p className="text-[14px] font-mono animate-pulse uppercase tracking-widest">
+                      Syncing UniProt...
+                    </p>
+                  ) : bioData ? (
+                    <>
+                      <h3 className="text-[14px] font-black text-slate-900 uppercase mb-[-10px]">
+                        {bioData.fullName}
+                      </h3>
+                      <p className="text-[14px] font-mono text-blue-600 uppercase mb-[3px] tracking-tighter">
+                        Gene: {bioData.geneName} | Organism: {bioData.organism}
+                      </p>
+                      
+                      <div>
+                        <p className="text-[13px] font-mono text-slate-500 leading-relaxed italic lowercase first-letter:uppercase">
+                          {bioData.function.length > 200 
+                            ? `${bioData.function.substring(0, 200)}...` 
+                            : bioData.function}
+                        </p>
+                      </div>
+
+                      {/* EXTERNAL LINK BUTTON */}
+                      <div className="pt-[4px]">
+                        <a 
+                          href={`https://www.uniprot.org/uniprotkb/${selectedUniprotId}/entry`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-[15px] font-black uppercasetext-slate-900 hover:text-blue-600 transition-colors group"
+                        >
+                          <span>View full UniProt.org entry</span>
+                          <svg 
+                            className="w-[20px] h-[20px] ml-[10px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </a>
+                      </div>
+                    </>
+                  ) : (
+                    <p className="text-[12px] font-mono text-slate-300 uppercase italic">
+                      Biological metadata restricted or unavailable
+                    </p>
+                  )}
+                </div>
+
+                {/* MUTATION CONTEXT: COORDINATE, CHEMISTRY & PROPERTY SHIFT -------------------------------------------------- */}
+                <div className="flex flex-col gap-[8px] animate-in fade-in duration-500">
+                  
+                  {/* ROW 1: THE COORDINATE */}
+                  <div className="flex items-center justify-between max-w-xs h-[20px]">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-slate-300">
+                      Position
+                    </span>
+                    <span className="text-[14px] font-mono font-bold text-slate-900">
+                      {mutationPos || '—'} <span className="text-slate-200 text-[14px] ml-1"></span>
+                    </span>
+                  </div>
+
+                  {/* ROW 2: THE SUBSTITUTION (Identity Swap) */}
+                  <div className="flex items-center justify-between max-w-xs h-[20px]">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-slate-300">
+                      Substitution
+                    </span>
+                    <div className="flex items-center gap-[8px]">
+                      <span className="px-[6px] py-[2px] bg-slate-50 border border-slate-100 rounded text-[12px] font-mono font-bold text-slate-400">
+                        {selectedVariant.variant_id.split('/')[1].charAt(0)}
+                      </span>
+                      <svg className="w-[10px] h-[10px] text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                      <span className="px-[6px] py-[2px] !bg-slate-900 border border-slate-900 rounded text-[12px] font-mono font-bold !text-white">
+                        {selectedVariant.variant_id.slice(-1)}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* ROWs 3/4: SHIFTs (The "Why it matters" logic) */}
+                  <div className="flex items-center justify-between max-w-xs h-[20px]">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-slate-300">
+                      Property Shift
+                    </span>
+                    <p className="text-[14px] font-mono text-slate-500 leading-tight">
+                      {propertyShift}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center justify-between h-[20px]">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-slate-300">
+                      Charge Shift
+                    </span>
+                    <p className="text-[14px] font-mono text-slate-500 leading-tight">
+                      {mutationAnalysis?.isChargeReversal ? 'Charge shift' : 'No charge shift'}
+                    </p>
+                  </div>
+
+                  {/* ROWS 5/6: STRUCTURAL CONTEXT (Alpha Helix / Beta Sheet) --------------------------------------------------- */}
+                  <div className="flex items-center justify-between max-w-xs h-[20px]">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-slate-300">
+                      Local geometry
+                    </span>
+                    <p className="text-[14px] font-mono text-slate-500 leading-tight">
+                      {structuralContext}
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between max-w-xs h-[20px]">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-slate-300">
+                      Structural flexibility
+                    </span>
+                    <p className="text-[14px] font-mono text-slate-500 leading-tight">
+                      {proteinNature.label}                    
+                    </p>
+                  </div>
+                </div>
+
+                {/* MUTATION SCORES ----------------------------------------------------------------------------------------- */}
+                <div className='mt-[30px] mb-[-12px]'>
+                  <p className="text-[20px] font-black text-slate-300 uppercase tracking-[0.2em] leading-none">
+                    Characteristics
+                  </p>
+                </div>
+                <div className="border-t-2 border-slate-900 pt-8">
+                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mt-[20px] mb-[8px]">
+                    Pathogenic labels
+                  </p>
+                </div>
+                {/* ESM1b - Pathogenic? */}
+                <div className="flex items-center group max-w-xs h-[30px]">
+                  <div className="flex items-center gap-[8px]">
+                    <svg className={`w-[30px] h-[30px] transition-colors ${
+                      selectedVariant.ESM1b_is_pathogenic === 'pathogenic' ? 'text-red-500 animate-pulse' : 
+                      selectedVariant.ESM1b_is_pathogenic === 'benign' ? 'text-emerald-500' : 'text-slate-300'
+                    }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      {selectedVariant.ESM1b_is_pathogenic === 'pathogenic' ? (
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                      ) : selectedVariant.ESM1b_is_pathogenic === 'benign' ? (
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      ) : (
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      )}
+                    </svg>
+                    <p className={`text-[16px] font-mono font-bold uppercase leading-none ${
+                      selectedVariant.ESM1b_is_pathogenic === 'pathogenic' ? 'text-red-600' : 
+                      selectedVariant.ESM1b_is_pathogenic === 'benign' ? 'text-emerald-600' : 'text-slate-900'
+                    }`}>
+                      {selectedVariant.ESM1b_is_pathogenic || "Unspecified"}
+                    </p>
+                    <div> 
+                      <p className="text-[12px] font-mno text-blue-600 italic">
+                      - According to ESM1b     
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {/* AM - Pathogenic? */}
+                <div className="flex items-center group max-w-xs h-[30px]">
+                  <div className="flex items-center gap-[8px]">
+                    <svg className={`w-[30px] h-[30px] transition-all duration-300 ${
+                      selectedVariant.am_class?.toLowerCase() === 'pathogenic' ? 'text-red-500 animate-pulse' : 
+                      selectedVariant.am_class?.toLowerCase() === 'benign' ? 'text-emerald-500' : 
+                      'text-slate-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      {selectedVariant.am_class?.toLowerCase() === 'pathogenic' ? (
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                      ) : selectedVariant.am_class?.toLowerCase() === 'benign' ? (
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      ) : (
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      )}
+                    </svg>
+                    <p className={`text-[16px] font-mono font-bold uppercase leading-none ${
+                      selectedVariant.am_class?.toLowerCase() === 'pathogenic' ? 'text-red-600' : 
+                      selectedVariant.am_class?.toLowerCase() === 'benign' ? 'text-emerald-600' : 
+                      'text-slate-500' /* Ambiguous Text */
+                    }`}>
+                      {selectedVariant.am_class || "ambiguous"}
+                    </p>
+                    <div>
+                      <p className="text-[12px] font-mno text-blue-600 italic">
+                      - According to AlphaMissense
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mt-[20px] mb-[2px]">
+                    Scores
+                  </p>
+                </div>
+                <div className="space-y-1">
+                  {/* AM Pathogenicity: Red if > 0.56 (Pathogenic threshold) */}
+                  <DataPoint 
+                    label="AM pathogenicity score" 
+                    value={selectedVariant.am_pathogenicity} 
+                    color={selectedVariant.am_pathogenicity > 0.564 ? "text-vermell" : "text-verd"}
+                  />
+                  {/* Stability: Orange if high energy change (> 1.0) */}
+                  <DataPoint 
+                    label="Stability (ΔΔG)" 
+                    value={selectedVariant.pred_ddg} 
+                    color={Math.abs(selectedVariant.pred_ddg) > 1.0 ? "text-vermell" : "text-verd"}
+                  />
+                  {/* ESM1b LLR: Red if very negative (indicating disruption) */}
+                  <DataPoint 
+                    label="ESM1b LLR" 
+                    value={selectedVariant.ESM1b_LLR} 
+                    color={selectedVariant.ESM1b_LLR < -10 ? "text-red-600" : "text-slate-900"}
+                  />
+                </div>
+
+                <div className="flex flex-col">
+                  <div className="flex justify-between items-baseline max-w-xs h-[30px]">
+                    <p className="text-[16px] font-black text-slate-300 uppercase tracking-widest leading-none">Destabilizing?</p>
+                    <p className="text-[16px] font-mono font-bold uppercase text-slate-900 leading-none">
+                      {selectedVariant.pred_ddg_label || "Unspecified"}
+                    </p>
+                  </div>
+                  <div className="flex justify-between items-baseline max-w-xs h-[30px]">
+                    <p className="text-[16px] font-black text-slate-300 uppercase tracking-widest leading-none">Interface score?</p>
+                    <p className="text-[16px] font-mono font-bold uppercase text-slate-900 leading-none">
+                      {selectedVariant.interface_pdockq || "Unspecified"}
+                    </p>
+                  </div>
+                  <div className="flex justify-between items-baseline max-w-xs h-[30px]">
+                    <p className="text-[16px] font-black text-slate-300 uppercase tracking-widest leading-none">Interface?</p>
+                    <p className="text-[16px] font-mono font-bold uppercase text-slate-900 leading-none">
+                      {selectedVariant.interface_label || "Unspecified"}
+                    </p>
+                  </div>
+                  <div className="flex justify-between items-baseline max-w-xs h-[30px]">
+                    <p className="text-[16px] font-black text-slate-300 uppercase tracking-widest leading-none">Protein pocket?</p>
+                    <p className="text-[16px] font-mono font-bold uppercase text-slate-900 leading-none">
+                      {selectedVariant.pocket_label || "Unspecified"}
+                    </p>
+                  </div>
+                  <div className="flex justify-between items-baseline max-w-xs h-[30px]">
+                    <p className="text-[16px] font-black text-slate-300 uppercase tracking-widest leading-none">Mechanism</p>
+                    <p className="text-[16px] font-mono font-bold uppercase text-slate-900 leading-none">
+                      {selectedVariant.mechanistic_label || "Unspecified"}
+                    </p>
+                  </div>
+                </div>
+
+                {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
+                <div className='mt-[30px] mb-[-12px]'>
+                  <p className="text-[20px] font-black text-slate-300 uppercase tracking-[0.2em] leading-none">
+                    3D Structure
+                  </p>
+                </div> 
+                <div className="border-t-2 border-slate-900 pt-8">
+                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mb-4">
+                    molstar.org
+                  </p>
+                  {(() => {
+                    return (
+                      <StructureViewer 
+                        pdbId={`AF-${proteinID}-F1-model_v6`}
+                        mutationPosition={mutationPos} 
+                        />);
+                  })()}
+                </div>
+
+                {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
+                <div className='mt-[30px] mb-[-12px]'>
+                  <p className="text-[20px] font-black text-slate-300 uppercase tracking-[0.2em] leading-none">
+                    SEQUENCING
+                  </p>
+                </div> 
+                <div className="border-t-2 border-slate-900 pt-8">
+                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mb-4">
+                    uniprot.org
+                  </p>
+                  {(() => {
+                    return (
+                      <SequenceViewer 
+                      sequence={sequence} 
+                      mutationPosition={mutationPos}
+                        />);
+                  })()}
+                </div>
+
+                {/* GEX SECTION ------------------------------------------------------------------------------------------ */}
+                <div className='mt-[30px] mb-[-12px]'>
+                  <p className="text-[20px] font-black text-slate-300 uppercase tracking-[0.2em] leading-none">
+                    RNA EXPRESSION
+                  </p>
+                </div> 
+                <div className="border-t-2 border-slate-900 pt-8">
+                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mb-4">
+                    proteinatlas.org
+                  </p>
+                  {(() => {
+                    const rawId = selectedVariant?.variant_id || "";
+                    const proteinId = rawId.split('/')[0];
+                    return (
+                        <ExpressionChart proteinId={proteinId} />);
+                  })()}
+                </div>
+
+                {/* Gene Ontology SECTION ------------------------------------------------------------------------------------ */}
+                <div className='mt-[30px] mb-[-12px]'>
+                  <p className="text-[20px] font-black text-slate-300 uppercase tracking-[0.2em] leading-none">
+                    GENE ONTOLOGY
+                  </p>
+                </div> 
+                <div className="border-t-2 border-slate-900 pt-8">
+                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mb-4">
+                    geneontology.org
+                  </p>
+                  {(() => {
+                    const rawId = selectedVariant?.variant_id || "";
+                    const proteinId = rawId.split('/')[0];
+                    return (
+                      <GOViewer proteinId={proteinId} />);
+                  })()}
+                </div>                  
+              </div>
+            ) : (
+              <div className="w-full mt-[-12px] text-center">
+                <p className="text-slate-200 font-mono uppercase tracking-[0.4em] text-[14px]">Select or type in the variant ID</p>
+              </div>
+            )}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
