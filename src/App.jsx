@@ -41,7 +41,7 @@ function App() {
   const navLinks = [
     { name: 'Documentation', url: 'https://github.com/queraltmartinsaladich/amino-map/blob/main/README.md' },
     { name: 'Beltrao Group', url: 'https://imsb.ethz.ch/research/beltrao.html' },
-    { name: 'Tutorial', url: 'tutorial.pdf' },
+    { name: 'Tutorial', url: 'https://github.com/queraltmartinsaladich/amino-map/blob/main/tutorial.pdf' },
     { name: 'GitHub repository', url: 'https://github.com/queraltmartinsaladich/amino-map/tree/main' },
     { name: 'References', url: 'https://github.com/queraltmartinsaladich/amino-map/blob/main/references.md' },
   ];
@@ -345,18 +345,14 @@ function App() {
 
         {/* MAIN TITLE SECTION */}
         <header className="flex flex-col items-center w-full max-w-5xl mx-auto py-[8px]">
-          
           <div className="flex items-center justify-center w-full gap-[6px]">
             {/* LEFT CHAIN */}
             <div className="flex-1 max-w-[200px] hidden md:block">
-              <svg 
-                className="w-[200px] h-[20px]" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24" 
-                aria-hidden="true"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M0 20C20 0 40 40 60 20C80 0 100 40 120 20C140 0 160 40 180 20H200"/>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="480" height="80" fill="none">
+                <path d="M10 25C30 5 50 35 70 25C90 15 110 35 130 25C150 15 170 35 190 25C210 15 230 25 230 25" 
+                      stroke="#4F46E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 25C30 45 50 15 70 25C90 35 110 15 130 25C150 35 170 15 190 25C210 35 230 25 230 25" 
+                      stroke="#818CF8" stroke-width="3" stroke-opacity="0.5" stroke-linecap="round"/>
               </svg>
             </div>
 
@@ -367,11 +363,11 @@ function App() {
 
             {/* RIGHT CHAIN */}
             <div className="flex-1 max-w-[200px] hidden md:block">
-              <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-                <path d="M0 20H20C40 0 60 40 80 20C100 0 120 40 140 20C160 0 180 40 200 20" 
-                      stroke="currentColor" strokeWidth="2.5px" strokeLinecap="round" className="text-indigo-600" />
-                <circle cx="80" cy="20" r="3" className="fill-indigo-600" />
-                <circle cx="140" cy="20" r="3" className="fill-indigo-600" />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="480" height="80" fill="none">
+                <path d="M10 25C30 5 50 35 70 25C90 15 110 35 130 25C150 15 170 35 190 25C210 15 230 25 230 25" 
+                      stroke="#4F46E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 25C30 45 50 15 70 25C90 35 110 15 130 25C150 35 170 15 190 25C210 35 230 25 230 25" 
+                      stroke="#818CF8" stroke-width="3" stroke-opacity="0.5" stroke-linecap="round"/>
               </svg>
             </div>
           </div>
@@ -380,7 +376,7 @@ function App() {
           <h2 className="text-[18px] font-mono uppercase text-center tracking-[0.4em] mt-[4px] text-slate-500 max-w-2xl">
             An open-source protein mutation browser
           </h2>
-          <h3 className="text-[10px] font-mono uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
+          <h3 className="text-[10px] font-black uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
             Queralt Martín-Saladich, 2026
           </h3>
         </header>
