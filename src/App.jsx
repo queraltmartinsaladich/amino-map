@@ -344,9 +344,9 @@ function App() {
       <div className="mx-auto">
 
         {/* MAIN TITLE SECTION */}
-        <header className="flex flex-col items-center w-full max-w-5xl mx-auto py-8">
+        <header className="flex flex-col items-center w-full max-w-5xl mx-auto py-[8px]">
           
-          <div className="flex items-center justify-center w-full gap-6">
+          <div className="flex items-center justify-center w-full gap-[6px]">
             {/* LEFT CHAIN */}
             <div className="flex-1 max-w-[200px] hidden md:block">
               <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
