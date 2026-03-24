@@ -348,12 +348,35 @@ function App() {
           <h1 className="text-[40px] font-black font-bold uppercase text-center tracking-[0.2em] mb-[10px]">
             amino-map
           </h1>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="480" height="80" fill="none">
-            <path d="M10 25C30 5 50 35 70 25C90 15 110 35 130 25C150 15 170 35 190 25C210 15 230 25 230 25" 
-                  stroke="#4F46E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M10 25C30 45 50 15 70 25C90 35 110 15 130 25C150 35 170 15 190 25C210 35 230 25 230 25" 
-                  stroke="#818CF8" stroke-width="3" stroke-opacity="0.5" stroke-linecap="round"/>
+          {/* SEPARATOR SVG */}
+          <div className="w-full max-w-[600px] py-4">
+          <svg 
+            viewBox="0 0 800 40" 
+            className="w-full h-auto" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {/* Background soft path */}
+            <path 
+              d="M0 20C40 40 80 0 120 20C160 40 200 0 240 20C280 40 320 0 360 20C400 40 440 0 480 20C520 40 560 0 600 20C640 40 680 0 720 20C760 40 800 0 840 20" 
+              stroke="currentColor" 
+              strokeWidth="1" 
+              className="text-indigo-200"
+            />
+            {/* Main Bold Protein Path */}
+            <path 
+              d="M0 20C40 0 80 40 120 20C160 0 200 40 240 20C280 0 320 40 360 20C400 0 440 40 480 20C520 0 560 40 600 20C640 0 680 40 720 20C760 0 800 40 840 20" 
+              stroke="currentColor" 
+              strokeWidth="3" 
+              strokeLinecap="round" 
+              className="text-indigo-600"
+            />
+            {/* Small Amino Acid Nodes */}
+            <circle cx="120" cy="20" r="4" className="fill-indigo-600" />
+            <circle cx="360" cy="20" r="4" className="fill-indigo-600" />
+            <circle cx="600" cy="20" r="4" className="fill-indigo-600" />
           </svg>
+          </div>
           <h1 className="text-[20px] font-mono uppercase text-center tracking-[0.4em] mb-[20px]">
             An open-source protein mutation browser
           </h1>
