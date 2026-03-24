@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import 'molstar/build/viewer/molstar.css';
 
 export const StructureViewer = ({ pdbId, mutationPosition }) => {
   const viewerContainer = useRef(null);
@@ -112,7 +113,7 @@ export const StructureViewer = ({ pdbId, mutationPosition }) => {
       {/* Footer */}
       <div className="mt-[4px] pt-[4px] border-t border-slate-200 flex justify-between items-center">
         <span className="text-[9px] font-mono text-slate-400 uppercase">
-          Source: ALPHASENSE
+          Source: ALPHAMISSENSE
         </span>
 
         <span className="text-[10px] font-mono font-bold text-red-600">
