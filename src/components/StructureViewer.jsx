@@ -24,7 +24,7 @@ export const StructureViewer = ({ pdbId, mutationPosition }) => {
       try {
 
         // Check if local file exists, otherwise fallback to AlphaFold DB
-        let pdbUrl = `/structures/${pdbId}.pdb`;
+        let pdbUrl = `./structures/${pdbId}.pdb`;
         const response = await fetch(pdbUrl, { method: 'HEAD' });
         if (!response.ok) {
           console.warn(`Local model ${pdbId} not found. Fetching from AlphaFold DB...`);
