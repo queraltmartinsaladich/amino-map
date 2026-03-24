@@ -343,43 +343,41 @@ function App() {
     <div className="bg-white ml-[40px] mr-[40px] mt-[20px] pl-[10px] pr-[10px] text-slate-900">
       <div className="mx-auto">
 
-        {/* MAIN TITLE -------------------------------------------------------------------------------------------------------------------------- */}
-        <header>
-          <h1 className="text-[40px] font-black font-bold uppercase text-center tracking-[0.2em] mb-[10px]">
-            amino-map
-          </h1>
-          {/* SEPARATOR SVG */}
-          <div className="w-full max-w-[600px] py-4">
-          <svg 
-            viewBox="0 0 800 40" 
-            className="w-full h-auto" 
-            fill="none" 
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {/* Background soft path */}
-            <path 
-              d="M0 20C40 40 80 0 120 20C160 40 200 0 240 20C280 40 320 0 360 20C400 40 440 0 480 20C520 40 560 0 600 20C640 40 680 0 720 20C760 40 800 0 840 20" 
-              stroke="currentColor" 
-              strokeWidth="1" 
-              className="text-indigo-200"
-            />
-            {/* Main Bold Protein Path */}
-            <path 
-              d="M0 20C40 0 80 40 120 20C160 0 200 40 240 20C280 0 320 40 360 20C400 0 440 40 480 20C520 0 560 40 600 20C640 0 680 40 720 20C760 0 800 40 840 20" 
-              stroke="currentColor" 
-              strokeWidth="3" 
-              strokeLinecap="round" 
-              className="text-indigo-600"
-            />
-            {/* Small Amino Acid Nodes */}
-            <circle cx="120" cy="20" r="4" className="fill-indigo-600" />
-            <circle cx="360" cy="20" r="4" className="fill-indigo-600" />
-            <circle cx="600" cy="20" r="4" className="fill-indigo-600" />
-          </svg>
+        {/* MAIN TITLE SECTION */}
+        <header className="flex flex-col items-center w-full max-w-5xl mx-auto py-8">
+          
+          <div className="flex items-center justify-center w-full gap-6">
+            {/* LEFT CHAIN */}
+            <div className="flex-1 max-w-[200px] hidden md:block">
+              <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+                <path d="M0 20C20 0 40 40 60 20C80 0 100 40 120 20C140 0 160 40 180 20H200" 
+                      stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-indigo-600" />
+                <circle cx="60" cy="20" r="3" className="fill-indigo-600" />
+                <circle cx="120" cy="20" r="3" className="fill-indigo-600" />
+              </svg>
+            </div>
+
+            {/* CENTER TITLE */}
+            <h1 className="text-[40px] font-black uppercase tracking-[0.2em] whitespace-nowrap">
+              amino-map
+            </h1>
+
+            {/* RIGHT CHAIN */}
+            <div className="flex-1 max-w-[200px] hidden md:block">
+              <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+                <path d="M0 20H20C40 0 60 40 80 20C100 0 120 40 140 20C160 0 180 40 200 20" 
+                      stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-indigo-600" />
+                <circle cx="80" cy="20" r="3" className="fill-indigo-600" />
+                <circle cx="140" cy="20" r="3" className="fill-indigo-600" />
+              </svg>
+            </div>
           </div>
-          <h1 className="text-[20px] font-mono uppercase text-center tracking-[0.4em] mb-[20px]">
+
+          {/* SUBTITLE BELOW */}
+          <h2 className="text-[18px] font-mono uppercase text-center tracking-[0.4em] mt-4 text-slate-500 max-w-2xl">
             An open-source protein mutation browser
-          </h1>
+          </h2>
+          
         </header>
 
         {/* EXTERNAL RESOURCE NAVIGATION -------------------------------------------------------------------------------------------------------- */}
