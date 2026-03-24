@@ -329,11 +329,21 @@ function App() {
       document.title = originalTitle;
     }, 100);};
 
+  const loadingMessages = [
+    "BUFFERING...LITERALLY",
+    "BUILDING YOUR PROTEIN 🏋🏼‍♀️",
+    "FOLDING PROTEIN… DON'T PANIC 🧬",
+    "SUMMONING RIBOSOMES...",
+    "CONSULTING THE MITOCHONDRIA ⚡",
+    "ALIGNING SEQUENCES LIKE IT'S 1999",
+    "CONVINCING MOLECULES TO BEHAVE…",
+  ];
+
   // LOADING APPEARANCE
   if (loading) {
     return (
       <div className="h-screen flex items-center justify-center bg-white">
-        <div className="text-slate-400 font-black tracking-[0.5em] animate-pulse">LOADING</div>
+        <div className="text-slate-400 font-black tracking-[0.5em] animate-pulse">Building your protein 🏋🏼‍♀️</div>
       </div>
     );
   }
