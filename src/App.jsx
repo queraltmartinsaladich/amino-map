@@ -348,6 +348,7 @@ function App() {
           <h1 className="text-[40px] font-black font-bold uppercase text-center tracking-[0.2em] mb-[10px]">
             amino-map
           </h1>
+          <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#EC4899" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M15 6.5l-6 4m0 3l6 4"/></svg>
           <h1 className="text-[20px] font-mono uppercase text-center tracking-[0.4em] mb-[20px]">
             An open-source protein mutation browser
           </h1>
@@ -864,7 +865,7 @@ function App() {
                 {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
                   <p className="text-[20px] font-black text-slate-300 uppercase tracking-[0.2em] leading-none">
-                    3D Structure
+                    🪜 3D Structure
                   </p>
                 </div> 
                 <div className="border-t-2 border-slate-900 pt-8">
@@ -883,7 +884,7 @@ function App() {
                 {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
                   <p className="text-[20px] font-black text-slate-300 uppercase tracking-[0.2em] leading-none">
-                    SEQUENCING
+                    ⛓️ SEQUENCING
                   </p>
                 </div> 
                 <div className="border-t-2 border-slate-900 pt-8">
@@ -902,7 +903,7 @@ function App() {
                 {/* GEX SECTION ------------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
                   <p className="text-[20px] font-black text-slate-300 uppercase tracking-[0.2em] leading-none">
-                    RNA EXPRESSION
+                    🔬 RNA EXPRESSION
                   </p>
                 </div> 
                 <div className="border-t-2 border-slate-900 pt-8">
@@ -920,7 +921,7 @@ function App() {
                 {/* Gene Ontology SECTION ------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
                   <p className="text-[20px] font-black text-slate-300 uppercase tracking-[0.2em] leading-none">
-                    GENE ONTOLOGY
+                    🧬 GENE ONTOLOGY
                   </p>
                 </div> 
                 <div className="border-t-2 border-slate-900 pt-8">
