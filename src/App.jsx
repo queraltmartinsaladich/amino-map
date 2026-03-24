@@ -348,7 +348,12 @@ function App() {
           <h1 className="text-[40px] font-black font-bold uppercase text-center tracking-[0.2em] mb-[10px]">
             amino-map
           </h1>
-          <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#EC4899" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M15 6.5l-6 4m0 3l6 4"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="480" height="80" fill="none">
+            <path d="M10 25C30 5 50 35 70 25C90 15 110 35 130 25C150 15 170 35 190 25C210 15 230 25 230 25" 
+                  stroke="#4F46E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 25C30 45 50 15 70 25C90 35 110 15 130 25C150 35 170 15 190 25C210 35 230 25 230 25" 
+                  stroke="#818CF8" stroke-width="3" stroke-opacity="0.5" stroke-linecap="round"/>
+          </svg>
           <h1 className="text-[20px] font-mono uppercase text-center tracking-[0.4em] mb-[20px]">
             An open-source protein mutation browser
           </h1>
