@@ -351,7 +351,7 @@ function App() {
             <div className="flex-1 max-w-[200px] hidden md:block">
               <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
                 <path d="M0 20C20 0 40 40 60 20C80 0 100 40 120 20C140 0 160 40 180 20H200" 
-                      stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-indigo-600" />
+                      stroke="currentColor" strokeWidth="2.5px" strokeLinecap="round" className="text-indigo-600" />
                 <circle cx="60" cy="20" r="3" className="fill-indigo-600" />
                 <circle cx="120" cy="20" r="3" className="fill-indigo-600" />
               </svg>
@@ -366,7 +366,7 @@ function App() {
             <div className="flex-1 max-w-[200px] hidden md:block">
               <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
                 <path d="M0 20H20C40 0 60 40 80 20C100 0 120 40 140 20C160 0 180 40 200 20" 
-                      stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-indigo-600" />
+                      stroke="currentColor" strokeWidth="2.5px" strokeLinecap="round" className="text-indigo-600" />
                 <circle cx="80" cy="20" r="3" className="fill-indigo-600" />
                 <circle cx="140" cy="20" r="3" className="fill-indigo-600" />
               </svg>
@@ -374,10 +374,12 @@ function App() {
           </div>
 
           {/* SUBTITLE BELOW */}
-          <h2 className="text-[18px] font-mono uppercase text-center tracking-[0.4em] mt-4 text-slate-500 max-w-2xl">
+          <h2 className="text-[18px] font-mono uppercase text-center tracking-[0.4em] mt-[4px] text-slate-500 max-w-2xl">
             An open-source protein mutation browser
           </h2>
-          
+          <h2 className="text-[12px] font-mono uppercase text-center tracking-[0.4em] mt-[4px] text-slate-500 max-w-2xl">
+            Queralt Martín-Saladich, 2026
+          </h2>
         </header>
 
         {/* EXTERNAL RESOURCE NAVIGATION -------------------------------------------------------------------------------------------------------- */}
