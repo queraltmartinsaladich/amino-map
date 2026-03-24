@@ -763,7 +763,7 @@ function App() {
                 {/* MUTATION SCORES ----------------------------------------------------------------------------------------- */}
                 <div className='mt-[30px] mb-[-12px]'>
                   <p className="text-[20px] font-black text-slate-300 uppercase tracking-[0.2em] leading-none">
-                    Characteristics
+                    📌 Characteristics
                   </p>
                 </div>
                 <div className="border-t-2 border-slate-900 pt-8">
@@ -910,7 +910,7 @@ function App() {
                 {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
                   <p className="text-[20px] font-black text-slate-300 uppercase tracking-[0.2em] leading-none">
-                    ⛓️ SEQUENCING
+                    🔍 SEQUENCING
                   </p>
                 </div> 
                 <div className="border-t-2 border-slate-900 pt-8">
