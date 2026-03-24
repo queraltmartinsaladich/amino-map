@@ -6,7 +6,7 @@ export const useMutationData = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Papa.parse('./public/data/missense_human_subset.tsv', {
+    Papa.parse('./data/missense_human_subset.tsv', {
       download: true,
       header: true,
       delimiter: "\t",
