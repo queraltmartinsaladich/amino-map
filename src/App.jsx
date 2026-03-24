@@ -349,12 +349,14 @@ function App() {
           <div className="flex items-center justify-center w-full gap-[6px]">
             {/* LEFT CHAIN */}
             <div className="flex-1 max-w-[200px] hidden md:block">
-              <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-                <path d="M0 20C20 0 40 40 60 20C80 0 100 40 120 20C140 0 160 40 180 20H200" 
-                      stroke="currentColor" strokeWidth="2.5px" strokeLinecap="round" className="text-indigo-600" />
-                <circle cx="60" cy="20" r="3" className="fill-indigo-600" />
-                <circle cx="120" cy="20" r="3" className="fill-indigo-600" />
-              </svg>
+              <svg 
+                className="w-[200px] h-[20px] ml-[10px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" 
+                fill="none" 
+                d="M0 20C20 0 40 40 60 20C80 0 100 40 120 20C140 0 160 40 180 20H200"
+                strokeWidth="2.5px"
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              ></svg>
             </div>
 
             {/* CENTER TITLE */}
@@ -377,7 +379,7 @@ function App() {
           <h2 className="text-[18px] font-mono uppercase text-center tracking-[0.4em] mt-[4px] text-slate-500 max-w-2xl">
             An open-source protein mutation browser
           </h2>
-          <h3 className="text-[12px] font-mono uppercase text-center tracking-[0.4em] mt-[4px] text-slate-500 max-w-2xl">
+          <h3 className="text-[10px] font-mono uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
             Queralt Martín-Saladich, 2026
           </h3>
         </header>
