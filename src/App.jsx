@@ -350,13 +350,14 @@ function App() {
             {/* LEFT CHAIN */}
             <div className="flex-1 max-w-[200px] hidden md:block">
               <svg 
-                className="w-[200px] h-[20px] ml-[10px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" 
+                className="w-[200px] h-[20px]" 
                 fill="none" 
-                d="M0 20C20 0 40 40 60 20C80 0 100 40 120 20C140 0 160 40 180 20H200"
-                strokeWidth="2.5px"
                 stroke="currentColor" 
-                viewBox="0 0 24 24"
-              ></svg>
+                viewBox="0 0 24 24" 
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M0 20C20 0 40 40 60 20C80 0 100 40 120 20C140 0 160 40 180 20H200"/>
+              </svg>
             </div>
 
             {/* CENTER TITLE */}
