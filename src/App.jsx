@@ -343,7 +343,7 @@ function App() {
         {/* MAIN TITLE SECTION */}
         <header className="flex flex-col items-center w-full py-[8px]">
           <div className="flex items-center justify-between w-full gap-[10px] overflow-hidden px-4">
-            <div className="mt-[-20px] w-1/2 max-w-[700px] flex-shrink min-w-[50px]">
+            <div className="mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[50px]">
               <svg 
                 viewBox="0 0 240 40" 
                 className="w-full h-auto" 
@@ -361,7 +361,7 @@ function App() {
               AMINO-MAPP
             </h1>
 
-            <div className="mt-[-20px] w-1/2 max-w-[700px] flex-shrink min-w-[50px] scale-x-[-1]">
+            <div className="mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[50px] scale-x-[-1]">
               <svg 
                 viewBox="0 0 240 40" 
                 className="w-full h-auto" 
@@ -571,7 +571,7 @@ function App() {
                   {/* CHOSEN PROTEIN ID ------------------------------------------------------------------------------------- */}
                   <div className="flex items-start justify-between">
                     <div>
-                      <span className="text-[#475569] text-[18px] font-black uppercase tracking-[0.4em]">Analysis of</span>
+                      <span className="text-[#94A3B8] text-[18px] font-black uppercase tracking-[0.4em]">Analysis of</span>
                       <h2 className="text-[30px] font-black text-[#0F172A] font-['Elephant',_'Playfair_Display',_serif] uppercase tracking-tighter mb-[20px]">
                         {selectedVariant.variant_id}
                       </h2>
@@ -724,7 +724,7 @@ function App() {
                   </p>
                 </div>
                 <div className="border-t-2 border-[#0F172A] pt-8">
-                  <p className="text-[10px] font-black text-[#94A3B8] uppercase tracking-[0.4em] mt-[20px] mb-[8px]">
+                  <p className="text-[10px] font-black text-[#94A3B8] uppercase tracking-[0.4em] mt-[20px] mb-[10px]">
                     Pathogenic labels
                   </p>
                 </div>
