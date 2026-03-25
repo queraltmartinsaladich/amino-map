@@ -585,11 +585,11 @@ function App() {
                   <div>
                   <button 
                     onClick={handleDownload} // Use the new function here 
-                    title="Download analysis as PDF"
+                    title="Print or download analysis as PDF"
                     className="text-[#475569] hover:text-[#94A3B8] transition-colors group p-[1px] cursor-pointer action-icon-group"
                   >
                     <svg className="w-[20px] h-[20px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4-4v8" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                     </svg>
                   </button>
                   <button 
@@ -892,7 +892,7 @@ function App() {
                   <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     ⚙️ 3D Structure
                   </p>
-                  <div className="border-t-2 border-[#0F172A] pt-[8px] mb-[10px]">
+                  <div className="border-t-2 border-[#0F172A] pt-[8px] mb-[-10px]">
                     <a
                       href="https://molstar.org"
                       target="_blank"
@@ -917,7 +917,7 @@ function App() {
                   <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🔍 SEQUENCING
                   </p>
-                  <div className="border-t-2 border-[#0F172A] pt-[8px] mb-[10px]">
+                  <div className="border-t-2 border-[#0F172A] pt-[8px] mb-[-10px]">
                     <a
                       href="https://uniprot.org"
                       target="_blank"
@@ -942,7 +942,7 @@ function App() {
                   <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🔬 RNA EXPRESSION
                   </p>
-                  <div className="border-t-2 border-[#0F172A] pt-[8px] mb-[10px]">
+                  <div className="border-t-2 border-[#0F172A] pt-[8px] mb-[-10px]">
                     <a
                       href="https://proteinatlas.org"
                       target="_blank"
