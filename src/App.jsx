@@ -731,7 +731,7 @@ function App() {
                   <p className="text-[20px] border-b-2 border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     📌 Characteristics
                   </p>
-                  <p className="text-[10px] font-black text-[#94A3B8] uppercase tracking-[0.4em] mt-[20px] mb-[20px]">
+                  <p className="text-[10px] font-black text-[#94A3B8] uppercase tracking-[0.4em] mt-[20px] mb-[10px]">
                     Pathogenic labels
                   </p>
                 </div>
