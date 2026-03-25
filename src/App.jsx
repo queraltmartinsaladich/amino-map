@@ -329,7 +329,7 @@ function App() {
   // LOADING APPEARANCE
   if (loading) {
     return (
-      <div className="h-screen flex items-center justify-center bg-white">
+      <div className="h-screen flex items-center justify-center bg-[#FFFFFF]">
         <div className="text-[#94A3B8] font-black tracking-[0.5em] animate-pulse">BUILDING YOUR PROTEIN🏋🏼‍♀️</div>
       </div>
     );
@@ -337,7 +337,7 @@ function App() {
   
   // RETURN FUNCTION - MAIN
   return (
-    <div className="bg-white ml-[40px] mr-[40px] mt-[20px] mb-[30px] pl-[10px] pr-[10px] text-[#0F172A]">
+    <div className="bg-[#FFFFFF] ml-[40px] mr-[40px] mt-[20px] mb-[30px] pl-[10px] pr-[10px] text-[#0F172A]">
       <div className="mx-auto">
 
         {/* MAIN TITLE SECTION */}
@@ -353,7 +353,7 @@ function App() {
             </svg>
             </div>
             {/* CENTER TITLE */}
-            <h1 className="text-[40px] text-[#006C84] font-black uppercase tracking-[0.2em] whitespace-nowrap">
+            <h1 className="text-[40px] text-[#006C84] font-black uppercase tracking-[0.2em] [#FFFFFF]space-nowrap">
               amino-map
             </h1>
             {/* RIGHT CHAIN */}
@@ -386,12 +386,12 @@ function App() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative text-[11px] font-bold uppercase tracking-[0.25em] text-[#94A3B8] no-underline hover:text-blue-600 transition-all duration-300"
+                  className="group relative text-[11px] font-bold uppercase tracking-[0.25em] text-[#94A3B8] no-underline hover:text-[#2563EB] transition-all duration-300"
                 >
                   <span>{link.name}</span>
                   
                   {/* Subtle underline that grows from center on hover */}
-                  <span className="absolute -bottom-[4px] left-1/2 w-0 h-[1px] bg-blue-600 transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                  <span className="absolute -bottom-[4px] left-1/2 w-0 h-[1px] bg-[#2563EB] transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
                 </a>
               ))}
             </div>
@@ -537,7 +537,7 @@ function App() {
 
             {/* COUNT SUMMARY */}
             <div className="flex items-left">
-              <div className="rounded-full bg-blue-500 animate-pulse"></div>
+              <div className="rounded-full bg-[#3B82F6] animate-pulse"></div>
               <p className="text-[14px] font-medium text-[#94A3B8] tracking-tight italic">
                 {filteredData.length} entries matching filters
               </p>
@@ -559,12 +559,12 @@ function App() {
           {/* RIGHT HALF:  ---------------------------------------------------------------------------------------------------------------------- */}
           <div id="analysis-panel-container" className="flex-shrink-0 flex-col w-1/2 gap-[10px]">
             {selectedVariant ? (
-              <div key={selectedVariant.variant_id} className="mt-[-1px] sticky bg-white animate-in fade-in duration-300">
+              <div key={selectedVariant.variant_id} className="mt-[-1px] sticky bg-[#FFFFFF] animate-in fade-in duration-300">
                 
                   {/* CHOSEN PROTEIN ID ------------------------------------------------------------------------------------- */}
                   <div className="flex items-start border-[#0F172A] justify-between">
                     <div>
-                      <span className="text-blue-600 text-[18px] font-black uppercase tracking-[0.4em]">Analysis of</span>
+                      <span className="text-[#2563EB] text-[18px] font-black uppercase tracking-[0.4em]">Analysis of</span>
                       <h2 className="text-[30px] font-black text-[#0F172A] font-mono uppercase tracking-tighter mb-[20px]">
                         {selectedVariant.variant_id}
                       </h2>
@@ -573,7 +573,7 @@ function App() {
                     <button 
                       onClick={handleDownload} // Use the new function here 
                       title="Download analysis as PDF"
-                      className="text-[#CBD5E1] hover:text-blue-600 transition-colors group p-1 cursor-pointer action-icon-group"
+                      className="text-[#CBD5E1] hover:text-[#2563EB] transition-colors group p-1 cursor-pointer action-icon-group"
                     >
                       <svg className="w-[20px] h-[20px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4-4v8" />
@@ -582,7 +582,7 @@ function App() {
                     <button 
                       onClick={() => setSelectedVariant(null)}
                       title="Close analysis"
-                      className="text-[#CBD5E1] hover:text-blue-600 transition-colors group p-1 cursor-pointer action-icon-group"
+                      className="text-[#CBD5E1] hover:text-[#2563EB] transition-colors group p-1 cursor-pointer action-icon-group"
                     >
                       <svg className="w-[20px] h-[20px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
@@ -602,7 +602,7 @@ function App() {
                       <h3 className="text-[14px] font-black text-[#0F172A] uppercase mb-[-10px]">
                         {bioData.fullName}
                       </h3>
-                      <p className="text-[14px] font-mono text-blue-600 uppercase mb-[3px] tracking-tighter">
+                      <p className="text-[14px] font-mono text-[#2563EB] uppercase mb-[3px] tracking-tighter">
                         Gene: {bioData.geneName} | Organism: {bioData.organism}
                       </p>
                       
@@ -666,7 +666,7 @@ function App() {
                       <svg className="w-[10px] h-[10px] text-[#E2E8F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
-                      <span className="px-[6px] py-[2px] !bg-[#0F172A] border border-[#0F172A] rounded text-[12px] font-mono font-bold !text-white">
+                      <span className="px-[6px] py-[2px] !bg-[#0F172A] border border-[#0F172A] rounded text-[12px] font-mono font-bold !text-[#FFFFFF]">
                         {selectedVariant.variant_id.slice(-1)}
                       </span>
                     </div>
@@ -717,7 +717,7 @@ function App() {
                   </p>
                 </div>
                 <div className="border-t-2 border-[#0F172A] pt-8">
-                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mt-[20px] mb-[8px]">
+                  <p className="text-[10px] font-black text-[#2563EB] uppercase tracking-[0.4em] mt-[20px] mb-[8px]">
                     Pathogenic labels
                   </p>
                 </div>
@@ -808,7 +808,7 @@ function App() {
                 </div>
 
                 <div>
-                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mt-[20px] mb-[2px]">
+                  <p className="text-[10px] font-black text-[#2563EB] uppercase tracking-[0.4em] mt-[20px] mb-[2px]">
                     Scores
                   </p>
                 </div>
@@ -834,7 +834,7 @@ function App() {
                 </div>
 
                 <div>
-                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mt-[20px] mb-[2px]">
+                  <p className="text-[10px] font-black text-[#2563EB] uppercase tracking-[0.4em] mt-[20px] mb-[2px]">
                     Other information
                   </p>
                 </div>
@@ -878,7 +878,7 @@ function App() {
                   </p>
                 </div> 
                 <div className="border-t-2 border-[#0F172A] pt-8">
-                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mb-4">
+                  <p className="text-[10px] font-black text-[#2563EB] uppercase tracking-[0.4em] mb-4">
                     molstar.org
                   </p>
                   {(() => {
@@ -897,7 +897,7 @@ function App() {
                   </p>
                 </div> 
                 <div className="border-t-2 border-[#0F172A] pt-8">
-                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mb-4">
+                  <p className="text-[10px] font-black text-[#2563EB] uppercase tracking-[0.4em] mb-4">
                     uniprot.org
                   </p>
                   {(() => {
@@ -916,7 +916,7 @@ function App() {
                   </p>
                 </div> 
                 <div className="border-t-2 border-[#0F172A] pt-8">
-                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mb-4">
+                  <p className="text-[10px] font-black text-[#2563EB] uppercase tracking-[0.4em] mb-4">
                     proteinatlas.org
                   </p>
                   {(() => {
@@ -934,7 +934,7 @@ function App() {
                   </p>
                 </div> 
                 <div className="border-t-2 border-[#0F172A] pt-8">
-                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mb-4">
+                  <p className="text-[10px] font-black text-[#2563EB] uppercase tracking-[0.4em] mb-4">
                     geneontology.org
                   </p>
                   {(() => {
