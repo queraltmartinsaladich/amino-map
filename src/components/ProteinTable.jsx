@@ -36,26 +36,26 @@ export const ProteinTable = ({
                         /* Baseline (Default) */
                         bg-white text-slate-600 
                         /* Hover State */
-                        hover:bg-[#6EB5C0] hover:text-white
+                        hover:bg-[#6EB5C0] hover:text-[#FFFFFF]
                         /* Selected State */
                         ${isSelected ? '!bg-[#E2E8E4] !text-[#006C84]' : ''}
                       `}
                     >
-                      <td className="py-[8px] px-[8px] text-[15px] font-black uppercase tracking-tighter font-mono">
+                      <td className="py-[3px] px-[4px] text-[15px] font-black uppercase tracking-tighter font-mono">
                         {row.variant_id}
                       </td>
-                      <td className="py-[8px] px-[8px] text-center font-black uppercase text-[14px]">
-                        <span className={isSelected ? 'text-[#006C84]' : 'group-hover:text-white'}>
+                      <td className="py-[3px] px-[4px] text-center font-black uppercase text-[14px]">
+                        <span className={isSelected ? 'text-[#006C84]' : 'group-hover:text-[#FFFFFF]'}>
                           {row.ESM1b_is_pathogenic}
                         </span>
                       </td>
-                      <td className="py-[8px] px-[8px] text-center font-black uppercase text-[14px]">
-                        <span className={isSelected ? 'text-[#006C84]' : 'group-hover:text-white'}>
+                      <td className="py-[3px] px-[4px] text-center font-black uppercase text-[14px]">
+                        <span className={isSelected ? 'text-[#006C84]' : 'group-hover:text-[#FFFFFF]'}>
                           {row.am_class}
                         </span>
                       </td>
-                      <td className="py-[8px] px-[8px] text-right font-black uppercase text-[14px]">
-                        <span className={isSelected ? 'text-[#006C84]' : 'group-hover:text-white'}>
+                      <td className="py-[3px] px-[4px] text-right font-black uppercase text-[14px]">
+                        <span className={isSelected ? 'text-[#006C84]' : 'group-hover:text-[#FFFFFF]'}>
                           {row.mechanistic_label || 'Unassigned'}
                         </span>
                       </td>
