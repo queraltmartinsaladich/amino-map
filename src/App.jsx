@@ -1,10 +1,12 @@
 import React, { useState, useMemo, useEffect} from 'react';
 import { useMutationData } from './hooks/useMutationData';
 import { useUniProt } from './hooks/useUniProt';
+import { useProteinData } from './hooks/useProteinData';
 import { GOViewer} from './components/GOViewer';
 import { StructureViewer } from './components/StructureViewer';
 import { SequenceViewer } from './components/SequenceViewer';
 import { ExpressionChart } from './components/ExpressionChart';
+import { ProteinTable } from './components/ProteinTable';
 
 const parseUniProtTxt = (txt) => {
   const lines = txt.split('\n');
@@ -29,12 +31,8 @@ const parseUniProtTxt = (txt) => {
 function App() {
 
   const { data, loading } = useMutationData();
-  const [searchTerm, setSearchTerm] = useState('');
   const [selectedVariant, setSelectedVariant] = useState(null);
   const [history, setHistory] = useState([]);
-  const [activeClass, setActiveClass] = useState('ALL');
-  const [activeESM1b, setActiveESM1b] = useState('ALL');
-  const [activeMech, setActiveMech] = useState('ALL');
   const [sequence, setSequence] = useState("");
   const [loadingSeq, setLoadingSeq] = useState(false);
   
@@ -45,6 +43,19 @@ function App() {
     { name: 'GitHub repository', url: 'https://github.com/queraltmartinsaladich/amino-map/tree/main' },
     { name: 'References', url: 'https://github.com/queraltmartinsaladich/amino-map/blob/main/references.md' },
   ];
+
+  const {
+    paginatedData,
+    filteredData,
+    searchTerm,
+    activeESM1b,
+    activeClass,
+    activeMech,
+    currentPage,
+    totalPages,
+    updateFilter,
+    setCurrentPage
+  } = useProteinData(data); // "data" is your raw JSON array
 
   useEffect(() => {
     const savedHistory = localStorage.getItem('amino_map_session');
@@ -89,20 +100,6 @@ function App() {
     reader.readAsText(file);
     event.target.value = ''; // Reset
   };
-
-  const filteredData = useMemo(() => {
-    if (!data) return [];
-    return data.filter(item => {
-      const matchesSearch = !searchTerm.trim() || 
-        String(item.variant_id).toLowerCase().includes(searchTerm.toLowerCase().trim()) ||
-        String(item.ESM1b_is_pathogenic).toLowerCase().includes(searchTerm.toLowerCase().trim()) ||
-        String(item.am_class).toLowerCase().includes(searchTerm.toLowerCase().trim());
-      const matchesClass = activeClass === 'ALL' || item.am_class === activeClass;
-      const matchesESM1b = activeESM1b === 'ALL' || item.ESM1b_is_pathogenic == activeESM1b;
-      const matchesMech = activeMech === 'ALL' || (item.mechanistic_label || 'Unassigned') === activeMech;
-      return matchesSearch && matchesClass && matchesESM1b && matchesMech;
-    });
-  }, [data, searchTerm, activeClass, activeESM1b, activeMech]);
 
   const handleRowSelect = (row) => {
     setSelectedVariant(row);
@@ -377,7 +374,7 @@ function App() {
           </div>
 
           {/* SUBTITLE BELOW */}
-          <h2 className="text-[18px] font-mono uppercase text-center tracking-[0.4em] mt-[4px] text-slate-500 max-w-2xl">
+          <h2 className="text-[18px] mt-[-30px] font-mono uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
             An open-source protein mutation browser
           </h2>
           <h3 className="text-[10px] font-black uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
@@ -488,18 +485,17 @@ function App() {
 
             {/* FILTER ROW -------------------------------------------------------------------------------------------------- */}
             <div className="mb-[4px] flex flex-col gap-[2px] px-[1px]">
-              {/* Class Filters */}
+              
+              {/* 1. ESM1b Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="mt-[10px] text-[14px] font-mono text-slate-300 tracking-widest">Filter by ESM1b class:</span>
+                <span className="mt-[10px] text-[16px] font-mono text-slate-300 tracking-widest uppercase">ESM1b class:</span>
                 <div className="flex gap-[1px]">
                   {['ALL', 'pathogenic', 'benign'].map(cat => (
                     <button
                       key={cat}
-                      onClick={() => setActiveESM1b(cat)}
-                      className={`mt-[10px] mb-[1px] ml-[2px] px-[5px] py-[1px] text-[12px] font-bold uppercase tracking-wider ${
-                        activeESM1b === cat 
-                        ? 'bg-slate-900 border-slate-900 text-white cursor-pointer' 
-                        : 'bg-white text-slate-400 cursor-pointer'
+                      onClick={() => updateFilter('esm', cat)} // Use hook function
+                      className={`mt-[10px] mb-[1px] ml-[2px] px-[5px] py-[1px] text-[14px] font-bold uppercase tracking-wider cursor-pointer ${
+                        activeESM1b === cat ? 'bg-slate-900 text-white' : 'bg-white text-slate-400'
                       }`}
                     >
                       {cat}
@@ -507,18 +503,17 @@ function App() {
                   ))}
                 </div>
               </div>
-              {/* AM Class Filters */}
+
+              {/* 2. AM Class Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="text-[14px] font-mono text-slate-300 tracking-widest">Filter by AM class:</span>
+                <span className="text-[16px] font-mono text-slate-300 tracking-widest uppercase">AM class:</span>
                 <div className="flex gap-[1px]">
                   {['ALL', 'pathogenic', 'benign', 'ambiguous'].map(cat => (
                     <button
                       key={cat}
-                      onClick={() => setActiveClass(cat)}
-                      className={`mb-[2px] ml-[2px] px-[5px] py-[1px] text-[12px] font-bold uppercase tracking-wider ${
-                        activeClass === cat 
-                        ? 'bg-slate-900 border-slate-900 text-white cursor-pointer' 
-                        : 'bg-white text-slate-400 cursor-pointer'
+                      onClick={() => updateFilter('class', cat)} // Use hook function
+                      className={`mb-[2px] ml-[2px] px-[5px] py-[1px] text-[14px] font-bold uppercase tracking-wider cursor-pointer ${
+                        activeClass === cat ? 'bg-slate-900 text-white' : 'bg-white text-slate-400'
                       }`}
                     >
                       {cat}
@@ -526,18 +521,17 @@ function App() {
                   ))}
                 </div>
               </div>
-              {/* Mechanism Filters */}
+
+              {/* 3. Mechanism Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="text-[14px] font-mono text-slate-300 tracking-widest">Filter by mechanism:</span>
+                <span className="text-[16px] font-mono text-slate-300 tracking-widest uppercase">Mechanism:</span>
                 <div className="flex gap-[1px]">
-                  {['ALL', 'Unassigned', 'Stability','Pockets','Interface'].map(cat => (
+                  {['ALL', 'Unassigned', 'Stability', 'Pockets', 'Interface'].map(cat => (
                     <button
                       key={cat}
-                      onClick={() => setActiveMech(cat)}
-                      className={`mb-[2px] ml-[2px] px-[5px] py-[1px] text-[12px] font-bold uppercase tracking-wider ${
-                        activeClass === cat 
-                        ? 'bg-slate-900 border-slate-900 text-white cursor-pointer' 
-                        : 'bg-white text-slate-400 cursor-pointer'
+                      onClick={() => updateFilter('mech', cat)} // Use hook function
+                      className={`mb-[2px] ml-[2px] px-[5px] py-[1px] text-[14px] font-bold uppercase tracking-wider cursor-pointer ${
+                        activeMech === cat ? 'bg-slate-900 text-white' : 'bg-white text-slate-400'
                       }`}
                     >
                       {cat}
@@ -547,67 +541,24 @@ function App() {
               </div>
             </div>
 
-            {/* COUNT SUMMARY ----------------------------------------------------------------------------------------------- */}
-            <div className="flex items-center px-[1px]">
-              <div className="w-[1.5px] h-[1.5px] rounded-full bg-blue-500 animate-pulse"></div>
-              <p className="text-[12px] font-medium text-slate-200 tracking-tight italic">
-                {filteredData.length} entries indexed in master subset
+            {/* COUNT SUMMARY */}
+            <div className="flex items-left">
+              <div className="rounded-full bg-blue-500 animate-pulse"></div>
+              <p className="text-[14px] font-medium text-slate-400 tracking-tight italic">
+                {filteredData.length} entries matching filters
               </p>
             </div>
 
-            {/* TABLE ------------------------------------------------------------------------------------------------------- */}
-            <div>
-              <table className="w-full text-left border-collapse">
-                <thead className="sticky top-0 z-50 bg-white">
-                  <tr className="text-[18px] font-black text-slate-900 uppercase tracking-[0.1em]">
-                    <th className="py-[4px] px-[4px] border-b border-slate-200 border-collapse">Variant ID</th>
-                    <th className="py-[4px] px-[4px] text-center border-b border-slate-200 border-collapse">ESM1b Class</th>
-                    <th className="py-[4px] px-[4px] text-center border-b border-slate-200 border-collapse">AM Class</th>
-                    <th className="py-[4px] px-[4px] text-right border-b border-slate-200 border-collapse">Mechanism</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {filteredData.map((row) => (
-                    <tr 
-                      key={row.variant_id}
-                      onClick={() => handleRowSelect(row)} 
-                      className={`group cursor-pointer transition-all last:border-none ${
-                        selectedVariant?.variant_id === row.variant_id 
-                        ? 'bg-blue-600 text-white' 
-                        : 'hover:bg-slate-50 text-slate-600'}`}>
-                      <td className="py-[2px] px-[4px] text-[15px] font-black uppercase tracking-tighter">
-                        {row.variant_id}
-                      </td>
-                      <td className="py-[2px] px-[4px] text-center">
-                        <span className={`text-[15px] font-black uppercase tracking-tighter ${
-                          selectedVariant?.variant_id === row.variant_id 
-                          ? 'text-white' 
-                          : row.ESM1b_is_pathogenic === 'pathogenic' ? 'text-red-600' : 'text-green-600'
-                        }`}>
-                          {row.ESM1b_is_pathogenic}
-                        </span>
-                      </td>
-                      <td className="py-[2px] px-[4px] text-center">
-                        <span className={`text-[15px] font-black uppercase tracking-tighter ${
-                          selectedVariant?.variant_id === row.variant_id 
-                          ? 'text-white' 
-                          : row.am_class === 'pathogenic' ? 'text-red-600' : 'text-green-600'
-                        }`}>
-                          {row.am_class}
-                        </span>
-                      </td>
-                      <td className="py-[2px] px-[4px] text-right">
-                        <span className={`text-[15px] font-black uppercase tracking-tighter ${
-                          selectedVariant?.variant_id === row.variant_id ? 'text-blue-100' : 'text-slate-300 group-hover:text-slate-900'
-                        }`}>
-                          {row.mechanistic_label || 'Unassigned'}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            {/* PROTEIN TABLE */}
+            <ProteinTable 
+              data={paginatedData}
+              selectedVariant={selectedVariant}
+              onRowSelect={handleRowSelect}
+              filteredCount={filteredData.length}
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={setCurrentPage}
+            />
 
           </div>
 
