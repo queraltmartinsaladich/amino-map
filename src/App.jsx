@@ -390,9 +390,8 @@ function App() {
                 >
                   <span>{link.name}</span>
                   
-                  {/* Subtle underline that grows from center on hover */}
-                  <span className="absolute -bottom-[4px] left-1/2 w-0 h-[1px] bg-[#2563EB] transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
-                </a>
+                  {/* Underline that grows simultaneously from center to both sides on hover */}
+                  <span className="absolute -bottom-[4px] left-1/2 w-0 h-[1px] bg-[#2563EB] transition-all duration-300 origin-center group-hover:w-full group-hover:left-0 group-hover:translate-x-0 -translate-x-1/2"></span>                </a>
               ))}
             </div>
           </nav>
@@ -409,7 +408,7 @@ function App() {
               {/* 1. BULK LOAD */}
               <label 
                 title="Load multiple IDs inside a .txt or .csv file"
-                className="flex items-center text-center px-[20px] py-[2px] bg-[#F1F5F9] text-[#64748B] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group">
+                className="flex items-center text-center px-[20px] py-[2px] border-2 bg-[#F1F5F9] text-[#64748B] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group">
                 <input 
                   type="file" 
                   accept=".txt,.csv" 
@@ -422,7 +421,7 @@ function App() {
               {/* 2. IMPORT SESSION */}
               <label 
                 title="Import session history"
-                className="flex items-center text-center px-[20px] py-[2px] bg-[#F1F5F9] text-[#64748B] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group">
+                className="flex items-center text-center px-[20px] py-[2px] border-2 bg-[#F1F5F9] text-[#64748B] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group">
                 <input 
                   type="file" 
                   accept=".csv" 
@@ -437,7 +436,7 @@ function App() {
                 onClick={downloadCSV}
                 disabled={history.length === 0}
                 title="Export session history"
-                className="flex items-center text-center px-[20px] py-[2px] bg-[#F1F5F9] text-[#64748B] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group"
+                className="flex items-center text-center px-[20px] py-[2px] border-2 bg-[#F1F5F9] text-[#64748B] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group"
               >
                 <span className="text-[12px] font-bold uppercase tracking-[0.1em]">Export ({history.length})</span>
               </label>
@@ -447,7 +446,7 @@ function App() {
                 onClick={clearHistory}
                 disabled={history.length === 0}
                 title="Clear session history"
-                className="flex items-center text-center px-[20px] py-[2px] bg-[#F1F5F9] text-[#64748B] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group"              >
+                className="flex items-center text-center px-[20px] py-[2px] border-2 bg-[#F1F5F9] text-[#64748B] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group"              >
                 <span className="text-[12px] font-bold uppercase tracking-[0.1em]">Clear ({history.length})</span>
               </label>
                           
