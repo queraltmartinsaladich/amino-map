@@ -727,7 +727,7 @@ function App() {
                 {/* MUTATION CONTEXT: COORDINATE, CHEMISTRY & PROPERTY SHIFT -------------------------------------------------- */}
 
                 {/* CHARACTERISTICS ----------------------------------------------------------------------------------------- */}
-                <div className='mt-[30px] mb-[-12px]'>
+                <div className='mt-[30px]'>
                   <p className="text-[20px] border-b-2 border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     📌 Characteristics
                   </p>
@@ -886,7 +886,7 @@ function App() {
                 {/* CHARACTERISTICS ----------------------------------------------------------------------------------------- */}
 
                 {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
-                <div id="str" className='mt-[30px] mb-[-12px]'>
+                <div id="str" className='mt-[30px]'>
                   <p className="text-[20px] border-b-2 border-[#0F172A] pb-[8px]  font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     ⚙️ 3D Structure
                   </p>
@@ -909,7 +909,7 @@ function App() {
                 {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
 
                 {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
-                <div id="seq" className='mt-[30px] mb-[-12px]'>
+                <div id="seq" className='mt-[30px]'>
                   <p className="text-[20px] border-b-2 border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🔍 SEQUENCING
                   </p>
@@ -932,7 +932,7 @@ function App() {
                 {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
 
                 {/* GEX SECTION ------------------------------------------------------------------------------------------ */}
-                <div id="gex" className='mt-[30px] mb-[-12px]'>
+                <div id="gex" className='mt-[30px]'>
                   <p className="text-[20px] border-b-2 border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🔬 RNA EXPRESSION
                   </p>
@@ -954,7 +954,7 @@ function App() {
                 {/* GEX SECTION ------------------------------------------------------------------------------------------ */}
 
                 {/* Gene Ontology SECTION ------------------------------------------------------------------------------------ */}
-                <div id="go" className='mt-[30px] mb-[-12px]'>
+                <div id="go" className='mt-[30px]'>
                   <p className="text-[20px] border-b-2 border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🧬 GENE ONTOLOGY
                   </p>
@@ -962,7 +962,7 @@ function App() {
                     href="https://geneontology.org"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[0px] hover:underline hover:text-[#FFCCBB]"
+                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mt-[20px] mb-[20px] hover:underline hover:text-[#FFCCBB]"
                   >
                     geneontology.org
                   </a>
