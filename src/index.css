@@ -67,11 +67,9 @@
     box-shadow: none !important;
     overflow: visible;
   }
-  #char
   #str, 
-  #seq, 
-  #exp, 
-  #go {
+  #exp
+  {
     break-before: page !important;
     page-break-before: always !important; /* Legacy support */
     display: block !important;
