@@ -364,8 +364,7 @@ function App() {
             </div>
           </div> */}
           <div className="flex items-center justify-center w-full gap-[10px] overflow-hidden px-4">
-            {/* LEFT CHAIN - Wrapped in a container that scales down on smaller screens */}
-            <div className="mt-[-20px] w-1/4 max-w-[400px] flex-shrink min-w-[50px]">
+            <div className="mt-[-20px] w-1/3 max-w-[500px] flex-shrink min-w-[50px]">
               <svg 
                 viewBox="0 0 240 40" 
                 className="w-full h-auto" 
@@ -379,13 +378,11 @@ function App() {
               </svg>
             </div>
 
-            {/* CENTER TITLE - Fixed size with flex-shrink-0 to prevent wrapping */}
             <h1 className="flex-shrink-0 text-[24px] sm:text-[36px] md:text-[46px] text-center text-[#006C84] font-black tracking-[0.2em] whitespace-nowrap">
               AMINO-MAPP
             </h1>
 
-            {/* RIGHT CHAIN - Mirroring the left behavior */}
-            <div className="mt-[-20px] w-1/4 max-w-[400px] flex-shrink min-w-[50px] scale-x-[-1]">
+            <div className="mt-[-20px] w-1/3 max-w-[500px] flex-shrink min-w-[50px] scale-x-[-1]">
               <svg 
                 viewBox="0 0 240 40" 
                 className="w-full h-auto" 
