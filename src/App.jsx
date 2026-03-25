@@ -345,7 +345,7 @@ function App() {
           <div className="flex items-center justify-between w-full gap-[5px]">
             {/* LEFT CHAIN */}
             <div className='mt-[-50px] ml-[-20px]'>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="480" height="80" fill="none">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="full/3" height="full/8" fill="none">
               <path d="M10 25C30 5 50 35 70 25C90 15 110 35 130 25C150 15 170 35 190 25C210 15 230 25 230 25" 
                     stroke="#006C84" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M10 25C30 45 50 15 70 25C90 35 110 15 130 25C150 35 170 15 190 25C210 35 230 25 230 25" 
@@ -371,7 +371,7 @@ function App() {
           <h2 className="text-[18px] mt-[-20px] font-mono uppercase text-center tracking-[0.4em] text-[#6EB5C0] max-w-2xl">
             An open-source protein mutation browser
           </h2>
-          <h3 className="text-[12px] mt-[-10px] font-['Elephant',_'Playfair_Display',_serif] text-center tracking-[0.1em] text-[#94A3B8] max-w-2xl">
+          <h3 className="text-[12px] mt-[0px] font-['Elephant',_'Playfair_Display',_serif] text-center tracking-[0.1em] text-[#94A3B8] max-w-2xl">
             Beta version, 2026
           </h3>
         </header>
