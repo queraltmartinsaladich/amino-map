@@ -586,7 +586,7 @@ function App() {
                   <button 
                     onClick={handleDownload} // Use the new function here 
                     title="Print or download analysis as PDF"
-                    className="text-[#475569] hover:text-[#94A3B8] transition-colors group p-[1px] cursor-pointer action-icon-group"
+                    className="text-[#475569] hover:text-[#94A3B8] transition-colors group p-[2px] cursor-pointer action-icon-group"
                   >
                     <svg className="w-[20px] h-[20px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
@@ -728,11 +728,9 @@ function App() {
 
                 {/* CHARACTERISTICS ----------------------------------------------------------------------------------------- */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] border-t-2 border-[#0F172A] pt-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     📌 Characteristics
                   </p>
-                </div>
-                <div className="border-t-2 border-[#0F172A] pt-8">
                   <p className="text-[10px] font-black text-[#94A3B8] uppercase tracking-[0.4em] mt-[20px] mb-[10px]">
                     Pathogenic labels
                   </p>
@@ -889,27 +887,25 @@ function App() {
 
                 {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
                 <div id="str" className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] border-b-2 border-[#0F172A] pt-[8px]  font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     ⚙️ 3D Structure
                   </p>
-                  <div className="border-t-2 border-[#0F172A] pt-[8px] mb-[-10px]">
-                    <a
-                      href="https://molstar.org"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[0px] hover:underline hover:text-[#FFCCBB]"
-                    >
-                      molstar.org
-                    </a>
-                    {(() => {
-                      return (
-                        <StructureViewer 
-                          pdbId={`AF-${proteinID}-F1-model_v6`}
-                          mutationPosition={mutationPos} 
-                          />);
-                    })()}
-                  </div>
-                </div> 
+                  <a
+                    href="https://molstar.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[0px] hover:underline hover:text-[#FFCCBB]"
+                  >
+                    molstar.org
+                  </a>
+                  {(() => {
+                    return (
+                      <StructureViewer 
+                        pdbId={`AF-${proteinID}-F1-model_v6`}
+                        mutationPosition={mutationPos} 
+                        />);
+                  })()}
+                </div>
                 {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
 
                 {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
