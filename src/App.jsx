@@ -877,9 +877,14 @@ function App() {
                   </p>
                 </div> 
                 <div className="border-t-2 border-[#0F172A] pt-8">
-                  <p className="text-[10px] font-black text-[#2563EB] uppercase tracking-[0.4em] mb-4">
+                  <a
+                    href="https://molstar.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-4 hover:underline hover:text-[#FFCCBB]"
+                  >
                     molstar.org
-                  </p>
+                  </a>
                   {(() => {
                     return (
                       <StructureViewer 
@@ -896,9 +901,14 @@ function App() {
                   </p>
                 </div> 
                 <div className="border-t-2 border-[#0F172A] pt-8">
-                  <p className="text-[10px] font-black text-[#2563EB] uppercase tracking-[0.4em] mb-4">
+                  <a
+                    href="https://uniprot.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-4 hover:underline hover:text-[#FFCCBB]"
+                  >
                     uniprot.org
-                  </p>
+                  </a>
                   {(() => {
                     return (
                       <SequenceViewer 
@@ -915,9 +925,14 @@ function App() {
                   </p>
                 </div> 
                 <div className="border-t-2 border-[#0F172A] pt-8">
-                  <p className="text-[10px] font-black text-[#2563EB] uppercase tracking-[0.4em] mb-4">
+                  <a
+                    href="https://proteinatlas.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-4 hover:underline hover:text-[#FFCCBB]"
+                  >
                     proteinatlas.org
-                  </p>
+                  </a>
                   {(() => {
                     const rawId = selectedVariant?.variant_id || "";
                     const proteinId = rawId.split('/')[0];
@@ -933,9 +948,14 @@ function App() {
                   </p>
                 </div> 
                 <div className="border-t-2 border-[#0F172A] pt-8">
-                  <p className="text-[10px] font-black text-[#2563EB] uppercase tracking-[0.4em] mb-4">
+                  <a
+                    href="https://geneontology.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-4 hover:underline hover:text-[#FFCCBB]"
+                  >
                     geneontology.org
-                  </p>
+                  </a>
                   {(() => {
                     const rawId = selectedVariant?.variant_id || "";
                     const proteinId = rawId.split('/')[0];
@@ -946,7 +966,7 @@ function App() {
               </div>
             ) : (
               <div className="w-full mt-[-15px] text-center">
-                <p className="text-[#94A38B] font-mono uppercase tracking-[0.4em] text-[16px]">Select or type in the variant ID</p>
+                <p className="text-[#94A3B8] font-mono uppercase tracking-[0.4em] text-[16px]">Select or type in the variant ID</p>
               </div>
             )}
 
