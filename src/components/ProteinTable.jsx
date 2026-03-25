@@ -33,7 +33,7 @@ export const ProteinTable = ({
                       ? 'bg-[#E2E8E4] text-[#006C84]' 
                       : 'hover:bg-[#6EB5C0] text-[#FFFFFF]'}`}
                   >
-                    <td className="py-[3px] px-[4px] text-[15px] font-black uppercase tracking-tighter font-mono">
+                    <td className="py-[3px] px-[4px] text-[15px] text-[#006C84] font-black uppercase tracking-tighter font-mono">
                       {row.variant_id}
                     </td>
                     <td className="py-[3px] px-[4px] text-center">
@@ -48,14 +48,14 @@ export const ProteinTable = ({
                     <td className="py-[3px] px-[4px] text-center">
                       <span className={`text-[14px] text-slate-400 font-black uppercase tracking-tighter ${
                         selectedVariant?.variant_id === row.variant_id 
-                        ? 'text-[#006C84]' 
+                        ? 'bg-[#E2E8E4] text-[#006C84]' 
                         : row.am_class === 'pathogenic' ? 'text-[#7B1B38]' : row.am_class === 'benign' ? 'text-[#2a9723ff]' : 'text-[#d8a122ff]'
                       }`}>
                         {row.am_class}
                       </span>
                     </td>
                     <td className="py-[3px] px-[4px] text-right">
-                      <span className={`text-[14px] text-slate-400 font-black uppercase tracking-tighter ${
+                      <span className={`text-[14px] text-[#006C84] font-black uppercase tracking-tighter ${
                         selectedVariant?.variant_id === row.variant_id 
                         ? 'bg-[#E2E8E4] text-[#006C84]' 
                       : 'hover:bg-[#6EB5C0] text-[#FFFFFF]'
