@@ -371,8 +371,8 @@ function App() {
           <h2 className="text-[18px] mt-[-20px] font-mono uppercase text-center tracking-[0.4em] text-[#64748B] max-w-2xl">
             An open-source protein mutation browser
           </h2>
-          <h3 className="text-[10px] mt-[-10px] font-['Glacial_Indifference',_sans-serif] uppercase text-center tracking-[0.4em] text-[#6EB5C0] max-w-2xl">
-            Queralt Martín-Saladich, 2026
+          <h3 className="text-[10px] font-['Glacial_Indifference',_sans-serif] uppercase text-center tracking-[0.4em] text-[#F1F5F9] max-w-2xl">
+            Beta version, 2026
           </h3>
         </header>
 
@@ -598,7 +598,7 @@ function App() {
                     </p>
                   ) : bioData ? (
                     <>
-                      <h3 className="text-[14px] font-black text-[#0F172A] uppercase mb-[-10px]">
+                      <h3 className="text-[14px] font-black text-[#E2E8E4] uppercase mb-[-10px]">
                         {bioData.fullName}
                       </h3>
                       <p className="text-[14px] font-mono text-[#94A3B8] uppercase mb-[3px] tracking-tighter">
@@ -833,38 +833,38 @@ function App() {
                 </div>
 
                 <div>
-                  <p className="text-[10px] font-black text-[#] uppercase tracking-[0.4em] mt-[20px] mb-[2px]">
+                  <p className="text-[10px] font-black text-[#94A3B8] uppercase tracking-[0.4em] mt-[20px] mb-[2px]">
                     Other information
                   </p>
                 </div>
                 <div className="flex flex-col">
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
-                    <p className="text-[16px] font-black text-[#475569] uppercase tracking-widest leading-none">Destabilizing?</p>
-                    <p className="text-[16px] font-mono font-bold uppercase text-[#0F172A] leading-none">
+                    <p className="text-[14px] font-black text-[#475569] tracking-widest leading-none">Destabilizing?</p>
+                    <p className="text-[14px] font-mono font-bold text-[#0F172A] leading-none">
                       {selectedVariant.pred_ddg_label || "Unspecified"}
                     </p>
                   </div>
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
-                    <p className="text-[16px] font-black text-[#475569] uppercase tracking-widest leading-none">Interface score?</p>
-                    <p className="text-[16px] font-mono font-bold uppercase text-[#0F172A] leading-none">
+                    <p className="text-[14px] font-black text-[#475569] tracking-widest leading-none">Interface score?</p>
+                    <p className="text-[14px] font-mono font-bold text-[#0F172A] leading-none">
                       {selectedVariant.interface_pdockq || "Unspecified"}
                     </p>
                   </div>
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
-                    <p className="text-[16px] font-black text-[#475569] uppercase tracking-widest leading-none">Interface?</p>
-                    <p className="text-[16px] font-mono font-bold uppercase text-[#0F172A] leading-none">
+                    <p className="text-[14px] font-black text-[#475569] tracking-widest leading-none">Interface?</p>
+                    <p className="text-[14px] font-mono font-bold text-[#0F172A] leading-none">
                       {selectedVariant.interface_label || "Unspecified"}
                     </p>
                   </div>
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
-                    <p className="text-[16px] font-black text-[#475569] uppercase tracking-widest leading-none">Protein pocket?</p>
-                    <p className="text-[16px] font-mono font-bold uppercase text-[#0F172A] leading-none">
+                    <p className="text-[14px] font-black text-[#475569] tracking-widest leading-none">Protein pockets?</p>
+                    <p className="text-[14px] font-mono font-bold text-[#0F172A] leading-none">
                       {selectedVariant.pocket_label || "Unspecified"}
                     </p>
                   </div>
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
-                    <p className="text-[16px] font-black text-[#475569] uppercase tracking-widest leading-none">Mechanism</p>
-                    <p className="text-[16px] font-mono font-bold uppercase text-[#0F172A] leading-none">
+                    <p className="text-[16px] font-black text-[#475569] tracking-widest leading-none">Mechanism</p>
+                    <p className="text-[16px] font-mono font-bold text-[#0F172A] leading-none">
                       {selectedVariant.mechanistic_label || "Unspecified"}
                     </p>
                   </div>
