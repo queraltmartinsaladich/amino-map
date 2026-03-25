@@ -342,8 +342,7 @@ function App() {
 
         {/* MAIN TITLE SECTION */}
         <header className="flex flex-col items-center w-full py-[8px]">
-          <div className="flex items-center justify-between w-full gap-[5px]">
-            {/* LEFT CHAIN */}
+          {/* <div className="flex items-center justify-between w-full gap-[5px]">
             <div className='mt-[-50px] ml-[-20px]'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="480" height="80" fill="none">
               <path d="M10 25C30 5 50 35 70 25C90 15 110 35 130 25C150 15 170 35 190 25C210 15 230 25 230 25" 
@@ -352,18 +351,52 @@ function App() {
                     stroke="#6EB5C0" stroke-width="1" stroke-opacity="0.5" stroke-linecap="round"/>
             </svg>
             </div>
-            {/* CENTER TITLE */}
             <h1 className="text-[46px] text-center text-[#006C84] font-black tracking-[0.2em] whitespace-nowrap">
               AMINO-MAPP
             </h1>
-            {/* RIGHT CHAIN */}
-            <div className='mt-[-50px] ml-[-20px] scale-x-[-1]'>
+            <div className='mt-[-50px] scale-x-[-1]'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="480" height="80" fill="none">
               <path d="M10 25C30 5 50 35 70 25C90 15 110 35 130 25C150 15 170 35 190 25C210 15 230 25 230 25" 
                     stroke="#006C84" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M10 25C30 45 50 15 70 25C90 35 110 15 130 25C150 35 170 15 190 25C210 35 230 25 230 25" 
                     stroke="#6EB5C0" stroke-width="1" stroke-opacity="0.5" stroke-linecap="round"/>
             </svg>
+            </div>
+          </div> */}
+          <div className="flex items-center justify-center w-full gap-[10px] overflow-hidden px-4">
+            {/* LEFT CHAIN - Wrapped in a container that scales down on smaller screens */}
+            <div className="mt-[-20px] w-1/4 max-w-[400px] flex-shrink min-w-[50px]">
+              <svg 
+                viewBox="0 0 240 40" 
+                className="w-full h-auto" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M10 25C30 5 50 35 70 25C90 15 110 35 130 25C150 15 170 35 190 25C210 15 230 25 230 25" 
+                      stroke="#006C84" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M10 25C30 45 50 15 70 25C90 35 110 15 130 25C150 35 170 15 190 25C210 35 230 25 230 25" 
+                      stroke="#6EB5C0" strokeWidth="1" strokeOpacity="0.5" strokeLinecap="round"/>
+              </svg>
+            </div>
+
+            {/* CENTER TITLE - Fixed size with flex-shrink-0 to prevent wrapping */}
+            <h1 className="flex-shrink-0 text-[24px] sm:text-[36px] md:text-[46px] text-center text-[#006C84] font-black tracking-[0.2em] whitespace-nowrap">
+              AMINO-MAPP
+            </h1>
+
+            {/* RIGHT CHAIN - Mirroring the left behavior */}
+            <div className="mt-[-20px] w-1/4 max-w-[400px] flex-shrink min-w-[50px] scale-x-[-1]">
+              <svg 
+                viewBox="0 0 240 40" 
+                className="w-full h-auto" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M10 25C30 5 50 35 70 25C90 15 110 35 130 25C150 15 170 35 190 25C210 15 230 25 230 25" 
+                      stroke="#006C84" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M10 25C30 45 50 15 70 25C90 35 110 15 130 25C150 35 170 15 190 25C210 35 230 25 230 25" 
+                      stroke="#6EB5C0" strokeWidth="1" strokeOpacity="0.5" strokeLinecap="round"/>
+              </svg>
             </div>
           </div>
 
@@ -377,7 +410,7 @@ function App() {
         </header>
 
         {/* EXTERNAL RESOURCE NAVIGATION -------------------------------------------------------------------------------------------------------- */}
-        <div className="w-full mb-[20px] mt-[10px]">
+        <div className="w-full mb-[20px]">
           <nav className="border-y-2 border-[#F1F5F9] mb-[4px] py-[10px]">
             <div className="flex justify-between items-center w-full">
               {navLinks.map((link) => (
@@ -560,9 +593,9 @@ function App() {
               <div key={selectedVariant.variant_id} className="mt-[-1px] sticky bg-[#FFFFFF] animate-in fade-in duration-300">
                 
                   {/* CHOSEN PROTEIN ID ------------------------------------------------------------------------------------- */}
-                  <div className="flex items-start border-[#0F172A] justify-between">
+                  <div className="flex items-start justify-between">
                     <div>
-                      <span className="text-[#006C84] text-[18px] font-black uppercase tracking-[0.4em]">Analysis of</span>
+                      <span className="text-[#475569] text-[18px] font-black uppercase tracking-[0.4em]">Analysis of</span>
                       <h2 className="text-[30px] font-black text-[#0F172A] font-['Elephant',_'Playfair_Display',_serif] uppercase tracking-tighter mb-[20px]">
                         {selectedVariant.variant_id}
                       </h2>
@@ -571,7 +604,7 @@ function App() {
                     <button 
                       onClick={handleDownload} // Use the new function here 
                       title="Download analysis as PDF"
-                      className="text-[#475569] hover:text-[#94A3B8] transition-colors group p-1 cursor-pointer action-icon-group"
+                      className="text-[#475569] hover:text-[#94A3B8] transition-colors group p-[1px] cursor-pointer action-icon-group"
                     >
                       <svg className="w-[20px] h-[20px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4-4v8" />
@@ -580,7 +613,7 @@ function App() {
                     <button 
                       onClick={() => setSelectedVariant(null)}
                       title="Close analysis"
-                      className="text-[#475569] hover:text-[#94A3B8] transition-colors group p-1 cursor-pointer action-icon-group"
+                      className="text-[#475569] hover:text-[#94A3B8] transition-colors group p-[1px] cursor-pointer action-icon-group"
                     >
                       <svg className="w-[20px] h-[20px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
@@ -597,7 +630,7 @@ function App() {
                     </p>
                   ) : bioData ? (
                     <>
-                      <h3 className="text-[14px] font-black text-[#006C84] uppercase mb-[-10px]">
+                      <h3 className="text-[14px] font-black text-[#64748B] uppercase mb-[-10px]">
                         {bioData.fullName}
                       </h3>
                       <p className="text-[14px] font-mono text-[#94A3B8] uppercase mb-[3px] tracking-tighter">
