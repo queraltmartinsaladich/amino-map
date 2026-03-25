@@ -343,7 +343,7 @@ function App() {
         {/* MAIN TITLE SECTION */}
         <header className="flex flex-col items-center w-full py-[8px]">
           <div className="flex items-center justify-between w-full gap-[10px] overflow-hidden px-4">
-            <div className="mt-[-20px] w-1/3 max-w-[700px] flex-shrink min-w-[50px]">
+            <div className="mt-[-20px] w-1/2 max-w-[700px] flex-shrink min-w-[50px]">
               <svg 
                 viewBox="0 0 240 40" 
                 className="w-full h-auto" 
@@ -357,11 +357,11 @@ function App() {
               </svg>
             </div>
 
-            <h1 className="flex-shrink-0 text-[36px] sm:text-[36px] md:text-[46px] text-center text-[#006C84] font-black tracking-[0.2em] whitespace-nowrap">
+            <h1 className="flex-shrink-0 text-[46px] sm:text-[46px] md:text-[56px] text-center text-[#006C84] font-black tracking-[0.2em] whitespace-nowrap">
               AMINO-MAPP
             </h1>
 
-            <div className="mt-[-20px] w-1/3 max-w-[700px] flex-shrink min-w-[50px] scale-x-[-1]">
+            <div className="mt-[-20px] w-1/2 max-w-[700px] flex-shrink min-w-[50px] scale-x-[-1]">
               <svg 
                 viewBox="0 0 240 40" 
                 className="w-full h-auto" 
@@ -814,21 +814,24 @@ function App() {
                   </div>
                 </div>
 
-                <div className="px-[10px] py-[8px] border-2 border-[#F1F5F9] flex flex-col gap-[4px]">
+                <div className="px-[10px] py-[10px] border-2 border-[#F1F5F9] flex flex-col gap-[2px]">
                   {/* ESM1b LLR */}
                   <DataPoint 
+                    className="mt-[-10px]"
                     label="ESM1b likelihood ratio" 
                     value={selectedVariant.ESM1b_LLR} 
                     color={selectedVariant.ESM1b_LLR < 7.5 ? "text-[#91142d]" : "text-[#0c701b]"}
                   />
                   {/* AM Pathogenicity */}
                   <DataPoint 
+                    className="mt-[-10px]"
                     label="AM pathogenicity score" 
                     value={selectedVariant.am_pathogenicity} 
                     color={selectedVariant.am_pathogenicity > 0.564 ? "text-[#91142d]" : "text-[#0c701b]"}
                   />
                   {/* Stability */}
                   <DataPoint 
+                    className="mt-[-10px]"
                     label="Stability (ΔΔG)" 
                     value={selectedVariant.pred_ddg} 
                     color={Math.abs(selectedVariant.pred_ddg) > 0 ? "text-[#91142d]" : "text-[#0c701b]"}
