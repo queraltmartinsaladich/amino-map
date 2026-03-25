@@ -54,7 +54,7 @@ export const ExpressionChart = ({ proteinId = "Q8IUR5" }) => {
     fetchHPA();
   }, [proteinId]);
 
-  if (loading) return <div className="py-10 text-center animate-pulse text-[10px] font-mono text-slate-400 uppercase">Querying Protein Atlas...</div>;
+  if (loading) return <div className="py-10 text-center animate-pulse text-[10px] font-mono text-[#94A3B8] uppercase">Querying Protein Atlas...</div>;
   if (error) return <div className="py-6 text-center text-[10px] font-mono text-red-500 border border-red-200 bg-red-50 rounded uppercase">{error}</div>;
   if (!expressionData.length) return null;
 
@@ -62,7 +62,7 @@ export const ExpressionChart = ({ proteinId = "Q8IUR5" }) => {
 
   return (
     <div className="mt-2">
-      <div className="bg-white border-2 border-slate-900 rounded-sm p-[4px]">
+      <div className="bg-[#FFFFFF] border-2 border-slate-900 rounded-sm p-[4px]">
     
         <div className="space-y-3">
           {expressionData.map((item, index) => {
@@ -72,9 +72,9 @@ export const ExpressionChart = ({ proteinId = "Q8IUR5" }) => {
               <div key={index} className="space-y-1">
                 <div className="flex justify-between items-center text-[14px] font-black uppercase tracking-[0.01em]">
                   <span className="text-slate-700 truncate pr-2">{item.tissue}</span>
-                  <span className="text-blue-600 font-mono">{item.nTPM.toFixed(1)}</span>
+                  <span className="text-[#94A3B8] font-mono">{item.nTPM.toFixed(1)}</span>
                 </div>
-                <div className="w-full bg-slate-100 h-2 border-slate-200 overflow-hidden">
+                <div className="w-full bg-[#F1F5F9] h-2 border-[#94A3B8] overflow-hidden">
                   <div 
                     className="bg-blue-500 h-full transition-all duration-1000 ease-out"
                     style={{ width: `${percentage}%` }}
@@ -85,11 +85,11 @@ export const ExpressionChart = ({ proteinId = "Q8IUR5" }) => {
           })}
         </div>
 
-        <div className="mt-[4px] pt-[2px] border-t border-slate-200 flex justify-between">
-        <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest">
+        <div className="mt-[4px] pt-[2px] border-t border-[#94A3B8] flex justify-between">
+        <span className="text-[9px] font-mono text-[#94A3B8] uppercase tracking-widest">
           Source: Human Protein Atlas
         </span>
-        <span className="text-[9px] font-mono text-blue-600 tracking-widest animate-pulse">
+        <span className="text-[9px] font-mono text-[#94A3B8] tracking-widest animate-pulse">
           nTPM
         </span>
       </div>

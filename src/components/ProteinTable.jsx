@@ -11,11 +11,11 @@ export const ProteinTable = ({
   return (
     <div className="flex flex-col gap-[4px]">
       {/* TABLE BOX */}
-      <div className="rounded-xl overflow-hidden bg-white shadow-sm">
+      <div className="rounded-xl overflow-hidden bg-[#FFFFFF] shadow-sm">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
-            <thead className="bg-slate-50 border-b border-slate-200">
-              <tr className="text-[16px] font-black text-slate-900 uppercase tracking-[0.1em]">
+            <thead className="bg-[#F8FAFC] border-b border-[#94A3B8]">
+              <tr className="text-[16px] font-black text-[#0F172A] uppercase tracking-[0.1em]">
                 <th className="py-[4px] px-[4px]">Variant ID</th>
                 <th className="py-[4px] px-[4px] text-center">ESM1b Class</th>
                 <th className="py-[4px] px-[4px] text-center">AM Class</th>
@@ -34,7 +34,7 @@ export const ProteinTable = ({
                       className={`
                         group cursor-pointer transition-all duration-200
                         /* Baseline (Default) */
-                        bg-white text-slate-600 
+                        bg-[#FFFFFF] text-slate-600 
                         /* Hover State */
                         hover:bg-[#6EB5C0] hover:text-[#FFFFFF]
                         /* Selected State */
@@ -74,23 +74,23 @@ export const ProteinTable = ({
         </div>
 
         {/* PAGINATION FOOTER */}
-        <div className="px-[4px] py-[3px] bg-slate-50 border-slate-100 flex justify-between items-center">
+        <div className="px-[4px] py-[3px] bg-[#F8FAFC] border-[#F1F5F9] flex justify-between items-center">
           <label 
             onClick={() => onPageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className="px-[4px] py-[1px] rounded text-[16px] font-black uppercase tracking-widest disabled:opacity-20 hover:border-slate-900 transition-all cursor-pointer"
+            className="px-[4px] py-[1px] rounded text-[16px] font-black uppercase tracking-widest disabled:opacity-20 hover:border-[#0F172A] transition-all cursor-pointer"
           >
             ⏪
           </label>
           
-          <div className="text-[12px] font-mono font-bold uppercase tracking-widest text-slate-400">
-            Page <span className="text-slate-900">{currentPage}</span> of {totalPages}
+          <div className="text-[12px] font-mono font-bold uppercase tracking-widest text-[#94A3B8]">
+            Page <span className="text-[#0F172A]">{currentPage}</span> of {totalPages}
           </div>
 
           <label 
             onClick={() => onPageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="px-[4px] py-[1px] border-slate-200 rounded text-[16px] font-black uppercase tracking-widest disabled:opacity-20 hover:border-slate-900 transition-all cursor-pointer"
+            className="px-[4px] py-[1px] border-[#94A3B8] rounded text-[16px] font-black uppercase tracking-widest disabled:opacity-20 hover:border-[#0F172A] transition-all cursor-pointer"
           >
             ⏩️
           </label>

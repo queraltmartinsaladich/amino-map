@@ -3,15 +3,15 @@ import "@geneontology/web-components/go-annotation-ribbon";
 export const GOViewer = ({ proteinId }) => {
   const geneId = `UniProtKB:${proteinId}`;
   return (
-    <div className="h-auto w-auto bg-slate-50 border-2 border-slate-100 rounded-sm p-[4px]">
+    <div className="h-auto w-auto bg-[#F8FAFC] border-2 border-[#F1F5F9] rounded-sm p-[4px]">
       <go-annotation-ribbon 
       subjects={geneId}>
       </go-annotation-ribbon>
-      <div className="mt-[4px] pt-[2px] border-t border-slate-200 flex justify-between">
-        <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest">
+      <div className="mt-[4px] pt-[2px] border-t border-[#94A3B8] flex justify-between">
+        <span className="text-[9px] font-mono text-[#94A3B8] uppercase tracking-widest">
           Source: Gene Ontology Consortium
         </span>
-        <span className="text-[9px] font-mono text-blue-600 tracking-widest animate-pulse">
+        <span className="text-[9px] font-mono text-[#94A3B8] tracking-widest animate-pulse">
           Scroll to the right to see more
         </span>
       </div>

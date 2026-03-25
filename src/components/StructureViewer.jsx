@@ -97,11 +97,11 @@ export const StructureViewer = ({ pdbId, mutationPosition }) => {
   }, [pdbId, mutationPosition]);
 
   return (
-    <div className="bg-white border-2 border-slate-900 rounded-sm p-[4px] mt-[4px] relative">
+    <div className="bg-white border-2 border-[#0F172A] rounded-sm p-[4px] mt-[4px] relative">
       
       {/* Indicator */}
       <div className="absolute top-2 left-2 z-10 flex items-center gap-[2px] pointer-events-none">
-        <div className="w-[2px] h-[2px] rounded-full bg-blue-600 animate-pulse"></div>
+        <div className="w-[2px] h-[2px] rounded-full bg-[#F8FAFC] animate-pulse"></div>
       </div>
 
       {/* Viewer */}
@@ -111,12 +111,12 @@ export const StructureViewer = ({ pdbId, mutationPosition }) => {
       />
 
       {/* Footer */}
-      <div className="mt-[4px] pt-[4px] border-t border-slate-200 flex justify-between items-center">
-        <span className="text-[9px] font-mono text-slate-400 uppercase">
+      <div className="mt-[4px] pt-[4px] border-t border-[#94A3B8] flex justify-between items-center">
+        <span className="text-[9px] font-mono text-[#94A3B8] uppercase">
           Source: ALPHAMISSENSE
         </span>
 
-        <span className="text-[10px] font-mono font-bold text-red-600">
+        <span className="text-[10px] font-mono font-bold text-[#94A3B8]">
           {pdbId} · Mutation at {mutationPosition}
         </span>
       </div>
