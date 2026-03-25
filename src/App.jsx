@@ -371,7 +371,7 @@ function App() {
           <h2 className="text-[18px] text-[#6EB5C0] mt-[-20px] font-mono uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
             An open-source protein mutation browser
           </h2>
-          <h3 className="text-[10px] mt-[-10px] font-black uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
+          <h3 className="text-[10px] mt-[-10px] font-['Inter',_sans-serif] uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
             Queralt Martín-Saladich, 2026
           </h3>
         </header>
