@@ -70,7 +70,7 @@ export const ExpressionChart = ({ proteinId = "Q8IUR5" }) => {
             
             return (
               <div key={index} className="space-y-1">
-                <div className="flex justify-between items-center text-[14px] font-black uppercase tracking-[0.01em]">
+                <div className="flex justify-between items-center text-[14px] font-black tracking-[0.1em]">
                   <span className="text-[#475569] truncate pr-2">{item.tissue}</span>
                   <span className="text-[#475569] font-mono">{item.nTPM.toFixed(1)}</span>
                 </div>
