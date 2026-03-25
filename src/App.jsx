@@ -342,7 +342,7 @@ function App() {
 
         {/* MAIN TITLE SECTION */}
         <header className="flex flex-col items-center w-full py-[8px]">
-          <div className="flex items-center justify-between w-full gap-[8px]">
+          <div className="flex items-center justify-between w-full gap-[5px]">
             {/* LEFT CHAIN */}
             <div className='mt-[-50px] ml-[-20px]'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="480" height="80" fill="none">
@@ -371,7 +371,7 @@ function App() {
           <h2 className="text-[18px] mt-[-20px] font-mono uppercase text-center tracking-[0.4em] text-[#6EB5C0] max-w-2xl">
             An open-source protein mutation browser
           </h2>
-          <h3 className="text-[12px] font-['Elephant',_'Playfair_Display',_serif] text-center tracking-[0.4em] text-[#94A3B8] max-w-2xl">
+          <h3 className="text-[12px] font-['Elephant',_'Playfair_Display',_serif] text-center tracking-[0.1em] text-[#94A3B8] max-w-2xl">
             Beta version, 2026
           </h3>
         </header>
@@ -806,7 +806,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className="space-y-1">
+                <div className="space-y-1 p-[3px] border-2">
                   {/* AM Pathogenicity: Red if > 0.564 (Pathogenic threshold) */}
                   <DataPoint 
                     label="AM pathogenicity score" 
@@ -859,7 +859,7 @@ function App() {
                   </div>
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
                     <p className="text-[14px] font-black text-[#475569] tracking-widest leading-none">Mechanism</p>
-                    <p className="text-[14px] font-mono font-bold text-[#0F172A] leading-none">
+                    <p className="text-[14px] font-mono font-bold text-[#475569] leading-none">
                       {selectedVariant.mechanistic_label || "Unspecified"}
                     </p>
                   </div>
