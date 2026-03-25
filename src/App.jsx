@@ -805,6 +805,11 @@ function App() {
                   />
                 </div>
 
+                <div>
+                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mt-[20px] mb-[2px]">
+                    Labels
+                  </p>
+                </div>
                 <div className="flex flex-col">
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
                     <p className="text-[16px] font-black text-slate-300 uppercase tracking-widest leading-none">Destabilizing?</p>
