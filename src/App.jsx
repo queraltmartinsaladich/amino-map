@@ -357,7 +357,7 @@ function App() {
               </svg>
             </div>
 
-            <h1 className="flex-shrink-0 text-[46px] sm:text-[46px] md:text-[56px] text-center text-[#006C84] font-black tracking-[0.2em] whitespace-nowrap">
+            <h1 className="flex-shrink text-[46px] sm:text-[46px] md:text-[56px] text-center text-[#006C84] font-black tracking-[0.2em] whitespace-nowrap">
               AMINO-MAPP
             </h1>
 
