@@ -57,10 +57,6 @@
   /* 3. Reset the position so it's not "stuck" to the right side of a blank page */
   #analysis-panel-container {
     position: static !important;
-    left: 5px;
-    right: 5px;
-    top: 10px;
-    bottom:10px;
     display: block;
     width: 95% !important;
     margin: 0 !important;
@@ -76,9 +72,13 @@
     break-before: page !important;
     page-break-before: always !important; /* Legacy support */
     display: block !important;
-    padding-top: 2rem; /* Adds a bit of margin at the top of the new page */
   }
-  
+
+  .data-block, canvas, svg {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
   /* 4. Hide the "Download" and "Close" icons in the PDF itself */
   .action-icon-group {
     display: none !important;
