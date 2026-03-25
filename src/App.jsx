@@ -131,7 +131,7 @@ function App() {
       displayValue = value ?? 'N/A';
     }
     return (
-      <div className="flex justify-between items-baseline">
+      <div className="mb-[-10px] flex justify-between items-baseline">
         <p className="text-[14px] font-['Elephant',_'Playfair_Display',_serif] text-[#94A3B8] tracking-widest leading-none">
           {label}
         </p>
@@ -377,7 +377,7 @@ function App() {
           </div>
 
           {/* SUBTITLE BELOW */}
-          <h2 className="text-[18px] mt-[0px] font-mono uppercase text-center tracking-[0.4em] text-[#6EB5C0] max-w-2xl">
+          <h2 className="text-[18px] mt-[-20px] font-mono uppercase text-center tracking-[0.4em] text-[#6EB5C0] max-w-2xl">
             An open-source protein mutation browser
           </h2>
           <h3 className="text-[12px] mt-[0px] font-['Elephant',_'Playfair_Display',_serif] text-center tracking-[0.1em] text-[#94A3B8] max-w-2xl">
