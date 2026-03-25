@@ -371,7 +371,7 @@ function App() {
           <h2 className="text-[18px] text-[#6EB5C0] mt-[-20px] font-mono uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
             An open-source protein mutation browser
           </h2>
-          <h3 className="text-[10px] mt-[-10px] font-['Inter',_sans-serif] uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
+          <h3 className="text-[10px] mt-[-10px] font-['Glacial_Indifference',_sans-serif] uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
             Queralt Martín-Saladich, 2026
           </h3>
         </header>
@@ -489,7 +489,7 @@ function App() {
                       key={cat}
                       onClick={() => updateFilter('esm', cat)} // Use hook function
                       className={`mt-[10px] mb-[1px] ml-[2px] px-[5px] py-[1px] text-[14px] font-bold uppercase tracking-wider cursor-pointer ${
-                        activeESM1b === cat ? 'bg-slate-900 text-white' : 'bg-white text-slate-400'
+                        activeESM1b === cat ? 'bg-[#6EB5C0] text-white' : 'bg-[#E2E8E4] text-slate-400'
                       }`}
                     >
                       {cat}
@@ -507,7 +507,7 @@ function App() {
                       key={cat}
                       onClick={() => updateFilter('class', cat)} // Use hook function
                       className={`mb-[2px] ml-[2px] px-[5px] py-[1px] text-[14px] font-bold uppercase tracking-wider cursor-pointer ${
-                        activeClass === cat ? 'bg-slate-900 text-white' : 'bg-white text-slate-400'
+                        activeClass === cat ? 'bg-[#6EB5C0] text-white' : 'bg-[#E2E8E4] text-slate-400'
                       }`}
                     >
                       {cat}
@@ -525,7 +525,7 @@ function App() {
                       key={cat}
                       onClick={() => updateFilter('mech', cat)} // Use hook function
                       className={`mb-[2px] ml-[2px] px-[5px] py-[1px] text-[14px] font-bold uppercase tracking-wider cursor-pointer ${
-                        activeMech === cat ? 'bg-slate-900 text-white' : 'bg-white text-slate-400'
+                        activeMech === cat ? 'bg-[#6EB5C0] text-white' : 'bg-[#E2E8E4] text-slate-400'
                       }`}
                     >
                       {cat}
@@ -712,7 +712,7 @@ function App() {
 
                 {/* MUTATION SCORES ----------------------------------------------------------------------------------------- */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-black text-slate-300 uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-slate-300 uppercase tracking-[0.2em] leading-none">
                     📌 Characteristics
                   </p>
                 </div>
@@ -840,8 +840,8 @@ function App() {
 
                 {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-black text-slate-300 uppercase tracking-[0.2em] leading-none">
-                    🪜 3D Structure
+                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-slate-300 uppercase tracking-[0.2em] leading-none">
+                    ⚙️ 3D Structure
                   </p>
                 </div> 
                 <div className="border-t-2 border-slate-900 pt-8">
@@ -859,7 +859,7 @@ function App() {
 
                 {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-black text-slate-300 uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-slate-300 uppercase tracking-[0.2em] leading-none">
                     🔍 SEQUENCING
                   </p>
                 </div> 
@@ -878,7 +878,7 @@ function App() {
 
                 {/* GEX SECTION ------------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-black text-slate-300 uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-slate-300 uppercase tracking-[0.2em] leading-none">
                     🔬 RNA EXPRESSION
                   </p>
                 </div> 
@@ -896,7 +896,7 @@ function App() {
 
                 {/* Gene Ontology SECTION ------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-black text-slate-300 uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-slate-300 uppercase tracking-[0.2em] leading-none">
                     🧬 GENE ONTOLOGY
                   </p>
                 </div> 
