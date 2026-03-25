@@ -342,8 +342,8 @@ function App() {
 
         {/* MAIN TITLE SECTION */}
         <header className="flex flex-col items-center w-full py-[8px]">
-          <div className="flex items-center justify-center w-full gap-[10px] overflow-hidden px-4">
-            <div className="mt-[-20px] w-1/3 max-w-[500px] flex-shrink min-w-[50px]">
+          <div className="flex items-center justify-between w-full gap-[10px] overflow-hidden px-4">
+            <div className="mt-[-20px] w-1/3 max-w-[700px] flex-shrink min-w-[50px]">
               <svg 
                 viewBox="0 0 240 40" 
                 className="w-full h-auto" 
@@ -361,7 +361,7 @@ function App() {
               AMINO-MAPP
             </h1>
 
-            <div className="mt-[-20px] w-1/3 max-w-[500px] flex-shrink min-w-[50px] scale-x-[-1]">
+            <div className="mt-[-20px] w-1/3 max-w-[700px] flex-shrink min-w-[50px] scale-x-[-1]">
               <svg 
                 viewBox="0 0 240 40" 
                 className="w-full h-auto" 
@@ -395,10 +395,10 @@ function App() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative text-[12px] font-bold uppercase tracking-[0.25em] text-[#94A3B8] no-underline hover:text-[#E2E8E4] transition-all duration-300"
+                  className="group relative text-[12px] font-bold uppercase tracking-[0.25em] text-[#94A3B8] no-underline hover:text-[#b4ccd1] transition-all duration-300"
                 >
                   <span>{link.name}</span>                  
-                  <span className="absolute -bottom-[4px] left-1/2 w-0 h-[1px] bg-[#E2E8E4] transition-all duration-300 origin-center group-hover:w-full group-hover:left-0 group-hover:translate-x-0 -translate-x-1/2"></span>                </a>
+                  <span className="absolute -bottom-[4px] left-1/2 w-0 h-[1px] bg-[#b4ccd1] transition-all duration-300 origin-center group-hover:w-full group-hover:left-0 group-hover:translate-x-0 -translate-x-1/2"></span>                </a>
               ))}
             </div>
           </nav>
@@ -627,7 +627,7 @@ function App() {
                           href={`https://www.uniprot.org/uniprotkb/${selectedUniprotId}/entry`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center text-[15px] font-black text-[#E2E8E4] hover:text-[#FFCCBB] transition-colors group"
+                          className="inline-flex items-center text-[15px] font-black text-[#b4ccd1] hover:text-[#FFCCBB] transition-colors group"
                         >
                           <span>View full UniProt.org entry</span>
                           <svg 
@@ -754,7 +754,7 @@ function App() {
                         href={`https://www.pnas.org/doi/10.1073/pnas.2016239118`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-[12px] font-black text-[#E2E8E4] hover:text-[#FFCCBB] transition-colors group"
+                        className="inline-flex items-center text-[12px] font-black text-[#b4ccd1] hover:text-[#FFCCBB] transition-colors group"
                       >
                         <span>ESM1b model</span>
                         <svg 
@@ -798,7 +798,7 @@ function App() {
                       href={`https://www.science.org/doi/10.1126/science.adg7492`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-[12px] font-black text-[#E2E8E4] hover:text-[#FFCCBB] transition-colors group"
+                      className="inline-flex items-center text-[12px] font-black text-[#b4ccd1] hover:text-[#FFCCBB] transition-colors group"
                     >
                       <span>AlphaMissense model</span>
                       <svg 
