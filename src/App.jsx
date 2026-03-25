@@ -805,24 +805,24 @@ function App() {
                   </div>
                 </div>
 
-                <div className="p-[10px] border-2 border-[#F1F5F9]">
+                <div className="p-[10px] border-2 border-[#F1F5F9] h-[40px]">
                   {/* ESM1b LLR: */}
                   <DataPoint 
                     label="ESM1b likelihood ratio" 
                     value={selectedVariant.ESM1b_LLR} 
-                    color={selectedVariant.ESM1b_LLR < 7.5 ? "text-[#df3721ff]" : "text-[#2a9723ff]"}
+                    color={selectedVariant.ESM1b_LLR < 7.5 ? "text-[#91142d]" : "text-[#0c701b]"}
                   />
                   {/* AM Pathogenicity: Red if > 0.564 (Pathogenic threshold) */}
                   <DataPoint 
                     label="AM pathogenicity score" 
                     value={selectedVariant.am_pathogenicity} 
-                    color={selectedVariant.am_pathogenicity > 0.564 ? "text-[#df3721ff]" : "text-[#2a9723ff]"}
+                    color={selectedVariant.am_pathogenicity > 0.564 ? "text-[#91142d]" : "text-[#0c701b]"}
                   />
                   {/* Stability: */}
                   <DataPoint 
                     label="Stability (ΔΔG)" 
                     value={selectedVariant.pred_ddg} 
-                    color={Math.abs(selectedVariant.pred_ddg) > 0 ? "text-[#df3721ff]" : "text-[#2a9723ff]"}
+                    color={Math.abs(selectedVariant.pred_ddg) > 0 ? "text-[#91142d]" : "text-[#0c701b]"}
                   />
                 </div>
 
