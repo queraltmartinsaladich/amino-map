@@ -743,17 +743,14 @@ function App() {
                       {selectedVariant.ESM1b_is_pathogenic || "Unspecified"}
                     </p>
                     <div> 
-                      <p className="text-[12px] text-[#7B1B38] italic">
-                        · according to
-                      </p>
                       <a 
                         href={`https://www.pnas.org/doi/full/10.1073/pnas.2016239118y`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-[15px] font-black text-[#7B1B38] hover:text-[#FFCCBB] transition-colors group"
                       >
-                      <p className="text-[12px] font-mono text-slate-900 italic">
-                      ESM1b
+                      <p className="text-[12px] italic">
+                      <span>· according to </span> ESM1b
                       </p>
                       </a>
                     </div>
