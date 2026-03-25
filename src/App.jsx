@@ -877,98 +877,99 @@ function App() {
                 </div>
 
                 {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
-                <div className='mt-[30px] mb-[-12px]'>
+                <div id="str" className='mt-[30px] mb-[-12px]'>
                   <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     ⚙️ 3D Structure
                   </p>
+                  <div className="border-t-2 border-[#0F172A] pt-[8px] mt-[20px] mb-[10px]">
+                    <a
+                      href="https://molstar.org"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[0px] hover:underline hover:text-[#FFCCBB]"
+                    >
+                      molstar.org
+                    </a>
+                    {(() => {
+                      return (
+                        <StructureViewer 
+                          pdbId={`AF-${proteinID}-F1-model_v6`}
+                          mutationPosition={mutationPos} 
+                          />);
+                    })()}
+                  </div>
                 </div> 
-                <div className="border-t-2 border-[#0F172A] pt-[8px] mt-[20px] mb-[10px]">
-                  <a
-                    href="https://molstar.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[0px] hover:underline hover:text-[#FFCCBB]"
-                  >
-                    molstar.org
-                  </a>
-                  {(() => {
-                    return (
-                      <StructureViewer 
-                        pdbId={`AF-${proteinID}-F1-model_v6`}
-                        mutationPosition={mutationPos} 
-                        />);
-                  })()}
-                </div>
 
                 {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
                 <div id="seq" className='mt-[30px] mb-[-12px]'>
                   <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🔍 SEQUENCING
                   </p>
-                <div className="border-t-2 border-[#0F172A] pt-[8px] mt-[20px] mb-[10px]">
-                  <a
-                    href="https://uniprot.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[0px] hover:underline hover:text-[#FFCCBB]"
-                  >
-                    uniprot.org
-                  </a>
-                  {(() => {
-                    return (
-                      <SequenceViewer 
-                      sequence={sequence} 
-                      mutationPosition={mutationPos}
-                        />);
-                  })()}
-                </div>
+                  <div className="border-t-2 border-[#0F172A] pt-[8px] mt-[10px] mb-[10px]">
+                    <a
+                      href="https://uniprot.org"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[0px] hover:underline hover:text-[#FFCCBB]"
+                    >
+                      uniprot.org
+                    </a>
+                    {(() => {
+                      return (
+                        <SequenceViewer 
+                        sequence={sequence} 
+                        mutationPosition={mutationPos}
+                          />);
+                    })()}
+                  </div>
                 </div> 
 
                 {/* GEX SECTION ------------------------------------------------------------------------------------------ */}
-                <div className='mt-[30px] mb-[-12px]'>
+                <div id="gex" className='mt-[30px] mb-[-12px]'>
                   <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🔬 RNA EXPRESSION
                   </p>
+                  <div className="border-t-2 border-[#0F172A] pt-[8px] mt-[10px] mb-[10px]">
+                    <a
+                      href="https://proteinatlas.org"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[0px] hover:underline hover:text-[#FFCCBB]"
+                    >
+                      proteinatlas.org
+                    </a>
+                    {(() => {
+                      const rawId = selectedVariant?.variant_id || "";
+                      const proteinId = rawId.split('/')[0];
+                      return (
+                          <ExpressionChart proteinId={proteinId} />);
+                    })()}
+                  </div>
                 </div> 
-                <div className="border-t-2 border-[#0F172A] pt-[8px] mt-[20px] mb-[10px]">
-                  <a
-                    href="https://proteinatlas.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[0px] hover:underline hover:text-[#FFCCBB]"
-                  >
-                    proteinatlas.org
-                  </a>
-                  {(() => {
-                    const rawId = selectedVariant?.variant_id || "";
-                    const proteinId = rawId.split('/')[0];
-                    return (
-                        <ExpressionChart proteinId={proteinId} />);
-                  })()}
-                </div>
 
                 {/* Gene Ontology SECTION ------------------------------------------------------------------------------------ */}
-                <div className='mt-[30px] mb-[-12px]'>
+                <div id="go" className='mt-[30px] mb-[-12px]'>
                   <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🧬 GENE ONTOLOGY
                   </p>
+                  <div className="border-t-2 border-[#0F172A] pt-[8px] mt-[10px] mb-[10px]">
+                    <a
+                      href="https://geneontology.org"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[0px] hover:underline hover:text-[#FFCCBB]"
+                    >
+                      geneontology.org
+                    </a>
+                    {(() => {
+                      const rawId = selectedVariant?.variant_id || "";
+                      const proteinId = rawId.split('/')[0];
+                      return (
+                        <GOViewer proteinId={proteinId} />);
+                    })()}
+                  </div> 
                 </div> 
-                <div className="border-t-2 border-[#0F172A] pt-[8px] mt-[20px] mb-[10px]">
-                  <a
-                    href="https://geneontology.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[0px] hover:underline hover:text-[#FFCCBB]"
-                  >
-                    geneontology.org
-                  </a>
-                  {(() => {
-                    const rawId = selectedVariant?.variant_id || "";
-                    const proteinId = rawId.split('/')[0];
-                    return (
-                      <GOViewer proteinId={proteinId} />);
-                  })()}
-                </div>                  
+                 
               </div>
             ) : (
               <div className="w-full mt-[-10px] text-center">
