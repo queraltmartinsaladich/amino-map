@@ -882,7 +882,7 @@ function App() {
                     ⚙️ 3D Structure
                   </p>
                 </div> 
-                <div className="border-t-2 border-[#0F172A] pt-8 mt-[20px] mb-[10px]">
+                <div className="border-t-2 border-[#0F172A] pt-[8px] mt-[20px] mb-[10px]">
                   <a
                     href="https://molstar.org"
                     target="_blank"

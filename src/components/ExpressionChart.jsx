@@ -61,7 +61,7 @@ export const ExpressionChart = ({ proteinId = "Q8IUR5" }) => {
   const maxVal = Math.max(...expressionData.map(d => d.nTPM));
 
   return (
-    <div className="mt-2">
+    <div className="mt-[8px]">
       <div className="bg-[#FFFFFF] border-2 border-[#0F172A] rounded-sm p-[4px]">
     
         <div className="space-y-3">
@@ -74,7 +74,7 @@ export const ExpressionChart = ({ proteinId = "Q8IUR5" }) => {
                   <span className="text-slate-700 truncate pr-2">{item.tissue}</span>
                   <span className="text-[#94A3B8] font-mono">{item.nTPM.toFixed(1)}</span>
                 </div>
-                <div className="w-full bg-[#F1F5F9] h-2 border-[#94A3B8] overflow-hidden">
+                <div className="w-full bg-[#0F172A] h-2 border-[#94A3B8] overflow-hidden">
                   <div 
                     className="bg-blue-500 h-full transition-all duration-1000 ease-out"
                     style={{ width: `${percentage}%` }}

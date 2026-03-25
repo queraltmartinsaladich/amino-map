@@ -97,7 +97,7 @@ export const StructureViewer = ({ pdbId, mutationPosition }) => {
   }, [pdbId, mutationPosition]);
 
   return (
-    <div className="bg-white border-2 border-[#0F172A] rounded-sm p-[4px] mt-[4px] relative">
+    <div className="bg-white border-2 border-[#0F172A] rounded-sm p-[4px] mt-[8px] relative">
       
       {/* Indicator */}
       <div className="absolute top-2 left-2 z-10 flex items-center gap-[2px] pointer-events-none">

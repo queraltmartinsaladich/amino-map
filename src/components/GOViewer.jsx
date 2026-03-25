@@ -3,7 +3,7 @@ import "@geneontology/web-components/go-annotation-ribbon";
 export const GOViewer = ({ proteinId }) => {
   const geneId = `UniProtKB:${proteinId}`;
   return (
-    <div className="h-auto w-auto bg-[#F8FAFC] border-2 border-[#F1F5F9] rounded-sm p-[4px]">
+    <div className="h-auto w-auto bg-[#F8FAFC] mt-[8px] border-2 border-[#94A3B8] rounded-sm p-[4px]">
       <go-annotation-ribbon 
       subjects={geneId}>
       </go-annotation-ribbon>

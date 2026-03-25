@@ -32,8 +32,8 @@ export const SequenceViewer = ({ sequence, mutationPosition }) => {
                   ref={isTarget ? targetRef : null}
                   className={`w-[14px] text-center transition-all cursor-default
                     ${isTarget 
-                      ? 'bg-red-600 text-[#FFFFFF] font-black rounded-sm ring-[2px] ring-red-200 scale-125 z-10 shadow-sm' 
-                      : 'text-slate-600 hover:text-[#94A3B8] hover:bg-blue-100'}
+                      ? 'bg-[#6EB5C0] text-[#FFFFFF] font-black rounded-sm ring-[2px] ring-[#6EB5C0] scale-125 z-10 shadow-sm' 
+                      : 'text-[#F8FAFC] hover:text-[#94A3B8] hover:bg-[#F8FAFC]'}
                   `}
                   title={`Index: ${absoluteIdx} | Residue: ${aa}`}
                 >
