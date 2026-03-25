@@ -626,7 +626,7 @@ function App() {
                           <svg 
                             className="w-[20px] h-[20px] ml-[10px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" 
                             fill="none" 
-                            stroke="[#FFCCBB]" 
+                            stroke="currentColor" 
                             viewBox="0 0 24 24"
                           >
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -743,6 +743,9 @@ function App() {
                       {selectedVariant.ESM1b_is_pathogenic || "Unspecified"}
                     </p>
                     <div> 
+                      <p className="text-[12px] text-[#7B1B38] italic">
+                        · according to
+                      </p>
                       <a 
                         href={`https://www.pnas.org/doi/full/10.1073/pnas.2016239118y`}
                         target="_blank"
@@ -750,7 +753,7 @@ function App() {
                         className="inline-flex items-center text-[15px] font-black text-[#7B1B38] hover:text-[#FFCCBB] transition-colors group"
                       >
                       <p className="text-[12px] font-mono text-slate-900 italic">
-                      - According to ESM1b
+                      ESM1b
                       </p>
                       </a>
                     </div>
@@ -762,6 +765,7 @@ function App() {
                     <svg className={`w-[30px] h-[30px] transition-all duration-300 ${
                       selectedVariant.am_class?.toLowerCase() === 'pathogenic' ? 'text-[#df3721ff] animate-pulse' : 
                       selectedVariant.am_class?.toLowerCase() === 'benign' ? 'text-[#2a9723ff]' : 
+                      selectedVariant.am_class?.toLowerCase() === 'ambiguous' ? 'text-[#d8a122ff]' : 
                       'text-slate-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       {selectedVariant.am_class?.toLowerCase() === 'pathogenic' ? (
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
