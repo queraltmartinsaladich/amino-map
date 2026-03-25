@@ -770,7 +770,7 @@ function App() {
                   </div>
                 </div>
                 {/* AM - Pathogenic? */}
-                <div className="flex items-center group max-w-xs mb-[20px]">
+                <div className="flex items-center group max-w-xs mt-[-5px] mb-[10px]">
                   <div className="flex items-center gap-[8px]">
                     <svg className={`w-[30px] h-[30px] transition-all duration-300 ${
                       selectedVariant.am_class?.toLowerCase() === 'pathogenic' ? 'text-[#df3721ff] animate-pulse' : 
@@ -817,21 +817,21 @@ function App() {
                 <div className="px-[10px] py-[10px] border-2 border-[#F1F5F9] flex flex-col gap-[2px]">
                   {/* ESM1b LLR */}
                   <DataPoint 
-                    className="mt-[-10px]"
+                    className="mt-[-30px]"
                     label="ESM1b likelihood ratio" 
                     value={selectedVariant.ESM1b_LLR} 
                     color={selectedVariant.ESM1b_LLR < 7.5 ? "text-[#91142d]" : "text-[#0c701b]"}
                   />
                   {/* AM Pathogenicity */}
                   <DataPoint 
-                    className="mt-[-10px]"
+                    className="mt-[-30px]"
                     label="AM pathogenicity score" 
                     value={selectedVariant.am_pathogenicity} 
                     color={selectedVariant.am_pathogenicity > 0.564 ? "text-[#91142d]" : "text-[#0c701b]"}
                   />
                   {/* Stability */}
                   <DataPoint 
-                    className="mt-[-10px]"
+                    className="mt-[-30px]"
                     label="Stability (ΔΔG)" 
                     value={selectedVariant.pred_ddg} 
                     color={Math.abs(selectedVariant.pred_ddg) > 0 ? "text-[#91142d]" : "text-[#0c701b]"}
