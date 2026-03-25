@@ -353,7 +353,7 @@ function App() {
             </svg>
             </div>
             {/* CENTER TITLE */}
-            <h1 className="text-[46px] text-center text-[#006C84] font-['Roboto',sans-serif] whitespace-nowrap">
+            <h1 className="text-[46px] text-center text-[#006C84] font-black tracking-[0.2em] whitespace-nowrap">
               AMINO-MAPP
             </h1>
             {/* RIGHT CHAIN */}
@@ -371,14 +371,14 @@ function App() {
           <h2 className="text-[18px] mt-[-20px] font-mono uppercase text-center tracking-[0.4em] text-[#6EB5C0] max-w-2xl">
             An open-source protein mutation browser
           </h2>
-          <h3 className="text-[12px] font-['Elephant',_'Playfair_Display',_serif] text-center tracking-[0.1em] text-[#94A3B8] max-w-2xl">
+          <h3 className="text-[12px] mt-[-10px] font-['Elephant',_'Playfair_Display',_serif] text-center tracking-[0.1em] text-[#94A3B8] max-w-2xl">
             Beta version, 2026
           </h3>
         </header>
 
         {/* EXTERNAL RESOURCE NAVIGATION -------------------------------------------------------------------------------------------------------- */}
-        <div className="w-full mb-[20px]">
-          <nav className="border-y-2 border-[#F1F5F9] mt-[4px] mb-[4px] py-[10px]">
+        <div className="w-full mb-[20px] mt-[10px]">
+          <nav className="border-y-2 border-[#F1F5F9] mb-[4px] py-[10px]">
             <div className="flex justify-between items-center w-full">
               {navLinks.map((link) => (
                 <a
@@ -388,9 +388,7 @@ function App() {
                   rel="noopener noreferrer"
                   className="group relative text-[12px] font-bold uppercase tracking-[0.25em] text-[#94A3B8] no-underline hover:text-[#7B1B38] transition-all duration-300"
                 >
-                  <span>{link.name}</span>
-                  
-                  {/* Underline that grows simultaneously from center to both sides on hover */}
+                  <span>{link.name}</span>                  
                   <span className="absolute -bottom-[4px] left-1/2 w-0 h-[1px] bg-[#7B1B38] transition-all duration-300 origin-center group-hover:w-full group-hover:left-0 group-hover:translate-x-0 -translate-x-1/2"></span>                </a>
               ))}
             </div>
@@ -453,7 +451,7 @@ function App() {
             </div>
 
             {/* SEARCH INPUT CONTAINER -------------------------------------------------------------------------------------- */}
-            <div className="w-full mb-[2px] mt-[14px] flex justify-between items-center gap-[6px]">
+            <div className="w-full mb-[2px] mt-[14px] text-[#94A3B8] flex justify-between items-center gap-[6px]">
               <svg 
                 className="w-[20px] h-[20px]" 
                 fill="none" 

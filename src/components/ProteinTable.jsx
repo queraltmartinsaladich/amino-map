@@ -38,7 +38,7 @@ export const ProteinTable = ({
                         /* Hover State */
                         hover:bg-[#6EB5C0] hover:text-[#FFFFFF]
                         /* Selected State */
-                        ${isSelected ? '!bg-[#E2E8E4] !text-[#006C84]' : ''}
+                        ${isSelected ? '!bg-[#F1F5F9] !text-[#006C84]' : ''}
                       `}
                     >
                       <td className="py-[3px] px-[4px] text-[15px] font-black uppercase tracking-tighter font-mono">
