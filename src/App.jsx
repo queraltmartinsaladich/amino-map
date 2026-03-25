@@ -728,7 +728,7 @@ function App() {
 
                 {/* CHARACTERISTICS ----------------------------------------------------------------------------------------- */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] border-b-2 border-[#0F172A] mb-[8px] pt-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] border-b-2 border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     📌 Characteristics
                   </p>
                   <p className="text-[10px] font-black text-[#94A3B8] uppercase tracking-[0.4em] mt-[20px] mb-[10px]">
@@ -887,7 +887,7 @@ function App() {
 
                 {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
                 <div id="str" className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] border-b-2 border-[#0F172A] mb-[8px] pt-[8px]  font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] border-b-2 border-[#0F172A] pb-[8px]  font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     ⚙️ 3D Structure
                   </p>
                   <a
@@ -910,32 +910,30 @@ function App() {
 
                 {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
                 <div id="seq" className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] border-b-2 border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🔍 SEQUENCING
                   </p>
-                  <div className="border-t-2 border-[#0F172A] pt-[8px] mb-[-10px]">
-                    <a
-                      href="https://uniprot.org"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[0px] hover:underline hover:text-[#FFCCBB]"
-                    >
-                      uniprot.org
-                    </a>
-                    {(() => {
-                      return (
-                        <SequenceViewer 
-                        sequence={sequence} 
-                        mutationPosition={mutationPos}
-                          />);
-                    })()}
-                  </div>
+                  <a
+                    href="https://uniprot.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[0px] hover:underline hover:text-[#FFCCBB]"
+                  >
+                    uniprot.org
+                  </a>
+                  {(() => {
+                    return (
+                      <SequenceViewer 
+                      sequence={sequence} 
+                      mutationPosition={mutationPos}
+                        />);
+                  })()}
                 </div> 
                 {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
 
                 {/* GEX SECTION ------------------------------------------------------------------------------------------ */}
                 <div id="gex" className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] border-b-2 border-[#0F172A] mb-[8px] pt-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] border-b-2 border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🔬 RNA EXPRESSION
                   </p>
                   <a
@@ -957,7 +955,7 @@ function App() {
 
                 {/* Gene Ontology SECTION ------------------------------------------------------------------------------------ */}
                 <div id="go" className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] border-b-2 border-[#0F172A] mb-[8px] pt-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] border-b-2 border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🧬 GENE ONTOLOGY
                   </p>
                   <a
