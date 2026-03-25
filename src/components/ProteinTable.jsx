@@ -22,13 +22,13 @@ export const ProteinTable = ({
                 <th className="py-[4px] px-[4px] text-right">Mechanism</th>
               </tr>
             </thead>
-            <tbody className="text-slate-900">
+            <tbody className="">
               {data.length > 0 ? (
                 data.map((row) => (
                   <tr 
                     key={row.variant_id}
                     onClick={() => onRowSelect(row)} 
-                    className={`group cursor-pointer transition-all ${
+                    className={`group cursor-pointer text-slate-900 transition-all ${
                       selectedVariant?.variant_id === row.variant_id 
                       ? 'bg-[#E2E8E4] text-[#006C84]' 
                       : 'hover:bg-[#6EB5C0] text-[#FFFFFF]'}`}
