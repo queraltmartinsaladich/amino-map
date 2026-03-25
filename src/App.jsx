@@ -121,7 +121,7 @@ function App() {
     console.log("History cleared"); 
     setHistory([]);};
 
-  const DataPoint = ({ label, value, color = "text-[#0F172A]", decimals = 3 }) => {
+  const DataPoint = ({ label, value, color = "text-[#94A3B8]", decimals = 3 }) => {
     let displayValue;
     if (typeof value === 'number') {
       displayValue = value.toFixed(decimals);
@@ -131,7 +131,7 @@ function App() {
       displayValue = value ?? 'N/A';
     }
     return (
-      <div className="flex justify-between items-baseline h-[30px]">
+      <div className="flex justify-between items-baseline">
         <p className="text-[14px] font-['Elephant',_'Playfair_Display',_serif] text-[#0F172A] tracking-widest leading-none">
           {label}
         </p>
@@ -805,7 +805,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className="p-[3px] border-2 border-[#F1F5F9]">
+                <div className="mt-[10px] p-[5px] border-2 border-[#F1F5F9]">
                   {/* AM Pathogenicity: Red if > 0.564 (Pathogenic threshold) */}
                   <DataPoint 
                     label="AM pathogenicity score" 
