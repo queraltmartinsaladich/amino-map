@@ -620,13 +620,13 @@ function App() {
                           href={`https://www.uniprot.org/uniprotkb/${selectedUniprotId}/entry`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center text-[15px] font-black uppercasetext-slate-900 hover:text-blue-600 transition-colors group"
+                          className="inline-flex items-center text-[15px] font-black text-[#7B1B38] hover:text-[#FFCCBB] transition-colors group"
                         >
                           <span>View full UniProt.org entry</span>
                           <svg 
                             className="w-[20px] h-[20px] ml-[10px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" 
                             fill="none" 
-                            stroke="currentColor" 
+                            stroke="[#FFCCBB]" 
                             viewBox="0 0 24 24"
                           >
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -635,7 +635,7 @@ function App() {
                       </div>
                     </>
                   ) : (
-                    <p className="text-[12px] font-mono text-slate-300 uppercase italic">
+                    <p className="text-[12px] font-mono text-slate-300 uppercase tracking-[0.2em]">
                       Biological metadata restricted or unavailable
                     </p>
                   )}
@@ -725,8 +725,8 @@ function App() {
                 <div className="flex items-center group max-w-xs h-[30px]">
                   <div className="flex items-center gap-[8px]">
                     <svg className={`w-[30px] h-[30px] transition-colors ${
-                      selectedVariant.ESM1b_is_pathogenic === 'pathogenic' ? 'text-red-500 animate-pulse' : 
-                      selectedVariant.ESM1b_is_pathogenic === 'benign' ? 'text-emerald-500' : 'text-slate-300'
+                      selectedVariant.ESM1b_is_pathogenic === 'pathogenic' ? 'text-[#df3721ff] animate-pulse' : 
+                      selectedVariant.ESM1b_is_pathogenic === 'benign' ? 'text-[#2a9723ff]' : 'text-slate-900'
                     }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       {selectedVariant.ESM1b_is_pathogenic === 'pathogenic' ? (
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -737,13 +737,13 @@ function App() {
                       )}
                     </svg>
                     <p className={`text-[16px] font-mono font-bold uppercase leading-none ${
-                      selectedVariant.ESM1b_is_pathogenic === 'pathogenic' ? 'text-red-600' : 
-                      selectedVariant.ESM1b_is_pathogenic === 'benign' ? 'text-emerald-600' : 'text-slate-900'
+                      selectedVariant.ESM1b_is_pathogenic === 'pathogenic' ? 'text-[#df3721ff]' : 
+                      selectedVariant.ESM1b_is_pathogenic === 'benign' ? 'text-[#2a9723ff]' : 'text-slate-900'
                     }`}>
                       {selectedVariant.ESM1b_is_pathogenic || "Unspecified"}
                     </p>
                     <div> 
-                      <p className="text-[12px] font-mno text-blue-600 italic">
+                      <p className="text-[12px] font-mno text-slate-900 italic">
                       - According to ESM1b     
                       </p>
                     </div>
@@ -753,8 +753,8 @@ function App() {
                 <div className="flex items-center group max-w-xs h-[30px]">
                   <div className="flex items-center gap-[8px]">
                     <svg className={`w-[30px] h-[30px] transition-all duration-300 ${
-                      selectedVariant.am_class?.toLowerCase() === 'pathogenic' ? 'text-red-500 animate-pulse' : 
-                      selectedVariant.am_class?.toLowerCase() === 'benign' ? 'text-emerald-500' : 
+                      selectedVariant.am_class?.toLowerCase() === 'pathogenic' ? 'text-[#df3721ff] animate-pulse' : 
+                      selectedVariant.am_class?.toLowerCase() === 'benign' ? 'text-[#2a9723ff]' : 
                       'text-slate-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       {selectedVariant.am_class?.toLowerCase() === 'pathogenic' ? (
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -765,8 +765,8 @@ function App() {
                       )}
                     </svg>
                     <p className={`text-[16px] font-mono font-bold uppercase leading-none ${
-                      selectedVariant.am_class?.toLowerCase() === 'pathogenic' ? 'text-red-600' : 
-                      selectedVariant.am_class?.toLowerCase() === 'benign' ? 'text-emerald-600' : 
+                      selectedVariant.am_class?.toLowerCase() === 'pathogenic' ? 'text-[#df3721ff]' : 
+                      selectedVariant.am_class?.toLowerCase() === 'benign' ? 'text-[#2a9723ff]' : 
                       'text-slate-500' /* Ambiguous Text */
                     }`}>
                       {selectedVariant.am_class || "ambiguous"}
@@ -789,19 +789,19 @@ function App() {
                   <DataPoint 
                     label="AM pathogenicity score" 
                     value={selectedVariant.am_pathogenicity} 
-                    color={selectedVariant.am_pathogenicity > 0.564 ? "text-vermell" : "text-verd"}
+                    color={selectedVariant.am_pathogenicity > 0.564 ? "text-[#df3721ff]" : "text-[#2a9723ff]"}
                   />
                   {/* Stability: Orange if high energy change (> 1.0) */}
                   <DataPoint 
                     label="Stability (ΔΔG)" 
                     value={selectedVariant.pred_ddg} 
-                    color={Math.abs(selectedVariant.pred_ddg) > 1.0 ? "text-vermell" : "text-verd"}
+                    color={Math.abs(selectedVariant.pred_ddg) > 1.0 ? "text-[#df3721ff]" : "text-[#2a9723ff]"}
                   />
                   {/* ESM1b LLR: Red if very negative (indicating disruption) */}
                   <DataPoint 
                     label="ESM1b LLR" 
                     value={selectedVariant.ESM1b_LLR} 
-                    color={selectedVariant.ESM1b_LLR < -10 ? "text-red-600" : "text-slate-900"}
+                    color={selectedVariant.ESM1b_LLR < -10 ? "text-[#df3721ff]" : "text-[#2a9723ff]"}
                   />
                 </div>
 
