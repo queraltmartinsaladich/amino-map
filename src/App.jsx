@@ -409,7 +409,7 @@ function App() {
               {/* 1. BULK LOAD */}
               <label 
                 title="Load multiple IDs inside a .txt or .csv file"
-                className="flex items-center text-center px-[20px] py-[2px] border-[2px] border-[#F1F5F9] text-[#94A3B8] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group">
+                className="flex items-center text-center px-[20px] py-[2px] bg-[#F1F5F9] text-[#64748B] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group">
                 <input 
                   type="file" 
                   accept=".txt,.csv" 
@@ -422,7 +422,7 @@ function App() {
               {/* 2. IMPORT SESSION */}
               <label 
                 title="Import session history"
-                className="flex items-center text-center px-[20px] py-[2px] border-[2px] border-[#F1F5F9] text-[#94A3B8] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group">
+                className="flex items-center text-center px-[20px] py-[2px] bg-[#F1F5F9] text-[#64748B] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group">
                 <input 
                   type="file" 
                   accept=".csv" 
@@ -437,7 +437,7 @@ function App() {
                 onClick={downloadCSV}
                 disabled={history.length === 0}
                 title="Export session history"
-                className="flex items-center text-center px-[20px] py-[2px] border-[2px] border-[#F1F5F9] text-[#94A3B8] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group"
+                className="flex items-center text-center px-[20px] py-[2px] bg-[#F1F5F9] text-[#64748B] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group"
               >
                 <span className="text-[12px] font-bold uppercase tracking-[0.1em]">Export ({history.length})</span>
               </label>
@@ -447,7 +447,7 @@ function App() {
                 onClick={clearHistory}
                 disabled={history.length === 0}
                 title="Clear session history"
-                className="flex items-center text-center px-[20px] py-[2px] border-[2px] border-[#F1F5F9] text-[#94A3B8] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group"              >
+                className="flex items-center text-center px-[20px] py-[2px] bg-[#F1F5F9] text-[#64748B] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group"              >
                 <span className="text-[12px] font-bold uppercase tracking-[0.1em]">Clear ({history.length})</span>
               </label>
                           
