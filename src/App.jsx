@@ -132,7 +132,7 @@ function App() {
     }
     return (
       <div className="flex justify-between items-baseline">
-        <p className="text-[14px] font-['Elephant',_'Playfair_Display',_serif] text-[#0F172A] tracking-widest leading-none">
+        <p className="text-[14px] font-['Elephant',_'Playfair_Display',_serif] text-[#94A3B8] tracking-widest leading-none">
           {label}
         </p>
         <p className={`text-[14px] font-['Elephant',_'Playfair_Display',_serif] font-bold uppercase leading-none ${color}`}>
@@ -357,7 +357,7 @@ function App() {
               AMINO-MAPP
             </h1>
             {/* RIGHT CHAIN */}
-            <div className='mt-[-50px] mr-[-20px] scale-x-[-1]'>
+            <div className='mt-[-50px] scale-x-[-1]'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="480" height="80" fill="none">
               <path d="M10 25C30 5 50 35 70 25C90 15 110 35 130 25C150 15 170 35 190 25C210 15 230 25 230 25" 
                     stroke="#006C84" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
@@ -761,7 +761,7 @@ function App() {
                   </div>
                 </div>
                 {/* AM - Pathogenic? */}
-                <div className="flex items-center group max-w-xs h-[30px]">
+                <div className="flex items-center group max-w-xs mb-[20px]">
                   <div className="flex items-center gap-[8px]">
                     <svg className={`w-[30px] h-[30px] transition-all duration-300 ${
                       selectedVariant.am_class?.toLowerCase() === 'pathogenic' ? 'text-[#df3721ff] animate-pulse' : 
@@ -805,7 +805,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className="mt-[10px] p-[5px] border-2 border-[#F1F5F9]">
+                <div className="p-[5px] border-2 border-[#F1F5F9]">
                   {/* AM Pathogenicity: Red if > 0.564 (Pathogenic threshold) */}
                   <DataPoint 
                     label="AM pathogenicity score" 
