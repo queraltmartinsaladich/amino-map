@@ -780,14 +780,17 @@ function App() {
                       {selectedVariant.am_class || "ambiguous"}
                     </p>
                     <div>
+                      <p className="text-[12px] text-[#7B1B38] italic">
+                        · according to
+                      </p>
                        <a 
                         href={`https://www.science.org/doi/10.1126/science.adg7492`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-[15px] font-black text-[#7B1B38] hover:text-[#FFCCBB] transition-colors group"
                       >
-                      <p className="text-[12px] font-mono text-slate-900 italic">
-                      - According to AlphaMissense 
+                      <p className="text-[12px] italic">
+                      AlphaMissense 
                       </p>
                       </a>
                     </div>
