@@ -901,11 +901,10 @@ function App() {
                 </div>
 
                 {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
-                <div className='mt-[30px] mb-[-12px]'>
+                <div id="seq" className='mt-[30px] mb-[-12px]'>
                   <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🔍 SEQUENCING
                   </p>
-                </div> 
                 <div className="border-t-2 border-[#0F172A] pt-[8px] mt-[20px] mb-[10px]">
                   <a
                     href="https://uniprot.org"
@@ -923,6 +922,7 @@ function App() {
                         />);
                   })()}
                 </div>
+                </div> 
 
                 {/* GEX SECTION ------------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>

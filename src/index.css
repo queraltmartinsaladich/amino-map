@@ -47,26 +47,23 @@
     overflow: hidden !important;
   }
   
-  /* 1. Target the specific sections you want to start on new pages */
-  /* You can add specific IDs like #structure-section, #sequence-section, etc. */
-  #analysis-panel-container > div {
-    break-before: page; /* Starts each direct child div on a new page */
-    padding-top: 1cm;
-    page-break-inside: avoid; /* Prevents a single chart from being split in half */
+  /* 2. Show ONLY the analysis panel and its children */
+  /* Replace '.analysis-panel' with the actual ID or class of your right container */
+  #analysis-panel-container, 
+  #analysis-panel-container * {
+    visibility: visible;
   }
 
-  /* 2. Exception: Keep the first section (Header/ID) on the first page */
-  #analysis-panel-container > div:first-child {
-    break-before: auto;
-    padding-top: 0;
-  }
-
-  /* 3. Ensure the container isn't restricted by a fixed height or overflow */
+  /* 3. Reset the position so it's not "stuck" to the right side of a blank page */
   #analysis-panel-container {
-    display: block !important;
-    overflow: visible !important;
-    height: auto !important;
-    position: static !important; /* Static is better for multi-page flow than Absolute */
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 10px;
+    width: 95% !important;
+    margin: 0 !important;
+    padding: 0px !important;
+    box-shadow: none !important;
   }
 
   /* 4. Hide the "Download" and "Close" icons in the PDF itself */
