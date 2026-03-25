@@ -500,7 +500,7 @@ function App() {
 
               {/* 2. AM Class Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-slate-300 tracking-widest">AM class:</span>
+                <span className="text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-slate-300 tracking-widest">AlphaMissense class:</span>
                 <div className="flex gap-[1px]">
                   {['ALL', 'pathogenic', 'benign', 'ambiguous'].map(cat => (
                     <label
@@ -744,14 +744,20 @@ function App() {
                     </p>
                     <div> 
                       <a 
-                        href={`https://www.pnas.org/doi/full/10.1073/pnas.2016239118y`}
+                        href={`https://www.pnas.org/doi/10.1073/pnas.2016239118`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-[15px] font-black text-[#7B1B38] hover:text-[#FFCCBB] transition-colors group"
+                        className="inline-flex items-center text-[12px] font-black text-[#7B1B38] hover:text-[#FFCCBB] transition-colors group"
                       >
-                      <p className="text-[12px] italic">
-                      <span>· according to </span> ESM1b
-                      </p>
+                        <span>ESM1b model</span>
+                        <svg 
+                          className="w-[20px] h-[20px] ml-[10px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
                       </a>
                     </div>
                   </div>
@@ -781,19 +787,22 @@ function App() {
                       {selectedVariant.am_class || "ambiguous"}
                     </p>
                     <div>
-                      <p className="text-[12px] text-[#7B1B38] italic">
-                        · according to
-                      </p>
-                       <a 
-                        href={`https://www.science.org/doi/10.1126/science.adg7492`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center text-[15px] font-black text-[#7B1B38] hover:text-[#FFCCBB] transition-colors group"
+                    <a 
+                      href={`https://www.science.org/doi/10.1126/science.adg7492`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-[12px] font-black text-[#7B1B38] hover:text-[#FFCCBB] transition-colors group"
+                    >
+                      <span>AlphaMissense model</span>
+                      <svg 
+                        className="w-[20px] h-[20px] ml-[10px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
                       >
-                      <p className="text-[12px] italic">
-                      AlphaMissense 
-                      </p>
-                      </a>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
                     </div>
                   </div>
                 </div>
