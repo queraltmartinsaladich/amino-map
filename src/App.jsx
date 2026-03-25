@@ -335,12 +335,14 @@ function App() {
     );
   }
   
-  // RETURN FUNCTION - MAIN
   return (
-    <div className="bg-[#FFFFFF] ml-[40px] mr-[40px] mt-[20px] mb-[30px] pl-[10px] pr-[10px] text-[#0F172A]">
-      <div className="mx-auto">
+    // MAIN FUNCTION ·········································
+    <div className="bg-[#FFFFFF] ml-[40px] mr-[40px] mt-[20px] mb-[30px] pl-[10px] pr-[10px] text-[#0F172A]"> 
+      
+      {/* Opens GLOBAL */}
+      <div className="mx-auto"> 
 
-        {/* MAIN TITLE SECTION */}
+        {/* MAIN TITLE SECTION -------------------------------------------------------------------------------------------------------- */}
         <header className="flex flex-col items-center w-full py-[8px]">
           <div className="flex items-center justify-between w-full gap-[10px] overflow-hidden px-[4px]">
             <div className="mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[300px]">
@@ -376,7 +378,6 @@ function App() {
             </div>
           </div>
 
-          {/* SUBTITLE BELOW */}
           <h2 className="text-[18px] mt-[-20px] font-mono uppercase text-center tracking-[0.4em] text-[#6EB5C0] max-w-2xl">
             An open-source protein mutation browser
           </h2>
@@ -384,6 +385,7 @@ function App() {
             Beta version, 2026
           </h3>
         </header>
+        {/* MAIN TITLE SECTION -------------------------------------------------------------------------------------------------------- */}
 
         {/* EXTERNAL RESOURCE NAVIGATION -------------------------------------------------------------------------------------------------------- */}
         <div className="w-full mb-[20px]">
@@ -403,7 +405,9 @@ function App() {
             </div>
           </nav>
         </div>
+        {/* EXTERNAL RESOURCE NAVIGATION -------------------------------------------------------------------------------------------------------- */}
 
+        {/* MAIN BODY ------------------------------------------------------------------------------------------------------------------------- */}
         <div className="flex items-start gap-[40px]">
           
           {/* LEFT HALF ------------------------------------------------------------------------------------------------------------------------- */}
@@ -562,96 +566,99 @@ function App() {
             />
 
           </div>
+          {/* LEFT HALF ------------------------------------------------------------------------------------------------------------------------- */}
 
           {/* RIGHT HALF:  ---------------------------------------------------------------------------------------------------------------------- */}
           <div id="analysis-panel-container" className="flex-shrink-0 flex-col w-1/2 gap-[10px]">
             {selectedVariant ? (
+            <div id='char'>
               <div key={selectedVariant.variant_id} className="mt-[-1px] sticky bg-[#FFFFFF] animate-in fade-in duration-300">
                 
-                  {/* CHOSEN PROTEIN ID ------------------------------------------------------------------------------------- */}
-                  <div id='char'>
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <span className="text-[#94A3B8] text-[18px] font-black uppercase tracking-[0.4em]">Analysis of</span>
-                      <h2 className="text-[30px] font-black text-[#0F172A] font-['Elephant',_'Playfair_Display',_serif] uppercase tracking-tighter mb-[20px]">
-                        {selectedVariant.variant_id}
-                      </h2>
-                    </div>
-                    <div>
-                    <button 
-                      onClick={handleDownload} // Use the new function here 
-                      title="Download analysis as PDF"
-                      className="text-[#475569] hover:text-[#94A3B8] transition-colors group p-[1px] cursor-pointer action-icon-group"
-                    >
-                      <svg className="w-[20px] h-[20px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4-4v8" />
-                      </svg>
-                    </button>
-                    <button 
-                      onClick={() => setSelectedVariant(null)}
-                      title="Close analysis"
-                      className="text-[#475569] hover:text-[#94A3B8] transition-colors group p-[1px] cursor-pointer action-icon-group"
-                    >
-                      <svg className="w-[20px] h-[20px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </button>
-                    </div>
+                {/* CHOSEN PROTEIN ID ------------------------------------------------------------------------------------- */}
+                <div className="flex items-start justify-between">
+                  <div>
+                    <span className="text-[#94A3B8] text-[18px] font-black uppercase tracking-[0.4em]">Analysis of</span>
+                    <h2 className="text-[30px] font-black text-[#0F172A] font-['Elephant',_'Playfair_Display',_serif] uppercase tracking-tighter mb-[20px]">
+                      {selectedVariant.variant_id}
+                    </h2>
                   </div>
-                  
-                  {/* UNIPROT DATA ------------------------------------------------------------------------------------------ */}
-                  <div className="mb-[20px] bg-slate-50">
-                  {uniProtLoading ? (
-                    <p className="text-[14px] font-mono animate-pulse uppercase tracking-widest">
-                      Syncing UniProt...
-                    </p>
-                  ) : bioData ? (
-                    <>
-                      <h3 className="text-[14px] font-black text-[#64748B] uppercase mb-[-10px]">
-                        {bioData.fullName}
-                      </h3>
-                      <p className="text-[14px] font-mono text-[#94A3B8] uppercase mb-[3px] tracking-tighter">
-                        Gene: {bioData.geneName} | Organism: {bioData.organism}
-                      </p>
-                      
-                      <div>
-                        <p className="text-[13px] font-mono text-[#6EB5C0] leading-relaxed italic lowercase first-letter:uppercase">
-                          {bioData.function.length > 200 
-                            ? `${bioData.function.substring(0, 200)}...` 
-                            : bioData.function}
-                        </p>
-                      </div>
-
-                      {/* EXTERNAL LINK BUTTON */}
-                      <div className="pt-[4px]">
-                        <a 
-                          href={`https://www.uniprot.org/uniprotkb/${selectedUniprotId}/entry`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center text-[15px] font-black text-[#b4ccd1] hover:text-[#FFCCBB] transition-colors group"
-                        >
-                          <span>View full UniProt.org entry</span>
-                          <svg 
-                            className="w-[20px] h-[20px] ml-[10px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" 
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                          </svg>
-                        </a>
-                      </div>
-                    </>
-                  ) : (
-                    <p className="text-[12px] font-mono text-[#475569] uppercase tracking-[0.2em]">
-                      Biological metadata restricted or unavailable
-                    </p>
-                  )}
+                  <div>
+                  <button 
+                    onClick={handleDownload} // Use the new function here 
+                    title="Download analysis as PDF"
+                    className="text-[#475569] hover:text-[#94A3B8] transition-colors group p-[1px] cursor-pointer action-icon-group"
+                  >
+                    <svg className="w-[20px] h-[20px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4-4v8" />
+                    </svg>
+                  </button>
+                  <button 
+                    onClick={() => setSelectedVariant(null)}
+                    title="Close analysis"
+                    className="text-[#475569] hover:text-[#94A3B8] transition-colors group p-[1px] cursor-pointer action-icon-group"
+                  >
+                    <svg className="w-[20px] h-[20px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                  </div>
                 </div>
+                {/* CHOSEN PROTEIN ID ------------------------------------------------------------------------------------- */}
+
+                {/* UNIPROT DATA ------------------------------------------------------------------------------------------ */}
+                <div className="mb-[20px] bg-slate-50">
+                  {uniProtLoading ? (
+                  <p className="text-[14px] font-mono animate-pulse uppercase tracking-widest">
+                    Syncing UniProt...
+                  </p>
+                  ) : bioData ? (
+                  <>
+                  <h3 className="text-[14px] font-black text-[#64748B] uppercase mb-[-10px]">
+                    {bioData.fullName}
+                  </h3>
+                  <p className="text-[14px] font-mono text-[#94A3B8] uppercase mb-[3px] tracking-tighter">
+                    Gene: {bioData.geneName} | Organism: {bioData.organism}
+                  </p>
+                  
+                  <div>
+                    <p className="text-[13px] font-mono text-[#6EB5C0] leading-relaxed italic lowercase first-letter:uppercase">
+                      {bioData.function.length > 200 
+                        ? `${bioData.function.substring(0, 200)}...` 
+                        : bioData.function}
+                    </p>
+                  </div>
+
+                  {/* EXTERNAL LINK BUTTON */}
+                  <div className="pt-[4px]">
+                    <a 
+                      href={`https://www.uniprot.org/uniprotkb/${selectedUniprotId}/entry`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-[15px] font-black text-[#b4ccd1] hover:text-[#FFCCBB] transition-colors group"
+                    >
+                      <span>View full UniProt.org entry</span>
+                      <svg 
+                        className="w-[20px] h-[20px] ml-[10px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </div>
+                  </>
+                  ) : (
+                  <p className="text-[12px] font-mono text-[#475569] uppercase tracking-[0.2em]">
+                    Biological metadata restricted or unavailable
+                  </p>
+                )}
+                </div>
+                {/* UNIPROT DATA ------------------------------------------------------------------------------------------ */}
 
                 {/* MUTATION CONTEXT: COORDINATE, CHEMISTRY & PROPERTY SHIFT -------------------------------------------------- */}
                 <div className="flex flex-col gap-[8px] animate-in fade-in duration-500">
-                  
+
                   {/* ROW 1: THE COORDINATE */}
                   <div className="flex items-center justify-between max-w-xs h-[20px]">
                     <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#475569]">
@@ -699,7 +706,7 @@ function App() {
                     </p>
                   </div>
 
-                  {/* ROWS 5/6: STRUCTURAL CONTEXT (Alpha Helix / Beta Sheet) --------------------------------------------------- */}
+                  {/* ROWS 5/6: STRUCTURAL CONTEXT (Alpha Helix / Beta Sheet) */}
                   <div className="flex items-center justify-between max-w-xs h-[20px]">
                     <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#475569]">
                       Local geometry
@@ -717,8 +724,9 @@ function App() {
                     </p>
                   </div>
                 </div>
+                {/* MUTATION CONTEXT: COORDINATE, CHEMISTRY & PROPERTY SHIFT -------------------------------------------------- */}
 
-                {/* MUTATION SCORES ----------------------------------------------------------------------------------------- */}
+                {/* CHARACTERISTICS ----------------------------------------------------------------------------------------- */}
                 <div className='mt-[30px] mb-[-12px]'>
                   <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     📌 Characteristics
@@ -877,6 +885,7 @@ function App() {
                   </div>
                 </div>
                 </div>
+                {/* CHARACTERISTICS ----------------------------------------------------------------------------------------- */}
 
                 {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
                 <div id="str" className='mt-[30px] mb-[-12px]'>
@@ -901,6 +910,7 @@ function App() {
                     })()}
                   </div>
                 </div> 
+                {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
 
                 {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
                 <div id="seq" className='mt-[30px] mb-[-12px]'>
@@ -925,6 +935,7 @@ function App() {
                     })()}
                   </div>
                 </div> 
+                {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
 
                 {/* GEX SECTION ------------------------------------------------------------------------------------------ */}
                 <div id="gex" className='mt-[30px] mb-[-12px]'>
@@ -948,6 +959,7 @@ function App() {
                     })()}
                   </div>
                 </div> 
+                {/* GEX SECTION ------------------------------------------------------------------------------------------ */}
 
                 {/* Gene Ontology SECTION ------------------------------------------------------------------------------------ */}
                 <div id="go" className='mt-[30px] mb-[-12px]'>
@@ -971,7 +983,8 @@ function App() {
                     })()}
                   </div> 
                 </div> 
-                 
+                {/* Gene Ontology SECTION ------------------------------------------------------------------------------------ */}
+
               </div>
             ) : (
               <div className="w-full mt-[-10px] text-center">
@@ -979,10 +992,17 @@ function App() {
               </div>
             )}
 
-          </div>
+          </div> 
+          {/* RIGHT HALF:  ---------------------------------------------------------------------------------------------------------------------- */}
+
         </div>
+        {/* MAIN BODY ------------------------------------------------------------------------------------------------------------------------- */}
+
       </div>
+      {/* closes GLOBAL */}
+
     </div>
+    // MAIN FUNCTION·········································
   );
 }
 
