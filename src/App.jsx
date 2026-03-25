@@ -353,7 +353,7 @@ function App() {
             </svg>
             </div>
             {/* CENTER TITLE */}
-            <h1 className="text-[40px] text-center text-[#006C84] font-black uppercase tracking-[0.2em] space-nowrap">
+            <h1 className="text-[40px] text-center text-[#006C84] font-['Montserrat',sans-serif] uppercase tracking-[0.1em] space-nowrap">
               amino-mapp
             </h1>
             {/* RIGHT CHAIN */}
