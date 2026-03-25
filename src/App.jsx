@@ -132,10 +132,10 @@ function App() {
     }
     return (
       <div className="flex justify-between items-baseline h-[30px]">
-        <p className="text-[16px] font-black text-[#475569] uppercase tracking-widest leading-none">
+        <p className="text-[14px] font-['Elephant',_'Playfair_Display',_serif] text-[#0F172A] tracking-widest leading-none">
           {label}
         </p>
-        <p className={`text-[16px] font-mono font-bold uppercase leading-none ${color}`}>
+        <p className={`text-[14px] font-['Elephant',_'Playfair_Display',_serif] font-bold uppercase leading-none ${color}`}>
           {displayValue}
         </p>
       </div>
@@ -806,11 +806,6 @@ function App() {
                   </div>
                 </div>
 
-                <div>
-                  <p className="text-[10px] font-black text-[#94A3B8] uppercase tracking-[0.4em] mt-[20px] mb-[2px]">
-                    Scores
-                  </p>
-                </div>
                 <div className="space-y-1">
                   {/* AM Pathogenicity: Red if > 0.564 (Pathogenic threshold) */}
                   <DataPoint 
@@ -834,31 +829,31 @@ function App() {
 
                 <div>
                   <p className="text-[10px] font-black text-[#94A3B8] uppercase tracking-[0.4em] mt-[20px] mb-[2px]">
-                    Other information
+                    Scores
                   </p>
                 </div>
                 <div className="flex flex-col">
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
                     <p className="text-[14px] font-black text-[#475569] tracking-widest leading-none">Destabilizing?</p>
-                    <p className="text-[14px] font-mono font-bold text-[#0F172A] leading-none">
+                    <p className="text-[14px] font-mono font-bold text-[#475569] leading-none">
                       {selectedVariant.pred_ddg_label || "Unspecified"}
                     </p>
                   </div>
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
                     <p className="text-[14px] font-black text-[#475569] tracking-widest leading-none">Interface score?</p>
-                    <p className="text-[14px] font-mono font-bold text-[#0F172A] leading-none">
+                    <p className="text-[14px] font-mono font-bold text-[#475569] leading-none">
                       {selectedVariant.interface_pdockq || "Unspecified"}
                     </p>
                   </div>
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
                     <p className="text-[14px] font-black text-[#475569] tracking-widest leading-none">Interface?</p>
-                    <p className="text-[14px] font-mono font-bold text-[#0F172A] leading-none">
+                    <p className="text-[14px] font-mono font-bold text-[#475569] leading-none">
                       {selectedVariant.interface_label || "Unspecified"}
                     </p>
                   </div>
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
                     <p className="text-[14px] font-black text-[#475569] tracking-widest leading-none">Protein pockets?</p>
-                    <p className="text-[14px] font-mono font-bold text-[#0F172A] leading-none">
+                    <p className="text-[14px] font-mono font-bold text-[#475569] leading-none">
                       {selectedVariant.pocket_label || "Unspecified"}
                     </p>
                   </div>
