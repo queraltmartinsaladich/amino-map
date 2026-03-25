@@ -482,7 +482,7 @@ function App() {
               
               {/* 1. ESM1b Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="mt-[10px] text-[16px] font-['EB_Garamond',_serif] font-bold text-slate-300 tracking-widest">ESM1b class:</span>
+                <span className="mt-[10px] text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-slate-300 tracking-widest">ESM1b class:</span>
                 <div className="flex gap-[1px]">
                   {['ALL', 'pathogenic', 'benign'].map(cat => (
                     <label
@@ -500,7 +500,7 @@ function App() {
 
               {/* 2. AM Class Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="text-[16px] font-['EB_Garamond',_serif] font-bold text-slate-300 tracking-widest">AM class:</span>
+                <span className="text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-slate-300 tracking-widest">AM class:</span>
                 <div className="flex gap-[1px]">
                   {['ALL', 'pathogenic', 'benign', 'ambiguous'].map(cat => (
                     <label
@@ -518,7 +518,7 @@ function App() {
 
               {/* 3. Mechanism Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="text-[16px] font-['EB_Garamond',_serif] font-bold text-slate-300 tracking-widest">Mechanism:</span>
+                <span className="text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-slate-300 tracking-widest">Mechanism:</span>
                 <div className="flex gap-[1px]">
                   {['ALL', 'Unassigned', 'Stability', 'Pockets', 'Interface'].map(cat => (
                     <label

@@ -30,8 +30,8 @@ export const ProteinTable = ({
                     onClick={() => onRowSelect(row)} 
                     className={`group cursor-pointer transition-all ${
                       selectedVariant?.variant_id === row.variant_id 
-                      ? 'bg-blue-600 text-white' 
-                      : 'hover:bg-slate-50 text-slate-600'}`}
+                      ? 'bg-[#E2E8E4] text-[#006C84]' 
+                      : 'hover:bg-[#6EB5C0] text-[#FFFFFF]'}`}
                   >
                     <td className="py-[3px] px-[4px] text-[15px] font-black uppercase tracking-tighter font-mono">
                       {row.variant_id}
@@ -39,8 +39,8 @@ export const ProteinTable = ({
                     <td className="py-[3px] px-[4px] text-center">
                       <span className={`text-[14px] font-black uppercase tracking-tighter ${
                         selectedVariant?.variant_id === row.variant_id 
-                        ? 'text-white' 
-                        : row.ESM1b_is_pathogenic === 'pathogenic' ? 'text-red-600' : 'text-green-600'
+                        ? 'text-[#E2E8E4]' 
+                        : row.ESM1b_is_pathogenic === 'pathogenic' ? 'text-[#7B1B38]' : 'text-[#006C84]'
                       }`}>
                         {row.ESM1b_is_pathogenic}
                       </span>
@@ -48,8 +48,8 @@ export const ProteinTable = ({
                     <td className="py-[3px] px-[4px] text-center">
                       <span className={`text-[14px] font-black uppercase tracking-tighter ${
                         selectedVariant?.variant_id === row.variant_id 
-                        ? 'text-white' 
-                        : row.am_class === 'pathogenic' ? 'text-red-600' : 'text-green-600'
+                        ? 'text-[#E2E8E4]' 
+                        : row.am_class === 'pathogenic' ? 'text-[#7B1B38]' : 'text-[#006C84]'
                       }`}>
                         {row.am_class}
                       </span>
@@ -67,7 +67,7 @@ export const ProteinTable = ({
                 ))
               ) : (
                 <tr>
-                  <td colSpan="4" className="py-[20px] text-center text-slate-300 font-mono uppercase tracking-widest">
+                  <td colSpan="4" className="py-[20px] text-center text-[#FFCCBB] font-mono uppercase tracking-widest">
                     No matching variants found
                   </td>
                 </tr>
