@@ -371,7 +371,7 @@ function App() {
           <h2 className="text-[18px] mt-[-20px] font-mono uppercase text-center tracking-[0.4em] text-[#64748B] max-w-2xl">
             An open-source protein mutation browser
           </h2>
-          <h3 className="text-[10px] font-['Glacial_Indifference',_sans-serif] uppercase text-center tracking-[0.4em] text-[#F1F5F9] max-w-2xl">
+          <h3 className="text-[10px] font-['Elephant',_'Playfair_Display',_serif] uppercase text-center tracking-[0.4em] text-[#94A3B8] max-w-2xl">
             Beta version, 2026
           </h3>
         </header>
@@ -563,7 +563,7 @@ function App() {
                   {/* CHOSEN PROTEIN ID ------------------------------------------------------------------------------------- */}
                   <div className="flex items-start border-[#0F172A] justify-between">
                     <div>
-                      <span className="text-[#94A3B8] text-[18px] font-black uppercase tracking-[0.4em]">Analysis of</span>
+                      <span className="text-[#006C84] text-[18px] font-black uppercase tracking-[0.4em]">Analysis of</span>
                       <h2 className="text-[30px] font-black text-[#0F172A] font-['Elephant',_'Playfair_Display',_serif] uppercase tracking-tighter mb-[20px]">
                         {selectedVariant.variant_id}
                       </h2>
@@ -598,7 +598,7 @@ function App() {
                     </p>
                   ) : bioData ? (
                     <>
-                      <h3 className="text-[14px] font-black text-[#E2E8E4] uppercase mb-[-10px]">
+                      <h3 className="text-[14px] font-black text-[#006C84] uppercase mb-[-10px]">
                         {bioData.fullName}
                       </h3>
                       <p className="text-[14px] font-mono text-[#94A3B8] uppercase mb-[3px] tracking-tighter">
@@ -606,7 +606,7 @@ function App() {
                       </p>
                       
                       <div>
-                        <p className="text-[13px] font-mono text-[#64748B] leading-relaxed italic lowercase first-letter:uppercase">
+                        <p className="text-[13px] font-mono text-[#6EB5C0] leading-relaxed italic lowercase first-letter:uppercase">
                           {bioData.function.length > 200 
                             ? `${bioData.function.substring(0, 200)}...` 
                             : bioData.function}
@@ -863,8 +863,8 @@ function App() {
                     </p>
                   </div>
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
-                    <p className="text-[16px] font-black text-[#475569] tracking-widest leading-none">Mechanism</p>
-                    <p className="text-[16px] font-mono font-bold text-[#0F172A] leading-none">
+                    <p className="text-[14px] font-black text-[#475569] tracking-widest leading-none">Mechanism</p>
+                    <p className="text-[14px] font-mono font-bold text-[#0F172A] leading-none">
                       {selectedVariant.mechanistic_label || "Unspecified"}
                     </p>
                   </div>
