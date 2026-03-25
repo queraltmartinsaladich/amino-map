@@ -326,16 +326,6 @@ function App() {
       document.title = originalTitle;
     }, 100);};
 
-  const loadingMessages = [
-    "BUFFERING...LITERALLY",
-    "BUILDING YOUR PROTEIN 🏋🏼‍♀️",
-    "FOLDING PROTEIN… DON'T PANIC 🧬",
-    "SUMMONING RIBOSOMES...",
-    "CONSULTING THE MITOCHONDRIA ⚡",
-    "ALIGNING SEQUENCES LIKE IT'S 1999",
-    "CONVINCING MOLECULES TO BEHAVE…",
-  ];
-
   // LOADING APPEARANCE
   if (loading) {
     return (
@@ -347,7 +337,7 @@ function App() {
   
   // RETURN FUNCTION - MAIN
   return (
-    <div className="bg-white ml-[40px] mr-[40px] mt-[20px] pl-[10px] pr-[10px] text-slate-900">
+    <div className="bg-white ml-[40px] mr-[40px] mt-[20px] mb-[30px] pl-[10px] pr-[10px] text-slate-900">
       <div className="mx-auto">
 
         {/* MAIN TITLE SECTION */}
@@ -374,10 +364,10 @@ function App() {
           </div>
 
           {/* SUBTITLE BELOW */}
-          <h2 className="text-[18px] mt-[-30px] font-mono uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
+          <h2 className="text-[18px] mt-[-20px] font-mono uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
             An open-source protein mutation browser
           </h2>
-          <h3 className="text-[10px] font-black uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
+          <h3 className="text-[10px] mt-[8px] font-black uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
             Queralt Martín-Saladich, 2026
           </h3>
         </header>
