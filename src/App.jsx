@@ -482,54 +482,54 @@ function App() {
               
               {/* 1. ESM1b Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="mt-[10px] text-[16px] font-mono text-slate-300 tracking-widest uppercase">ESM1b class:</span>
+                <span className="mt-[10px] text-[16px] font-['EB_Garamond',_serif] text-slate-300 tracking-widest uppercase">ESM1b class:</span>
                 <div className="flex gap-[1px]">
                   {['ALL', 'pathogenic', 'benign'].map(cat => (
-                    <button
+                    <label
                       key={cat}
                       onClick={() => updateFilter('esm', cat)} // Use hook function
-                      className={`mt-[10px] mb-[1px] ml-[2px] px-[5px] py-[1px] text-[14px] font-bold uppercase tracking-wider cursor-pointer ${
+                      className={`mt-[10px] mb-[1px] ml-[2px] px-[5px] py-[1px] text-[14px] font-['Glacial_Indifference',_sans-serif] uppercase tracking-wider cursor-pointer ${
                         activeESM1b === cat ? 'bg-[#6EB5C0] text-white' : 'bg-[#E2E8E4] text-slate-400'
                       }`}
                     >
                       {cat}
-                    </button>
+                    </label>
                   ))}
                 </div>
               </div>
 
               {/* 2. AM Class Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="text-[16px] font-mono text-slate-300 tracking-widest uppercase">AM class:</span>
+                <span className="text-[16px] font-['EB_Garamond',_serif] text-slate-300 tracking-widest uppercase">AM class:</span>
                 <div className="flex gap-[1px]">
                   {['ALL', 'pathogenic', 'benign', 'ambiguous'].map(cat => (
-                    <button
+                    <label
                       key={cat}
                       onClick={() => updateFilter('class', cat)} // Use hook function
-                      className={`mb-[2px] ml-[2px] px-[5px] py-[1px] text-[14px] font-bold uppercase tracking-wider cursor-pointer ${
+                      className={`mb-[2px] ml-[2px] px-[5px] py-[1px] text-[14px] font-['Glacial_Indifference',_sans-serif] uppercase tracking-wider cursor-pointer ${
                         activeClass === cat ? 'bg-[#6EB5C0] text-white' : 'bg-[#E2E8E4] text-slate-400'
                       }`}
                     >
                       {cat}
-                    </button>
+                    </label>
                   ))}
                 </div>
               </div>
 
               {/* 3. Mechanism Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="text-[16px] font-mono text-slate-300 tracking-widest uppercase">Mechanism:</span>
+                <span className="text-[16px] font-['EB_Garamond',_serif] text-slate-300 tracking-widest uppercase">Mechanism:</span>
                 <div className="flex gap-[1px]">
                   {['ALL', 'Unassigned', 'Stability', 'Pockets', 'Interface'].map(cat => (
-                    <button
+                    <label
                       key={cat}
                       onClick={() => updateFilter('mech', cat)} // Use hook function
-                      className={`mb-[2px] ml-[2px] px-[5px] py-[1px] text-[14px] font-bold uppercase tracking-wider cursor-pointer ${
+                      className={`mb-[2px] ml-[2px] px-[5px] py-[1px] text-[14px] font-['Glacial_Indifference',_sans-serif] uppercase tracking-wider cursor-pointer ${
                         activeMech === cat ? 'bg-[#6EB5C0] text-white' : 'bg-[#E2E8E4] text-slate-400'
                       }`}
                     >
                       {cat}
-                    </button>
+                    </label>
                   ))}
                 </div>
               </div>
