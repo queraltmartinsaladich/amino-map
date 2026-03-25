@@ -805,7 +805,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className="space-y-1 p-[3px] border-2">
+                <div className="p-[3px] border-2 border-[#F1F5F9]">
                   {/* AM Pathogenicity: Red if > 0.564 (Pathogenic threshold) */}
                   <DataPoint 
                     label="AM pathogenicity score" 
