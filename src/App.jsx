@@ -386,7 +386,7 @@ function App() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative text-[11px] font-bold uppercase tracking-[0.25em] text-[#94A3B8] no-underline hover:text-[#2563EB] transition-all duration-300"
+                  className="group relative text-[12px] font-bold uppercase tracking-[0.25em] text-[#94A3B8] no-underline hover:text-[#7B1B38] transition-all duration-300"
                 >
                   <span>{link.name}</span>
                   
@@ -469,7 +469,7 @@ function App() {
                 className="
                   border-0
                   w-full pl-[10px] py-[5px]
-                  text-[18px] font-mono font-bold uppercase tracking-[0.2em] 
+                  text-[18px] font-mono font-bold uppercase tracking-[0.1em] 
                 "
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -482,13 +482,13 @@ function App() {
               {/* 1. ESM1b Filters */}
               <div className="flex items-center gap-[2px]">
                 <span className="mt-[10px] text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-[#475569] tracking-widest">ESM1b class:</span>
-                <div className="flex gap-[1px]">
+                <div className="flex gap-[3px]">
                   {['ALL', 'pathogenic', 'benign'].map(cat => (
                     <label
                       key={cat}
                       onClick={() => updateFilter('esm', cat)} // Use hook function
-                      className={`mt-[10px] mb-[1px] ml-[2px] px-[5px] py-[3px] text-[12px] font-['Glacial_Indifference',_sans-serif] rounded-[5px] uppercase tracking-wider cursor-pointer ${
-                        activeESM1b === cat ? 'bg-[#006C84] text-[#FFFFFF]' : 'bg-[#E2E8E4] text-[#94A3B8]'
+                      className={`mt-[10px] mb-[1px] ml-[2px] px-[8px] py-[3px] text-[12px] font-['Glacial_Indifference',_sans-serif] rounded-[5px] uppercase tracking-wider cursor-pointer ${
+                        activeESM1b === cat ? 'bg-[#006C84] text-[#FFFFFF]' : 'bg-[#F1F5F9] text-[#94A3B8]'
                       }`}
                     >
                       {cat}
@@ -500,13 +500,13 @@ function App() {
               {/* 2. AM Class Filters */}
               <div className="flex items-center gap-[2px]">
                 <span className="text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-[#475569] tracking-widest">AlphaMissense class:</span>
-                <div className="flex gap-[1px]">
+                <div className="flex gap-[3px]">
                   {['ALL', 'pathogenic', 'benign', 'ambiguous'].map(cat => (
                     <label
                       key={cat}
                       onClick={() => updateFilter('class', cat)} // Use hook function
-                      className={`mb-[2px] ml-[2px] px-[5px] py-[3px] text-[12px] font-['Glacial_Indifference',_sans-serif] uppercase rounded-[5px] tracking-wider cursor-pointer ${
-                        activeClass === cat ? 'bg-[#006C84] text-[#FFFFFF]' : 'bg-[#E2E8E4] text-[#94A3B8]'
+                      className={`mb-[2px] ml-[2px] px-[8px] py-[3px] text-[12px] font-['Glacial_Indifference',_sans-serif] uppercase rounded-[5px] tracking-wider cursor-pointer ${
+                        activeClass === cat ? 'bg-[#006C84] text-[#FFFFFF]' : 'bg-[#F1F5F9] text-[#94A3B8]'
                       }`}
                     >
                       {cat}
@@ -517,14 +517,14 @@ function App() {
 
               {/* 3. Mechanism Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-[#475569] tracking-widest">Mechanism:</span>
-                <div className="flex gap-[1px]">
+                <span className="text-[16px] font-['Roboto',sans-serif] font-bold text-[#475569] tracking-widest">Mechanism:</span>
+                <div className="flex gap-[3px]">
                   {['ALL', 'Unassigned', 'Stability', 'Pockets', 'Interface'].map(cat => (
                     <label
                       key={cat}
                       onClick={() => updateFilter('mech', cat)} // Use hook function
-                      className={`mb-[2px] ml-[2px] px-[5px] py-[3px] text-[12px] font-['Glacial_Indifference',_sans-serif] rounded-[5px] uppercase tracking-wider cursor-pointer ${
-                        activeMech === cat ? 'bg-[#006C84] text-[#FFFFFF]' : 'bg-[#E2E8E4] text-[#94A3B8]'
+                      className={`mb-[2px] ml-[2px] px-[8px] py-[3px] text-[12px] font-['Glacial_Indifference',_sans-serif] rounded-[5px] uppercase tracking-wider cursor-pointer ${
+                        activeMech === cat ? 'bg-[#006C84] text-[#FFFFFF]' : 'bg-[#F1F5F9] text-[#94A3B8]'
                       }`}
                     >
                       {cat}
@@ -945,8 +945,8 @@ function App() {
                 </div>                  
               </div>
             ) : (
-              <div className="w-full mt-[-12px] text-center">
-                <p className="text-[#E2E8F0] font-mono uppercase tracking-[0.4em] text-[14px]">Select or type in the variant ID</p>
+              <div className="w-full mt-[-15px] text-center">
+                <p className="text-[#6EB5C0] font-mono uppercase tracking-[0.4em] text-[16px]">Select or type in the variant ID</p>
               </div>
             )}
 
