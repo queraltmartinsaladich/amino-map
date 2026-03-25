@@ -22,7 +22,7 @@ export const ProteinTable = ({
                 <th className="py-[4px] px-[4px] text-right">Mechanism</th>
               </tr>
             </thead>
-            <tbody className="">
+            <tbody className="text-slate-900">
               {data.length > 0 ? (
                 data.map((row) => (
                   <tr 
