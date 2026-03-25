@@ -896,16 +896,16 @@ function App() {
 
                 {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#475569] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#475569] leading-none">
                     🔍 SEQUENCING
                   </p>
                 </div> 
-                <div className="border-t-2 border-[#0F172A] pt-8">
+                <div className="border-t-2 border-[#0F172A] pt-[8px]">
                   <a
                     href="https://uniprot.org"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-4 hover:underline hover:text-[#FFCCBB]"
+                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[4px] hover:underline hover:text-[#FFCCBB]"
                   >
                     uniprot.org
                   </a>
@@ -924,12 +924,12 @@ function App() {
                     🔬 RNA EXPRESSION
                   </p>
                 </div> 
-                <div className="border-t-2 border-[#0F172A] pt-8">
+                <div className="border-t-2 border-[#0F172A] pt-[8px]">
                   <a
                     href="https://proteinatlas.org"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-4 hover:underline hover:text-[#FFCCBB]"
+                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[4px] hover:underline hover:text-[#FFCCBB]"
                   >
                     proteinatlas.org
                   </a>
@@ -947,12 +947,12 @@ function App() {
                     🧬 GENE ONTOLOGY
                   </p>
                 </div> 
-                <div className="border-t-2 border-[#0F172A] pt-8">
+                <div className="border-t-2 border-[#0F172A] pt-[8px]">
                   <a
                     href="https://geneontology.org"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-4 hover:underline hover:text-[#FFCCBB]"
+                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[4px] hover:underline hover:text-[#FFCCBB]"
                   >
                     geneontology.org
                   </a>
