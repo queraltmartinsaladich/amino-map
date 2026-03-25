@@ -342,9 +342,9 @@ function App() {
 
         {/* MAIN TITLE SECTION */}
         <header className="flex flex-col items-center w-full py-[8px]">
-          <div className="flex items-center justify-between w-full">
+          <div className="flex items-center justify-between w-full gap-[8px]">
             {/* LEFT CHAIN */}
-            <div className='mt-[-50px]'>
+            <div className='mt-[-50px] ml-[-10px]'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="480" height="80" fill="none">
               <path d="M10 25C30 5 50 35 70 25C90 15 110 35 130 25C150 15 170 35 190 25C210 15 230 25 230 25" 
                     stroke="#006C84" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
@@ -357,7 +357,7 @@ function App() {
               amino-map
             </h1>
             {/* RIGHT CHAIN */}
-            <div className='mt-[-50px] ml-[-20px] scale-x-[-1]'>
+            <div className='mt-[-50px] ml-[-10px] scale-x-[-1]'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="480" height="80" fill="none">
               <path d="M10 25C30 5 50 35 70 25C90 15 110 35 130 25C150 15 170 35 190 25C210 15 230 25 230 25" 
                     stroke="#006C84" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
@@ -368,7 +368,7 @@ function App() {
           </div>
 
           {/* SUBTITLE BELOW */}
-          <h2 className="text-[18px] mt-[-25px] font-mono uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
+          <h2 className="text-[18px] text-[#6EB5C0] mt-[-20px] font-mono uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
             An open-source protein mutation browser
           </h2>
           <h3 className="text-[10px] mt-[-10px] font-black uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
