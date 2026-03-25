@@ -9,7 +9,7 @@ export const SequenceViewer = ({ sequence, mutationPosition }) => {
   const chunks = sequence.match(/.{1,50}/g) || [];
 
   return (
-    <div className="mt-[8px] pt-[6px]">
+    <div className="mt-[8px]">
       <div 
       ref={containerRef}
       className="w-full relative h-auto bg-[#F8FAFC] border-2 border-[#94A3B8] rounded-sm shadow-inner overflow-y-auto h-auto scrollbar-thin scrollbar-thumb-slate-300">
@@ -33,7 +33,7 @@ export const SequenceViewer = ({ sequence, mutationPosition }) => {
                   className={`w-[14px] text-center transition-all cursor-default
                     ${isTarget 
                       ? 'bg-[#6EB5C0] text-[#FFFFFF] font-black rounded-sm ring-[2px] ring-[#6EB5C0] scale-125 z-10 shadow-sm' 
-                      : 'text-[#F8FAFC] hover:text-[#94A3B8] hover:bg-[#F8FAFC]'}
+                      : 'text-[#94A3B8] hover:text-[#6EB5C0] hover:bg-[#F8FAFC]'}
                   `}
                   title={`Index: ${absoluteIdx} | Residue: ${aa}`}
                 >

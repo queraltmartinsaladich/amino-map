@@ -887,7 +887,7 @@ function App() {
                     href="https://molstar.org"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-4 hover:underline hover:text-[#FFCCBB]"
+                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[0px] hover:underline hover:text-[#FFCCBB]"
                   >
                     molstar.org
                   </a>
@@ -911,7 +911,7 @@ function App() {
                     href="https://uniprot.org"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[4px] hover:underline hover:text-[#FFCCBB]"
+                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[0px] hover:underline hover:text-[#FFCCBB]"
                   >
                     uniprot.org
                   </a>
@@ -935,7 +935,7 @@ function App() {
                     href="https://proteinatlas.org"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[4px] hover:underline hover:text-[#FFCCBB]"
+                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[0px] hover:underline hover:text-[#FFCCBB]"
                   >
                     proteinatlas.org
                   </a>
@@ -958,7 +958,7 @@ function App() {
                     href="https://geneontology.org"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[4px] hover:underline hover:text-[#FFCCBB]"
+                    className="text-[10px] font-black text-[#6EB5C0] uppercase tracking-[0.4em] mb-[0px] hover:underline hover:text-[#FFCCBB]"
                   >
                     geneontology.org
                   </a>
