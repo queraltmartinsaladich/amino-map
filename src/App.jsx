@@ -345,7 +345,7 @@ function App() {
           <div className="flex items-center justify-between w-full gap-[5px]">
             {/* LEFT CHAIN */}
             <div className='mt-[-50px] ml-[-20px]'>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="full/3" height="full/8" fill="none">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="480" height="80" fill="none">
               <path d="M10 25C30 5 50 35 70 25C90 15 110 35 130 25C150 15 170 35 190 25C210 15 230 25 230 25" 
                     stroke="#006C84" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M10 25C30 45 50 15 70 25C90 35 110 15 130 25C150 35 170 15 190 25C210 35 230 25 230 25" 
@@ -357,7 +357,7 @@ function App() {
               AMINO-MAPP
             </h1>
             {/* RIGHT CHAIN */}
-            <div className='mt-[-50px] scale-x-[-1]'>
+            <div className='mt-[-50px] ml-[-20px] scale-x-[-1]'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="480" height="80" fill="none">
               <path d="M10 25C30 5 50 35 70 25C90 15 110 35 130 25C150 15 170 35 190 25C210 15 230 25 230 25" 
                     stroke="#006C84" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
@@ -805,7 +805,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className="p-[10px] border-2 border-[#F1F5F9] h-[40px]">
+                <div className="px-[10px] border-2 border-[#F1F5F9] h-[80px]">
                   {/* ESM1b LLR: */}
                   <DataPoint 
                     label="ESM1b likelihood ratio" 
