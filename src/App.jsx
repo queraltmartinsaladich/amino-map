@@ -569,6 +569,7 @@ function App() {
               <div key={selectedVariant.variant_id} className="mt-[-1px] sticky bg-[#FFFFFF] animate-in fade-in duration-300">
                 
                   {/* CHOSEN PROTEIN ID ------------------------------------------------------------------------------------- */}
+                  <div id='char'>
                   <div className="flex items-start justify-between">
                     <div>
                       <span className="text-[#94A3B8] text-[18px] font-black uppercase tracking-[0.4em]">Analysis of</span>
@@ -874,6 +875,7 @@ function App() {
                       {selectedVariant.mechanistic_label || "Unspecified"}
                     </p>
                   </div>
+                </div>
                 </div>
 
                 {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
