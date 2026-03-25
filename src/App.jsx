@@ -121,7 +121,7 @@ function App() {
     console.log("History cleared"); 
     setHistory([]);};
 
-  const DataPoint = ({ label, value, color = "text-slate-900", decimals = 3 }) => {
+  const DataPoint = ({ label, value, color = "text-[#0F172A]", decimals = 3 }) => {
     let displayValue;
     if (typeof value === 'number') {
       displayValue = value.toFixed(decimals);
@@ -132,7 +132,7 @@ function App() {
     }
     return (
       <div className="flex justify-between items-baseline h-[30px]">
-        <p className="text-[16px] font-black text-slate-300 uppercase tracking-widest leading-none">
+        <p className="text-[16px] font-black text-[#CBD5E1] uppercase tracking-widest leading-none">
           {label}
         </p>
         <p className={`text-[16px] font-mono font-bold uppercase leading-none ${color}`}>
@@ -330,14 +330,14 @@ function App() {
   if (loading) {
     return (
       <div className="h-screen flex items-center justify-center bg-white">
-        <div className="text-slate-400 font-black tracking-[0.5em] animate-pulse">BUILDING YOUR PROTEIN🏋🏼‍♀️</div>
+        <div className="text-[#94A3B8] font-black tracking-[0.5em] animate-pulse">BUILDING YOUR PROTEIN🏋🏼‍♀️</div>
       </div>
     );
   }
   
   // RETURN FUNCTION - MAIN
   return (
-    <div className="bg-white ml-[40px] mr-[40px] mt-[20px] mb-[30px] pl-[10px] pr-[10px] text-slate-900">
+    <div className="bg-white ml-[40px] mr-[40px] mt-[20px] mb-[30px] pl-[10px] pr-[10px] text-[#0F172A]">
       <div className="mx-auto">
 
         {/* MAIN TITLE SECTION */}
@@ -368,17 +368,17 @@ function App() {
           </div>
 
           {/* SUBTITLE BELOW */}
-          <h2 className="text-[18px] text-[#6EB5C0] mt-[-20px] font-mono uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
+          <h2 className="text-[18px] text-[#6EB5C0] mt-[-20px] font-mono uppercase text-center tracking-[0.4em] text-[#64748B] max-w-2xl">
             An open-source protein mutation browser
           </h2>
-          <h3 className="text-[10px] mt-[-10px] font-['Glacial_Indifference',_sans-serif] uppercase text-center tracking-[0.4em] text-slate-500 max-w-2xl">
+          <h3 className="text-[10px] mt-[-10px] font-['Glacial_Indifference',_sans-serif] uppercase text-center tracking-[0.4em] text-[#64748B] max-w-2xl">
             Queralt Martín-Saladich, 2026
           </h3>
         </header>
 
         {/* EXTERNAL RESOURCE NAVIGATION -------------------------------------------------------------------------------------------------------- */}
         <div className="w-full mb-[20px]">
-          <nav className="border-y border-slate-100/60 mt-[4px] mb-[4px] py-[10px]">
+          <nav className="border-y border-[#F1F5F9]/60 mt-[4px] mb-[4px] py-[10px]">
             <div className="flex justify-between items-center w-full">
               {navLinks.map((link) => (
                 <a
@@ -386,7 +386,7 @@ function App() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative text-[11px] font-bold uppercase tracking-[0.25em] text-slate-400 no-underline hover:text-blue-600 transition-all duration-300"
+                  className="group relative text-[11px] font-bold uppercase tracking-[0.25em] text-[#94A3B8] no-underline hover:text-blue-600 transition-all duration-300"
                 >
                   <span>{link.name}</span>
                   
@@ -409,7 +409,7 @@ function App() {
               {/* 1. BULK LOAD */}
               <label 
                 title="Load multiple IDs inside a .txt or .csv file"
-                className="flex items-center text-center px-[20px] py-[2px] border-[2px] border-slate-100 text-slate-400 rounded-[8px] cursor-pointer hover:border-slate-900 hover:text-slate-900 transition-all duration-300 group">
+                className="flex items-center text-center px-[20px] py-[2px] border-[2px] border-[#F1F5F9] text-[#94A3B8] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group">
                 <input 
                   type="file" 
                   accept=".txt,.csv" 
@@ -422,7 +422,7 @@ function App() {
               {/* 2. IMPORT SESSION */}
               <label 
                 title="Import session history"
-                className="flex items-center text-center px-[20px] py-[2px] border-[2px] border-slate-100 text-slate-400 rounded-[8px] cursor-pointer hover:border-slate-900 hover:text-slate-900 transition-all duration-300 group">
+                className="flex items-center text-center px-[20px] py-[2px] border-[2px] border-[#F1F5F9] text-[#94A3B8] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group">
                 <input 
                   type="file" 
                   accept=".csv" 
@@ -437,7 +437,7 @@ function App() {
                 onClick={downloadCSV}
                 disabled={history.length === 0}
                 title="Export session history"
-                className="flex items-center text-center px-[20px] py-[2px] border-[2px] border-slate-100 text-slate-400 rounded-[8px] cursor-pointer hover:border-slate-900 hover:text-slate-900 transition-all duration-300 group"
+                className="flex items-center text-center px-[20px] py-[2px] border-[2px] border-[#F1F5F9] text-[#94A3B8] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group"
               >
                 <span className="text-[12px] font-bold uppercase tracking-[0.1em]">Export ({history.length})</span>
               </label>
@@ -447,7 +447,7 @@ function App() {
                 onClick={clearHistory}
                 disabled={history.length === 0}
                 title="Clear session history"
-                className="flex items-center text-center px-[20px] py-[2px] border-[2px] border-slate-100 text-slate-400 rounded-[8px] cursor-pointer hover:border-slate-900 hover:text-slate-900 transition-all duration-300 group"              >
+                className="flex items-center text-center px-[20px] py-[2px] border-[2px] border-[#F1F5F9] text-[#94A3B8] rounded-[8px] cursor-pointer hover:border-[#0F172A] hover:text-[#0F172A] transition-all duration-300 group"              >
                 <span className="text-[12px] font-bold uppercase tracking-[0.1em]">Clear ({history.length})</span>
               </label>
                           
@@ -482,14 +482,14 @@ function App() {
               
               {/* 1. ESM1b Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="mt-[10px] text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-slate-300 tracking-widest">ESM1b class:</span>
+                <span className="mt-[10px] text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-[#CBD5E1] tracking-widest">ESM1b class:</span>
                 <div className="flex gap-[1px]">
                   {['ALL', 'pathogenic', 'benign'].map(cat => (
                     <label
                       key={cat}
                       onClick={() => updateFilter('esm', cat)} // Use hook function
                       className={`mt-[10px] mb-[1px] ml-[2px] px-[5px] py-[3px] text-[12px] font-['Glacial_Indifference',_sans-serif] rounded-[5px] uppercase tracking-wider cursor-pointer ${
-                        activeESM1b === cat ? 'bg-[#006C84] text-[#FFFFFF]' : 'bg-[#E2E8E4] text-slate-400'
+                        activeESM1b === cat ? 'bg-[#006C84] text-[#FFFFFF]' : 'bg-[#E2E8E4] text-[#94A3B8]'
                       }`}
                     >
                       {cat}
@@ -500,14 +500,14 @@ function App() {
 
               {/* 2. AM Class Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-slate-300 tracking-widest">AlphaMissense class:</span>
+                <span className="text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-[#CBD5E1] tracking-widest">AlphaMissense class:</span>
                 <div className="flex gap-[1px]">
                   {['ALL', 'pathogenic', 'benign', 'ambiguous'].map(cat => (
                     <label
                       key={cat}
                       onClick={() => updateFilter('class', cat)} // Use hook function
                       className={`mb-[2px] ml-[2px] px-[5px] py-[3px] text-[12px] font-['Glacial_Indifference',_sans-serif] uppercase rounded-[5px] tracking-wider cursor-pointer ${
-                        activeClass === cat ? 'bg-[#006C84] text-[#FFFFFF]' : 'bg-[#E2E8E4] text-slate-400'
+                        activeClass === cat ? 'bg-[#006C84] text-[#FFFFFF]' : 'bg-[#E2E8E4] text-[#94A3B8]'
                       }`}
                     >
                       {cat}
@@ -518,14 +518,14 @@ function App() {
 
               {/* 3. Mechanism Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-slate-300 tracking-widest">Mechanism:</span>
+                <span className="text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-[#CBD5E1] tracking-widest">Mechanism:</span>
                 <div className="flex gap-[1px]">
                   {['ALL', 'Unassigned', 'Stability', 'Pockets', 'Interface'].map(cat => (
                     <label
                       key={cat}
                       onClick={() => updateFilter('mech', cat)} // Use hook function
                       className={`mb-[2px] ml-[2px] px-[5px] py-[3px] text-[12px] font-['Glacial_Indifference',_sans-serif] rounded-[5px] uppercase tracking-wider cursor-pointer ${
-                        activeMech === cat ? 'bg-[#006C84] text-[#FFFFFF]' : 'bg-[#E2E8E4] text-slate-400'
+                        activeMech === cat ? 'bg-[#006C84] text-[#FFFFFF]' : 'bg-[#E2E8E4] text-[#94A3B8]'
                       }`}
                     >
                       {cat}
@@ -538,7 +538,7 @@ function App() {
             {/* COUNT SUMMARY */}
             <div className="flex items-left">
               <div className="rounded-full bg-blue-500 animate-pulse"></div>
-              <p className="text-[14px] font-medium text-slate-400 tracking-tight italic">
+              <p className="text-[14px] font-medium text-[#94A3B8] tracking-tight italic">
                 {filteredData.length} entries matching filters
               </p>
             </div>
@@ -562,10 +562,10 @@ function App() {
               <div key={selectedVariant.variant_id} className="mt-[-1px] sticky bg-white animate-in fade-in duration-300">
                 
                   {/* CHOSEN PROTEIN ID ------------------------------------------------------------------------------------- */}
-                  <div className="flex items-start border-slate-900 justify-between">
+                  <div className="flex items-start border-[#0F172A] justify-between">
                     <div>
                       <span className="text-blue-600 text-[18px] font-black uppercase tracking-[0.4em]">Analysis of</span>
-                      <h2 className="text-[30px] font-black text-slate-900 font-mono uppercase tracking-tighter mb-[20px]">
+                      <h2 className="text-[30px] font-black text-[#0F172A] font-mono uppercase tracking-tighter mb-[20px]">
                         {selectedVariant.variant_id}
                       </h2>
                     </div>
@@ -573,7 +573,7 @@ function App() {
                     <button 
                       onClick={handleDownload} // Use the new function here 
                       title="Download analysis as PDF"
-                      className="text-slate-300 hover:text-blue-600 transition-colors group p-1 cursor-pointer action-icon-group"
+                      className="text-[#CBD5E1] hover:text-blue-600 transition-colors group p-1 cursor-pointer action-icon-group"
                     >
                       <svg className="w-[20px] h-[20px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4-4v8" />
@@ -582,7 +582,7 @@ function App() {
                     <button 
                       onClick={() => setSelectedVariant(null)}
                       title="Close analysis"
-                      className="text-slate-300 hover:text-blue-600 transition-colors group p-1 cursor-pointer action-icon-group"
+                      className="text-[#CBD5E1] hover:text-blue-600 transition-colors group p-1 cursor-pointer action-icon-group"
                     >
                       <svg className="w-[20px] h-[20px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
@@ -599,7 +599,7 @@ function App() {
                     </p>
                   ) : bioData ? (
                     <>
-                      <h3 className="text-[14px] font-black text-slate-900 uppercase mb-[-10px]">
+                      <h3 className="text-[14px] font-black text-[#0F172A] uppercase mb-[-10px]">
                         {bioData.fullName}
                       </h3>
                       <p className="text-[14px] font-mono text-blue-600 uppercase mb-[3px] tracking-tighter">
@@ -607,7 +607,7 @@ function App() {
                       </p>
                       
                       <div>
-                        <p className="text-[13px] font-mono text-slate-500 leading-relaxed italic lowercase first-letter:uppercase">
+                        <p className="text-[13px] font-mono text-[#64748B] leading-relaxed italic lowercase first-letter:uppercase">
                           {bioData.function.length > 200 
                             ? `${bioData.function.substring(0, 200)}...` 
                             : bioData.function}
@@ -635,7 +635,7 @@ function App() {
                       </div>
                     </>
                   ) : (
-                    <p className="text-[12px] font-mono text-slate-300 uppercase tracking-[0.2em]">
+                    <p className="text-[12px] font-mono text-[#CBD5E1] uppercase tracking-[0.2em]">
                       Biological metadata restricted or unavailable
                     </p>
                   )}
@@ -646,27 +646,27 @@ function App() {
                   
                   {/* ROW 1: THE COORDINATE */}
                   <div className="flex items-center justify-between max-w-xs h-[20px]">
-                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-slate-300">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#CBD5E1]">
                       Position
                     </span>
-                    <span className="text-[14px] font-mono font-bold text-slate-900">
-                      {mutationPos || '—'} <span className="text-slate-200 text-[14px] ml-1"></span>
+                    <span className="text-[14px] font-mono font-bold text-[#0F172A]">
+                      {mutationPos || '—'} <span className="text-[#E2E8F0] text-[14px] ml-1"></span>
                     </span>
                   </div>
 
                   {/* ROW 2: THE SUBSTITUTION (Identity Swap) */}
                   <div className="flex items-center justify-between max-w-xs h-[20px]">
-                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-slate-300">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#CBD5E1]">
                       Substitution
                     </span>
                     <div className="flex items-center gap-[8px]">
-                      <span className="px-[6px] py-[2px] bg-slate-50 border border-slate-100 rounded text-[12px] font-mono font-bold text-slate-400">
+                      <span className="px-[6px] py-[2px] bg-slate-50 border border-[#F1F5F9] rounded text-[12px] font-mono font-bold text-[#94A3B8]">
                         {selectedVariant.variant_id.split('/')[1].charAt(0)}
                       </span>
-                      <svg className="w-[10px] h-[10px] text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-[10px] h-[10px] text-[#E2E8F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
-                      <span className="px-[6px] py-[2px] !bg-slate-900 border border-slate-900 rounded text-[12px] font-mono font-bold !text-white">
+                      <span className="px-[6px] py-[2px] !bg-[#0F172A] border border-[#0F172A] rounded text-[12px] font-mono font-bold !text-white">
                         {selectedVariant.variant_id.slice(-1)}
                       </span>
                     </div>
@@ -674,37 +674,37 @@ function App() {
 
                   {/* ROWs 3/4: SHIFTs (The "Why it matters" logic) */}
                   <div className="flex items-center justify-between max-w-xs h-[20px]">
-                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-slate-300">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#CBD5E1]">
                       Property Shift
                     </span>
-                    <p className="text-[14px] font-mono text-slate-500 leading-tight">
+                    <p className="text-[14px] font-mono text-[#64748B] leading-tight">
                       {propertyShift}
                     </p>
                   </div>
 
                   <div className="flex items-center justify-between h-[20px]">
-                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-slate-300">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#CBD5E1]">
                       Charge Shift
                     </span>
-                    <p className="text-[14px] font-mono text-slate-500 leading-tight">
+                    <p className="text-[14px] font-mono text-[#64748B] leading-tight">
                       {mutationAnalysis?.isChargeReversal ? 'Charge shift' : 'No charge shift'}
                     </p>
                   </div>
 
                   {/* ROWS 5/6: STRUCTURAL CONTEXT (Alpha Helix / Beta Sheet) --------------------------------------------------- */}
                   <div className="flex items-center justify-between max-w-xs h-[20px]">
-                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-slate-300">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#CBD5E1]">
                       Local geometry
                     </span>
-                    <p className="text-[14px] font-mono text-slate-500 leading-tight">
+                    <p className="text-[14px] font-mono text-[#64748B] leading-tight">
                       {structuralContext}
                     </p>
                   </div>
                   <div className="flex items-center justify-between max-w-xs h-[20px]">
-                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-slate-300">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#CBD5E1]">
                       Structural flexibility
                     </span>
-                    <p className="text-[14px] font-mono text-slate-500 leading-tight">
+                    <p className="text-[14px] font-mono text-[#64748B] leading-tight">
                       {proteinNature.label}                    
                     </p>
                   </div>
@@ -712,11 +712,11 @@ function App() {
 
                 {/* MUTATION SCORES ----------------------------------------------------------------------------------------- */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-slate-300 uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#CBD5E1] uppercase tracking-[0.2em] leading-none">
                     📌 Characteristics
                   </p>
                 </div>
-                <div className="border-t-2 border-slate-900 pt-8">
+                <div className="border-t-2 border-[#0F172A] pt-8">
                   <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mt-[20px] mb-[8px]">
                     Pathogenic labels
                   </p>
@@ -726,7 +726,7 @@ function App() {
                   <div className="flex items-center gap-[8px]">
                     <svg className={`w-[30px] h-[30px] transition-colors ${
                       selectedVariant.ESM1b_is_pathogenic === 'pathogenic' ? 'text-[#df3721ff] animate-pulse' : 
-                      selectedVariant.ESM1b_is_pathogenic === 'benign' ? 'text-[#2a9723ff]' : 'text-slate-900'
+                      selectedVariant.ESM1b_is_pathogenic === 'benign' ? 'text-[#2a9723ff]' : 'text-[#0F172A]'
                     }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       {selectedVariant.ESM1b_is_pathogenic === 'pathogenic' ? (
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -738,7 +738,7 @@ function App() {
                     </svg>
                     <p className={`text-[16px] font-mono font-bold uppercase leading-none ${
                       selectedVariant.ESM1b_is_pathogenic === 'pathogenic' ? 'text-[#df3721ff]' : 
-                      selectedVariant.ESM1b_is_pathogenic === 'benign' ? 'text-[#2a9723ff]' : 'text-slate-900'
+                      selectedVariant.ESM1b_is_pathogenic === 'benign' ? 'text-[#2a9723ff]' : 'text-[#0F172A]'
                     }`}>
                       {selectedVariant.ESM1b_is_pathogenic || "Unspecified"}
                     </p>
@@ -769,7 +769,7 @@ function App() {
                       selectedVariant.am_class?.toLowerCase() === 'pathogenic' ? 'text-[#df3721ff] animate-pulse' : 
                       selectedVariant.am_class?.toLowerCase() === 'benign' ? 'text-[#2a9723ff]' : 
                       selectedVariant.am_class?.toLowerCase() === 'ambiguous' ? 'text-[#d8a122ff]' : 
-                      'text-slate-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      'text-[#94A3B8]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       {selectedVariant.am_class?.toLowerCase() === 'pathogenic' ? (
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                       ) : selectedVariant.am_class?.toLowerCase() === 'benign' ? (
@@ -782,7 +782,7 @@ function App() {
                       selectedVariant.am_class?.toLowerCase() === 'pathogenic' ? 'text-[#df3721ff]' : 
                       selectedVariant.am_class?.toLowerCase() === 'benign' ? 'text-[#2a9723ff]' : 
                       selectedVariant.am_class?.toLowerCase() === 'ambiguous' ? 'text-[#d8a122ff]' : 
-                      'text-slate-900'
+                      'text-[#0F172A]'
                     }`}>
                       {selectedVariant.am_class || "ambiguous"}
                     </p>
@@ -813,23 +813,23 @@ function App() {
                   </p>
                 </div>
                 <div className="space-y-1">
-                  {/* AM Pathogenicity: Red if > 0.56 (Pathogenic threshold) */}
+                  {/* AM Pathogenicity: Red if > 0.564 (Pathogenic threshold) */}
                   <DataPoint 
                     label="AM pathogenicity score" 
                     value={selectedVariant.am_pathogenicity} 
                     color={selectedVariant.am_pathogenicity > 0.564 ? "text-[#df3721ff]" : "text-[#2a9723ff]"}
                   />
-                  {/* Stability: Orange if high energy change (> 1.0) */}
+                  {/* Stability: */}
                   <DataPoint 
                     label="Stability (ΔΔG)" 
                     value={selectedVariant.pred_ddg} 
-                    color={Math.abs(selectedVariant.pred_ddg) > 1.0 ? "text-[#df3721ff]" : "text-[#2a9723ff]"}
+                    color={Math.abs(selectedVariant.pred_ddg) > 0 ? "text-[#df3721ff]" : "text-[#2a9723ff]"}
                   />
-                  {/* ESM1b LLR: Red if very negative (indicating disruption) */}
+                  {/* ESM1b LLR: */}
                   <DataPoint 
                     label="ESM1b LLR" 
                     value={selectedVariant.ESM1b_LLR} 
-                    color={selectedVariant.ESM1b_LLR < -10 ? "text-[#df3721ff]" : "text-[#2a9723ff]"}
+                    color={selectedVariant.ESM1b_LLR < 7.5 ? "text-[#df3721ff]" : "text-[#2a9723ff]"}
                   />
                 </div>
 
@@ -840,32 +840,32 @@ function App() {
                 </div>
                 <div className="flex flex-col">
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
-                    <p className="text-[16px] font-black text-slate-300 uppercase tracking-widest leading-none">Destabilizing?</p>
-                    <p className="text-[16px] font-mono font-bold uppercase text-slate-900 leading-none">
+                    <p className="text-[16px] font-black text-[#CBD5E1] uppercase tracking-widest leading-none">Destabilizing?</p>
+                    <p className="text-[16px] font-mono font-bold uppercase text-[#0F172A] leading-none">
                       {selectedVariant.pred_ddg_label || "Unspecified"}
                     </p>
                   </div>
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
-                    <p className="text-[16px] font-black text-slate-300 uppercase tracking-widest leading-none">Interface score?</p>
-                    <p className="text-[16px] font-mono font-bold uppercase text-slate-900 leading-none">
+                    <p className="text-[16px] font-black text-[#CBD5E1] uppercase tracking-widest leading-none">Interface score?</p>
+                    <p className="text-[16px] font-mono font-bold uppercase text-[#0F172A] leading-none">
                       {selectedVariant.interface_pdockq || "Unspecified"}
                     </p>
                   </div>
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
-                    <p className="text-[16px] font-black text-slate-300 uppercase tracking-widest leading-none">Interface?</p>
-                    <p className="text-[16px] font-mono font-bold uppercase text-slate-900 leading-none">
+                    <p className="text-[16px] font-black text-[#CBD5E1] uppercase tracking-widest leading-none">Interface?</p>
+                    <p className="text-[16px] font-mono font-bold uppercase text-[#0F172A] leading-none">
                       {selectedVariant.interface_label || "Unspecified"}
                     </p>
                   </div>
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
-                    <p className="text-[16px] font-black text-slate-300 uppercase tracking-widest leading-none">Protein pocket?</p>
-                    <p className="text-[16px] font-mono font-bold uppercase text-slate-900 leading-none">
+                    <p className="text-[16px] font-black text-[#CBD5E1] uppercase tracking-widest leading-none">Protein pocket?</p>
+                    <p className="text-[16px] font-mono font-bold uppercase text-[#0F172A] leading-none">
                       {selectedVariant.pocket_label || "Unspecified"}
                     </p>
                   </div>
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
-                    <p className="text-[16px] font-black text-slate-300 uppercase tracking-widest leading-none">Mechanism</p>
-                    <p className="text-[16px] font-mono font-bold uppercase text-slate-900 leading-none">
+                    <p className="text-[16px] font-black text-[#CBD5E1] uppercase tracking-widest leading-none">Mechanism</p>
+                    <p className="text-[16px] font-mono font-bold uppercase text-[#0F172A] leading-none">
                       {selectedVariant.mechanistic_label || "Unspecified"}
                     </p>
                   </div>
@@ -873,11 +873,11 @@ function App() {
 
                 {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-slate-300 uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#CBD5E1] uppercase tracking-[0.2em] leading-none">
                     ⚙️ 3D Structure
                   </p>
                 </div> 
-                <div className="border-t-2 border-slate-900 pt-8">
+                <div className="border-t-2 border-[#0F172A] pt-8">
                   <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mb-4">
                     molstar.org
                   </p>
@@ -892,11 +892,11 @@ function App() {
 
                 {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-slate-300 uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#CBD5E1] uppercase tracking-[0.2em] leading-none">
                     🔍 SEQUENCING
                   </p>
                 </div> 
-                <div className="border-t-2 border-slate-900 pt-8">
+                <div className="border-t-2 border-[#0F172A] pt-8">
                   <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mb-4">
                     uniprot.org
                   </p>
@@ -911,11 +911,11 @@ function App() {
 
                 {/* GEX SECTION ------------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-slate-300 uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#CBD5E1] uppercase tracking-[0.2em] leading-none">
                     🔬 RNA EXPRESSION
                   </p>
                 </div> 
-                <div className="border-t-2 border-slate-900 pt-8">
+                <div className="border-t-2 border-[#0F172A] pt-8">
                   <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mb-4">
                     proteinatlas.org
                   </p>
@@ -929,11 +929,11 @@ function App() {
 
                 {/* Gene Ontology SECTION ------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-slate-300 uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#CBD5E1] uppercase tracking-[0.2em] leading-none">
                     🧬 GENE ONTOLOGY
                   </p>
                 </div> 
-                <div className="border-t-2 border-slate-900 pt-8">
+                <div className="border-t-2 border-[#0F172A] pt-8">
                   <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mb-4">
                     geneontology.org
                   </p>
@@ -947,7 +947,7 @@ function App() {
               </div>
             ) : (
               <div className="w-full mt-[-12px] text-center">
-                <p className="text-slate-200 font-mono uppercase tracking-[0.4em] text-[14px]">Select or type in the variant ID</p>
+                <p className="text-[#E2E8F0] font-mono uppercase tracking-[0.4em] text-[14px]">Select or type in the variant ID</p>
               </div>
             )}
 
