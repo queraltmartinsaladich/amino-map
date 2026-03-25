@@ -131,7 +131,7 @@ function App() {
       displayValue = value ?? 'N/A';
     }
     return (
-      <div className="mb-[-10px] flex justify-between items-baseline">
+      <div className="mb-[-10px] mt-[-10px] flex justify-between items-baseline">
         <p className="text-[14px] font-['Elephant',_'Playfair_Display',_serif] text-[#94A3B8] tracking-widest leading-none">
           {label}
         </p>
