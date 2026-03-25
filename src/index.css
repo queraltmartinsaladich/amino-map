@@ -86,7 +86,7 @@
 
   /* 5. Clean up page margins */
   @page {
-    margin: 2cm;
+    margin: 1cm;
   }
 }
 

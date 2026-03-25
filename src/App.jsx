@@ -881,7 +881,7 @@ function App() {
                   <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     ⚙️ 3D Structure
                   </p>
-                  <div className="border-t-2 border-[#0F172A] pt-[8px] mt-[20px] mb-[10px]">
+                  <div className="border-t-2 border-[#0F172A] pt-[8px] mb-[10px]">
                     <a
                       href="https://molstar.org"
                       target="_blank"
@@ -905,7 +905,7 @@ function App() {
                   <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🔍 SEQUENCING
                   </p>
-                  <div className="border-t-2 border-[#0F172A] pt-[8px] mt-[10px] mb-[10px]">
+                  <div className="border-t-2 border-[#0F172A] pt-[8px] mb-[10px]">
                     <a
                       href="https://uniprot.org"
                       target="_blank"
@@ -929,7 +929,7 @@ function App() {
                   <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🔬 RNA EXPRESSION
                   </p>
-                  <div className="border-t-2 border-[#0F172A] pt-[8px] mt-[10px] mb-[10px]">
+                  <div className="border-t-2 border-[#0F172A] pt-[8px] mb-[10px]">
                     <a
                       href="https://proteinatlas.org"
                       target="_blank"
@@ -952,7 +952,7 @@ function App() {
                   <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🧬 GENE ONTOLOGY
                   </p>
-                  <div className="border-t-2 border-[#0F172A] pt-[8px] mt-[10px] mb-[10px]">
+                  <div className="border-t-2 border-[#0F172A] pt-[8px] mb-[10px]">
                     <a
                       href="https://geneontology.org"
                       target="_blank"
