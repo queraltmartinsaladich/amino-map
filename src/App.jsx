@@ -457,7 +457,7 @@ function App() {
               <svg 
                 className="w-[20px] h-[20px]" 
                 fill="none" 
-                stroke="currentColor" 
+                stroke="#94A3B8" 
                 viewBox="0 0 24 24" 
                 aria-hidden="true"
               >
@@ -468,6 +468,7 @@ function App() {
                 placeholder="Search Variant ID..."
                 className="
                   border-0
+                  text-[#94A3B8]
                   w-full pl-[10px] py-[5px]
                   text-[18px] font-mono font-bold uppercase tracking-[0.1em] 
                 "
