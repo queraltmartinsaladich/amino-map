@@ -353,7 +353,7 @@ function App() {
             </svg>
             </div>
             {/* CENTER TITLE */}
-            <h1 className="text-[40px] text-center text-[#006C84] font-['Montserrat',sans-serif] uppercase tracking-[0.1em] space-nowrap">
+            <h1 className="text-[46px] text-center text-[#006C84] font-['Space_Grotesk',sans-serif] tracking-[0.1em] space-nowrap">
               amino-mapp
             </h1>
             {/* RIGHT CHAIN */}
@@ -368,7 +368,7 @@ function App() {
           </div>
 
           {/* SUBTITLE BELOW */}
-          <h2 className="text-[18px] mt-[-20px] font-mono uppercase text-center tracking-[0.4em] text-[#6EB5C0] max-w-2xl">
+          <h2 className="text-[18px] font-mono uppercase text-center tracking-[0.4em] text-[#6EB5C0] max-w-2xl">
             An open-source protein mutation browser
           </h2>
           <h3 className="text-[12px] font-['Elephant',_'Playfair_Display',_serif] text-center tracking-[0.1em] text-[#94A3B8] max-w-2xl">
