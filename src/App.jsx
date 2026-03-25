@@ -354,7 +354,7 @@ function App() {
             </div>
             {/* CENTER TITLE */}
             <h1 className="text-[40px] text-center text-[#006C84] font-black uppercase tracking-[0.2em] space-nowrap">
-              amino-map
+              amino-mapp
             </h1>
             {/* RIGHT CHAIN */}
             <div className='mt-[-50px] mr-[-20px] scale-x-[-1]'>
@@ -368,10 +368,10 @@ function App() {
           </div>
 
           {/* SUBTITLE BELOW */}
-          <h2 className="text-[18px] mt-[-20px] font-mono uppercase text-center tracking-[0.4em] text-[#64748B] max-w-2xl">
+          <h2 className="text-[18px] mt-[-20px] font-mono uppercase text-center tracking-[0.4em] text-[#6EB5C0] max-w-2xl">
             An open-source protein mutation browser
           </h2>
-          <h3 className="text-[10px] font-['Elephant',_'Playfair_Display',_serif] uppercase text-center tracking-[0.4em] text-[#94A3B8] max-w-2xl">
+          <h3 className="text-[12px] font-['Elephant',_'Playfair_Display',_serif] text-center tracking-[0.4em] text-[#94A3B8] max-w-2xl">
             Beta version, 2026
           </h3>
         </header>
