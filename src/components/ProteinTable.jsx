@@ -37,28 +37,28 @@ export const ProteinTable = ({
                       {row.variant_id}
                     </td>
                     <td className="py-[3px] px-[4px] text-center">
-                      <span className={`text-[14px] font-black uppercase tracking-tighter ${
+                      <span className={`text-[14px] text-slate-400 font-black uppercase tracking-tighter ${
                         selectedVariant?.variant_id === row.variant_id 
-                        ? 'text-[#E2E8E4]' 
-                        : row.ESM1b_is_pathogenic === 'pathogenic' ? 'text-[#7B1B38]' : 'text-[#006C84]'
+                        ? 'text-[#006C84]' 
+                        : row.ESM1b_is_pathogenic === 'pathogenic' ? 'text-[#7B1B38]' : 'text-[#2a9723ff]'
                       }`}>
                         {row.ESM1b_is_pathogenic}
                       </span>
                     </td>
                     <td className="py-[3px] px-[4px] text-center">
-                      <span className={`text-[14px] font-black uppercase tracking-tighter ${
+                      <span className={`text-[14px] text-slate-400 font-black uppercase tracking-tighter ${
                         selectedVariant?.variant_id === row.variant_id 
-                        ? 'text-[#E2E8E4]' 
-                        : row.am_class === 'pathogenic' ? 'text-[#7B1B38]' : 'text-[#006C84]'
+                        ? 'text-[#006C84]' 
+                        : row.am_class === 'pathogenic' ? 'text-[#7B1B38]' : row.am_class === 'benign' ? 'text-[#2a9723ff]' : 'text-[#d8a122ff]'
                       }`}>
                         {row.am_class}
                       </span>
                     </td>
                     <td className="py-[3px] px-[4px] text-right">
-                      <span className={`text-[14px] font-black uppercase tracking-tighter ${
+                      <span className={`text-[14px] text-slate-400 font-black uppercase tracking-tighter ${
                         selectedVariant?.variant_id === row.variant_id 
-                        ? 'text-blue-100' 
-                        : 'text-slate-300 group-hover:text-slate-900'
+                        ? 'bg-[#E2E8E4] text-[#006C84]' 
+                      : 'hover:bg-[#6EB5C0] text-[#FFFFFF]'
                       }`}>
                         {row.mechanistic_label || 'Unassigned'}
                       </span>
