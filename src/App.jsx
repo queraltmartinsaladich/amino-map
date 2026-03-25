@@ -344,7 +344,7 @@ function App() {
         <header className="flex flex-col items-center w-full py-[8px]">
           <div className="flex items-center justify-between w-full gap-[8px]">
             {/* LEFT CHAIN */}
-            <div className='mt-[-50px] ml-[-10px]'>
+            <div className='mt-[-50px] ml-[-20px]'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="480" height="80" fill="none">
               <path d="M10 25C30 5 50 35 70 25C90 15 110 35 130 25C150 15 170 35 190 25C210 15 230 25 230 25" 
                     stroke="#006C84" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
@@ -743,9 +743,16 @@ function App() {
                       {selectedVariant.ESM1b_is_pathogenic || "Unspecified"}
                     </p>
                     <div> 
-                      <p className="text-[12px] font-mno text-slate-900 italic">
-                      - According to ESM1b     
+                      <a 
+                        href={`https://www.pnas.org/doi/full/10.1073/pnas.2016239118y`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-[15px] font-black text-[#7B1B38] hover:text-[#FFCCBB] transition-colors group"
+                      >
+                      <p className="text-[12px] font-mono text-slate-900 italic">
+                      - According to ESM1b
                       </p>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -767,14 +774,22 @@ function App() {
                     <p className={`text-[16px] font-mono font-bold uppercase leading-none ${
                       selectedVariant.am_class?.toLowerCase() === 'pathogenic' ? 'text-[#df3721ff]' : 
                       selectedVariant.am_class?.toLowerCase() === 'benign' ? 'text-[#2a9723ff]' : 
-                      'text-slate-500' /* Ambiguous Text */
+                      selectedVariant.am_class?.toLowerCase() === 'ambiguous' ? 'text-[#d8a122ff]' : 
+                      'text-slate-900'
                     }`}>
                       {selectedVariant.am_class || "ambiguous"}
                     </p>
                     <div>
-                      <p className="text-[12px] font-mno text-blue-600 italic">
-                      - According to AlphaMissense
+                       <a 
+                        href={`https://www.science.org/doi/10.1126/science.adg7492`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-[15px] font-black text-[#7B1B38] hover:text-[#FFCCBB] transition-colors group"
+                      >
+                      <p className="text-[12px] font-mono text-slate-900 italic">
+                      - According to AlphaMissense 
                       </p>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -807,7 +822,7 @@ function App() {
 
                 <div>
                   <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.4em] mt-[20px] mb-[2px]">
-                    Labels
+                    Other information
                   </p>
                 </div>
                 <div className="flex flex-col">
