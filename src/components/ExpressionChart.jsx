@@ -62,7 +62,7 @@ export const ExpressionChart = ({ proteinId = "Q8IUR5" }) => {
 
   return (
     <div className="mt-2">
-      <div className="bg-[#FFFFFF] border-2 border-slate-900 rounded-sm p-[4px]">
+      <div className="bg-[#FFFFFF] border-2 border-[#0F172A] rounded-sm p-[4px]">
     
         <div className="space-y-3">
           {expressionData.map((item, index) => {
