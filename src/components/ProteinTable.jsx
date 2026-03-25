@@ -14,8 +14,8 @@ export const ProteinTable = ({
       <div className="rounded-xl overflow-hidden bg-[#FFFFFF] shadow-sm">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
-            <thead className="bg-[#F8FAFC] border-b border-[#94A3B8]">
-              <tr className="text-[16px] font-black text-[#0F172A] uppercase tracking-[0.1em]">
+            <thead className="border-b-2 border-[#94A3B8]">
+              <tr className="text-[16px] font-black text-[#474469] uppercase tracking-[0.1em]">
                 <th className="py-[4px] px-[4px]">Variant ID</th>
                 <th className="py-[4px] px-[4px] text-center">ESM1b Class</th>
                 <th className="py-[4px] px-[4px] text-center">AM Class</th>
@@ -34,7 +34,7 @@ export const ProteinTable = ({
                       className={`
                         group cursor-pointer transition-all duration-200
                         /* Baseline (Default) */
-                        bg-[#FFFFFF] text-slate-600 
+                        bg-[#FFFFFF] text-[#474469] 
                         /* Hover State */
                         hover:bg-[#6EB5C0] hover:text-[#FFFFFF]
                         /* Selected State */
@@ -74,7 +74,7 @@ export const ProteinTable = ({
         </div>
 
         {/* PAGINATION FOOTER */}
-        <div className="px-[4px] py-[3px] bg-[#F8FAFC] border-[#F1F5F9] flex justify-between items-center">
+        <div className="mt-[8px] px-[4px] py-[3px] flex justify-between items-center">
           <label 
             onClick={() => onPageChange(currentPage - 1)}
             disabled={currentPage === 1}
@@ -84,7 +84,7 @@ export const ProteinTable = ({
           </label>
           
           <div className="text-[12px] font-mono font-bold uppercase tracking-widest text-[#94A3B8]">
-            Page <span className="text-[#0F172A]">{currentPage}</span> of {totalPages}
+            Page {currentPage} of {totalPages}
           </div>
 
           <label 

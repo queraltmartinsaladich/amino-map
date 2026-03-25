@@ -481,7 +481,7 @@ function App() {
               
               {/* 1. ESM1b Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="mt-[10px] text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-[#475569] tracking-widest">ESM1b class:</span>
+                <span className="mt-[10px] text-[16px] font-['Roboto',sans-serif] font-bold text-[#475569] tracking-widest">ESM1b class:</span>
                 <div className="flex gap-[3px]">
                   {['ALL', 'pathogenic', 'benign'].map(cat => (
                     <label
@@ -499,7 +499,7 @@ function App() {
 
               {/* 2. AM Class Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-[#475569] tracking-widest">AlphaMissense class:</span>
+                <span className="text-[16px] font-['Roboto',sans-serif] font-bold text-[#475569] tracking-widest">AlphaMissense class:</span>
                 <div className="flex gap-[3px]">
                   {['ALL', 'pathogenic', 'benign', 'ambiguous'].map(cat => (
                     <label
@@ -946,7 +946,7 @@ function App() {
               </div>
             ) : (
               <div className="w-full mt-[-15px] text-center">
-                <p className="text-[#6EB5C0] font-mono uppercase tracking-[0.4em] text-[16px]">Select or type in the variant ID</p>
+                <p className="text-[#94A38B] font-mono uppercase tracking-[0.4em] text-[16px]">Select or type in the variant ID</p>
               </div>
             )}
 
