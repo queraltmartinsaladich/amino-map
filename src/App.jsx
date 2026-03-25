@@ -734,7 +734,7 @@ function App() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       )}
                     </svg>
-                    <p className={`text-[16px] font-mono font-bold uppercase leading-none ${
+                    <p className={`text-[14px] font-mono font-bold uppercase leading-none ${
                       selectedVariant.ESM1b_is_pathogenic === 'pathogenic' ? 'text-[#df3721ff]' : 
                       selectedVariant.ESM1b_is_pathogenic === 'benign' ? 'text-[#2a9723ff]' : 'text-[#0F172A]'
                     }`}>
@@ -776,7 +776,7 @@ function App() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       )}
                     </svg>
-                    <p className={`text-[16px] font-mono font-bold uppercase leading-none ${
+                    <p className={`text-[14px] font-mono font-bold uppercase leading-none ${
                       selectedVariant.am_class?.toLowerCase() === 'pathogenic' ? 'text-[#df3721ff]' : 
                       selectedVariant.am_class?.toLowerCase() === 'benign' ? 'text-[#2a9723ff]' : 
                       selectedVariant.am_class?.toLowerCase() === 'ambiguous' ? 'text-[#d8a122ff]' : 
@@ -805,7 +805,13 @@ function App() {
                   </div>
                 </div>
 
-                <div className="p-[5px] border-2 border-[#F1F5F9]">
+                <div className="p-[10px] border-2 border-[#F1F5F9]">
+                  {/* ESM1b LLR: */}
+                  <DataPoint 
+                    label="ESM1b likelihood ratio" 
+                    value={selectedVariant.ESM1b_LLR} 
+                    color={selectedVariant.ESM1b_LLR < 7.5 ? "text-[#df3721ff]" : "text-[#2a9723ff]"}
+                  />
                   {/* AM Pathogenicity: Red if > 0.564 (Pathogenic threshold) */}
                   <DataPoint 
                     label="AM pathogenicity score" 
@@ -817,12 +823,6 @@ function App() {
                     label="Stability (ΔΔG)" 
                     value={selectedVariant.pred_ddg} 
                     color={Math.abs(selectedVariant.pred_ddg) > 0 ? "text-[#df3721ff]" : "text-[#2a9723ff]"}
-                  />
-                  {/* ESM1b LLR: */}
-                  <DataPoint 
-                    label="ESM1b LLR" 
-                    value={selectedVariant.ESM1b_LLR} 
-                    color={selectedVariant.ESM1b_LLR < 7.5 ? "text-[#df3721ff]" : "text-[#2a9723ff]"}
                   />
                 </div>
 
