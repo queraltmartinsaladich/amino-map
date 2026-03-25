@@ -132,7 +132,7 @@ function App() {
     }
     return (
       <div className="flex justify-between items-baseline h-[30px]">
-        <p className="text-[16px] font-black text-[#CBD5E1] uppercase tracking-widest leading-none">
+        <p className="text-[16px] font-black text-[#475569] uppercase tracking-widest leading-none">
           {label}
         </p>
         <p className={`text-[16px] font-mono font-bold uppercase leading-none ${color}`}>
@@ -482,7 +482,7 @@ function App() {
               
               {/* 1. ESM1b Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="mt-[10px] text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-[#CBD5E1] tracking-widest">ESM1b class:</span>
+                <span className="mt-[10px] text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-[#475569] tracking-widest">ESM1b class:</span>
                 <div className="flex gap-[1px]">
                   {['ALL', 'pathogenic', 'benign'].map(cat => (
                     <label
@@ -500,7 +500,7 @@ function App() {
 
               {/* 2. AM Class Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-[#CBD5E1] tracking-widest">AlphaMissense class:</span>
+                <span className="text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-[#475569] tracking-widest">AlphaMissense class:</span>
                 <div className="flex gap-[1px]">
                   {['ALL', 'pathogenic', 'benign', 'ambiguous'].map(cat => (
                     <label
@@ -518,7 +518,7 @@ function App() {
 
               {/* 3. Mechanism Filters */}
               <div className="flex items-center gap-[2px]">
-                <span className="text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-[#CBD5E1] tracking-widest">Mechanism:</span>
+                <span className="text-[16px] font-['Elephant',_'Playfair_Display',_serif] font-bold text-[#475569] tracking-widest">Mechanism:</span>
                 <div className="flex gap-[1px]">
                   {['ALL', 'Unassigned', 'Stability', 'Pockets', 'Interface'].map(cat => (
                     <label
@@ -573,7 +573,7 @@ function App() {
                     <button 
                       onClick={handleDownload} // Use the new function here 
                       title="Download analysis as PDF"
-                      className="text-[#CBD5E1] hover:text-[#2563EB] transition-colors group p-1 cursor-pointer action-icon-group"
+                      className="text-[#475569] hover:text-[#2563EB] transition-colors group p-1 cursor-pointer action-icon-group"
                     >
                       <svg className="w-[20px] h-[20px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4-4v8" />
@@ -582,7 +582,7 @@ function App() {
                     <button 
                       onClick={() => setSelectedVariant(null)}
                       title="Close analysis"
-                      className="text-[#CBD5E1] hover:text-[#2563EB] transition-colors group p-1 cursor-pointer action-icon-group"
+                      className="text-[#475569] hover:text-[#2563EB] transition-colors group p-1 cursor-pointer action-icon-group"
                     >
                       <svg className="w-[20px] h-[20px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
@@ -635,7 +635,7 @@ function App() {
                       </div>
                     </>
                   ) : (
-                    <p className="text-[12px] font-mono text-[#CBD5E1] uppercase tracking-[0.2em]">
+                    <p className="text-[12px] font-mono text-[#475569] uppercase tracking-[0.2em]">
                       Biological metadata restricted or unavailable
                     </p>
                   )}
@@ -646,7 +646,7 @@ function App() {
                   
                   {/* ROW 1: THE COORDINATE */}
                   <div className="flex items-center justify-between max-w-xs h-[20px]">
-                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#CBD5E1]">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#475569]">
                       Position
                     </span>
                     <span className="text-[14px] font-mono font-bold text-[#0F172A]">
@@ -656,7 +656,7 @@ function App() {
 
                   {/* ROW 2: THE SUBSTITUTION (Identity Swap) */}
                   <div className="flex items-center justify-between max-w-xs h-[20px]">
-                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#CBD5E1]">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#475569]">
                       Substitution
                     </span>
                     <div className="flex items-center gap-[8px]">
@@ -674,7 +674,7 @@ function App() {
 
                   {/* ROWs 3/4: SHIFTs (The "Why it matters" logic) */}
                   <div className="flex items-center justify-between max-w-xs h-[20px]">
-                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#CBD5E1]">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#475569]">
                       Property Shift
                     </span>
                     <p className="text-[14px] font-mono text-[#64748B] leading-tight">
@@ -683,7 +683,7 @@ function App() {
                   </div>
 
                   <div className="flex items-center justify-between h-[20px]">
-                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#CBD5E1]">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#475569]">
                       Charge Shift
                     </span>
                     <p className="text-[14px] font-mono text-[#64748B] leading-tight">
@@ -693,7 +693,7 @@ function App() {
 
                   {/* ROWS 5/6: STRUCTURAL CONTEXT (Alpha Helix / Beta Sheet) --------------------------------------------------- */}
                   <div className="flex items-center justify-between max-w-xs h-[20px]">
-                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#CBD5E1]">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#475569]">
                       Local geometry
                     </span>
                     <p className="text-[14px] font-mono text-[#64748B] leading-tight">
@@ -701,7 +701,7 @@ function App() {
                     </p>
                   </div>
                   <div className="flex items-center justify-between max-w-xs h-[20px]">
-                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#CBD5E1]">
+                    <span className="text-[14px] font-black uppercase tracking-[0.3em] text-[#475569]">
                       Structural flexibility
                     </span>
                     <p className="text-[14px] font-mono text-[#64748B] leading-tight">
@@ -712,7 +712,7 @@ function App() {
 
                 {/* MUTATION SCORES ----------------------------------------------------------------------------------------- */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#CBD5E1] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#475569] uppercase tracking-[0.2em] leading-none">
                     📌 Characteristics
                   </p>
                 </div>
@@ -840,31 +840,31 @@ function App() {
                 </div>
                 <div className="flex flex-col">
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
-                    <p className="text-[16px] font-black text-[#CBD5E1] uppercase tracking-widest leading-none">Destabilizing?</p>
+                    <p className="text-[16px] font-black text-[#475569] uppercase tracking-widest leading-none">Destabilizing?</p>
                     <p className="text-[16px] font-mono font-bold uppercase text-[#0F172A] leading-none">
                       {selectedVariant.pred_ddg_label || "Unspecified"}
                     </p>
                   </div>
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
-                    <p className="text-[16px] font-black text-[#CBD5E1] uppercase tracking-widest leading-none">Interface score?</p>
+                    <p className="text-[16px] font-black text-[#475569] uppercase tracking-widest leading-none">Interface score?</p>
                     <p className="text-[16px] font-mono font-bold uppercase text-[#0F172A] leading-none">
                       {selectedVariant.interface_pdockq || "Unspecified"}
                     </p>
                   </div>
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
-                    <p className="text-[16px] font-black text-[#CBD5E1] uppercase tracking-widest leading-none">Interface?</p>
+                    <p className="text-[16px] font-black text-[#475569] uppercase tracking-widest leading-none">Interface?</p>
                     <p className="text-[16px] font-mono font-bold uppercase text-[#0F172A] leading-none">
                       {selectedVariant.interface_label || "Unspecified"}
                     </p>
                   </div>
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
-                    <p className="text-[16px] font-black text-[#CBD5E1] uppercase tracking-widest leading-none">Protein pocket?</p>
+                    <p className="text-[16px] font-black text-[#475569] uppercase tracking-widest leading-none">Protein pocket?</p>
                     <p className="text-[16px] font-mono font-bold uppercase text-[#0F172A] leading-none">
                       {selectedVariant.pocket_label || "Unspecified"}
                     </p>
                   </div>
                   <div className="flex justify-between items-baseline max-w-xs h-[30px]">
-                    <p className="text-[16px] font-black text-[#CBD5E1] uppercase tracking-widest leading-none">Mechanism</p>
+                    <p className="text-[16px] font-black text-[#475569] uppercase tracking-widest leading-none">Mechanism</p>
                     <p className="text-[16px] font-mono font-bold uppercase text-[#0F172A] leading-none">
                       {selectedVariant.mechanistic_label || "Unspecified"}
                     </p>
@@ -873,7 +873,7 @@ function App() {
 
                 {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#CBD5E1] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#475569] uppercase tracking-[0.2em] leading-none">
                     ⚙️ 3D Structure
                   </p>
                 </div> 
@@ -892,7 +892,7 @@ function App() {
 
                 {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#CBD5E1] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🔍 SEQUENCING
                   </p>
                 </div> 
@@ -911,7 +911,7 @@ function App() {
 
                 {/* GEX SECTION ------------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#CBD5E1] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🔬 RNA EXPRESSION
                   </p>
                 </div> 
@@ -929,7 +929,7 @@ function App() {
 
                 {/* Gene Ontology SECTION ------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#CBD5E1] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🧬 GENE ONTOLOGY
                   </p>
                 </div> 
