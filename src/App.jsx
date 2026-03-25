@@ -564,7 +564,7 @@ function App() {
                   <div className="flex items-start border-[#0F172A] justify-between">
                     <div>
                       <span className="text-[#2563EB] text-[18px] font-black uppercase tracking-[0.4em]">Analysis of</span>
-                      <h2 className="text-[30px] font-black text-[#0F172A] font-mono uppercase tracking-tighter mb-[20px]">
+                      <h2 className="text-[30px] font-black text-[#0F172A] font-['Elephant',_'Playfair_Display',_serif] uppercase tracking-tighter mb-[20px]">
                         {selectedVariant.variant_id}
                       </h2>
                     </div>
@@ -711,7 +711,7 @@ function App() {
 
                 {/* MUTATION SCORES ----------------------------------------------------------------------------------------- */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#475569] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     📌 Characteristics
                   </p>
                 </div>
@@ -872,7 +872,7 @@ function App() {
 
                 {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#475569] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     ⚙️ 3D Structure
                   </p>
                 </div> 
@@ -896,7 +896,7 @@ function App() {
 
                 {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#475569] leading-none">
+                  <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🔍 SEQUENCING
                   </p>
                 </div> 
@@ -920,7 +920,7 @@ function App() {
 
                 {/* GEX SECTION ------------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#475569] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🔬 RNA EXPRESSION
                   </p>
                 </div> 
@@ -943,7 +943,7 @@ function App() {
 
                 {/* Gene Ontology SECTION ------------------------------------------------------------------------------------ */}
                 <div className='mt-[30px] mb-[-12px]'>
-                  <p className="text-[20px] font-['Elephant',_'Playfair_Display',_serif] text-[#475569] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🧬 GENE ONTOLOGY
                   </p>
                 </div> 
