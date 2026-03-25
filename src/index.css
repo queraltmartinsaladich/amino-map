@@ -80,6 +80,7 @@
   .data-block, canvas, svg {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
+    max-width: 100% !important;
   }
 
   /* 4. Hide the "Download" and "Close" icons in the PDF itself */
