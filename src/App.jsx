@@ -342,27 +342,6 @@ function App() {
 
         {/* MAIN TITLE SECTION */}
         <header className="flex flex-col items-center w-full py-[8px]">
-          {/* <div className="flex items-center justify-between w-full gap-[5px]">
-            <div className='mt-[-50px] ml-[-20px]'>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="480" height="80" fill="none">
-              <path d="M10 25C30 5 50 35 70 25C90 15 110 35 130 25C150 15 170 35 190 25C210 15 230 25 230 25" 
-                    stroke="#006C84" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10 25C30 45 50 15 70 25C90 35 110 15 130 25C150 35 170 15 190 25C210 35 230 25 230 25" 
-                    stroke="#6EB5C0" stroke-width="1" stroke-opacity="0.5" stroke-linecap="round"/>
-            </svg>
-            </div>
-            <h1 className="text-[46px] text-center text-[#006C84] font-black tracking-[0.2em] whitespace-nowrap">
-              AMINO-MAPP
-            </h1>
-            <div className='mt-[-50px] scale-x-[-1]'>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="480" height="80" fill="none">
-              <path d="M10 25C30 5 50 35 70 25C90 15 110 35 130 25C150 15 170 35 190 25C210 15 230 25 230 25" 
-                    stroke="#006C84" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10 25C30 45 50 15 70 25C90 35 110 15 130 25C150 35 170 15 190 25C210 35 230 25 230 25" 
-                    stroke="#6EB5C0" stroke-width="1" stroke-opacity="0.5" stroke-linecap="round"/>
-            </svg>
-            </div>
-          </div> */}
           <div className="flex items-center justify-center w-full gap-[10px] overflow-hidden px-4">
             <div className="mt-[-20px] w-1/3 max-w-[500px] flex-shrink min-w-[50px]">
               <svg 
@@ -835,24 +814,21 @@ function App() {
                   </div>
                 </div>
 
-                <div className="px-[10px] border-2 border-[#F1F5F9] h-[80px]">
-                  {/* ESM1b LLR: */}
+                <div className="px-[10px] py-[8px] border-2 border-[#F1F5F9] flex flex-col gap-[4px]">
+                  {/* ESM1b LLR */}
                   <DataPoint 
                     label="ESM1b likelihood ratio" 
-                    className="my-[10px]"
                     value={selectedVariant.ESM1b_LLR} 
                     color={selectedVariant.ESM1b_LLR < 7.5 ? "text-[#91142d]" : "text-[#0c701b]"}
                   />
-                  {/* AM Pathogenicity: Red if > 0.564 (Pathogenic threshold) */}
+                  {/* AM Pathogenicity */}
                   <DataPoint 
-                    className="my-[10px]"
                     label="AM pathogenicity score" 
                     value={selectedVariant.am_pathogenicity} 
                     color={selectedVariant.am_pathogenicity > 0.564 ? "text-[#91142d]" : "text-[#0c701b]"}
                   />
-                  {/* Stability: */}
+                  {/* Stability */}
                   <DataPoint 
-                    className="my-[10px]"
                     label="Stability (ΔΔG)" 
                     value={selectedVariant.pred_ddg} 
                     color={Math.abs(selectedVariant.pred_ddg) > 0 ? "text-[#91142d]" : "text-[#0c701b]"}
