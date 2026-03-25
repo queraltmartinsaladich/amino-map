@@ -342,7 +342,7 @@ function App() {
 
         {/* MAIN TITLE SECTION */}
         <header className="flex flex-col items-center w-full max-w-5xl mx-auto py-[8px]">
-          <div className="flex items-center justify-between w-full gap-[6px]">
+          <div className="flex items-center justify-between w-full">
             {/* LEFT CHAIN */}
             <div className='mt-[-50px]'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="480" height="80" fill="none">
@@ -353,7 +353,7 @@ function App() {
             </svg>
             </div>
             {/* CENTER TITLE */}
-            <h1 className="text-[40px] font-black uppercase tracking-[0.2em] whitespace-nowrap">
+            <h1 className="text-[40px] text-[#4F46E5] font-black uppercase tracking-[0.2em] whitespace-nowrap">
               amino-map
             </h1>
             {/* RIGHT CHAIN */}
