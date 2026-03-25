@@ -342,8 +342,8 @@ function App() {
 
         {/* MAIN TITLE SECTION */}
         <header className="flex flex-col items-center w-full py-[8px]">
-          <div className="flex items-center justify-between w-full gap-[10px] overflow-hidden px-4">
-            <div className="mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[50px]">
+          <div className="flex items-center justify-between w-full gap-[10px] overflow-hidden px-[4px]">
+            <div className="mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[300px]">
               <svg 
                 viewBox="0 0 240 40" 
                 className="w-full h-auto" 
@@ -357,11 +357,11 @@ function App() {
               </svg>
             </div>
 
-            <h1 className="flex-shrink text-[46px] sm:text-[46px] md:text-[56px] text-center text-[#006C84] font-black tracking-[0.2em] whitespace-nowrap">
+            <h1 className="flex-shrink text-[36px] sm:text-[36px] md:text-[56px] text-center text-[#006C84] font-black tracking-[0.2em] whitespace-nowrap">
               AMINO-MAPP
             </h1>
 
-            <div className="mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[50px] scale-x-[-1]">
+            <div className="mt-[-30px] w-1/2 max-w-[500px] flex-shrink min-w-[300px] scale-x-[-1]">
               <svg 
                 viewBox="0 0 240 40" 
                 className="w-full h-auto" 
@@ -882,7 +882,7 @@ function App() {
                     ⚙️ 3D Structure
                   </p>
                 </div> 
-                <div className="border-t-2 border-[#0F172A] pt-8">
+                <div className="border-t-2 border-[#0F172A] pt-8 mt-[20px] mb-[10px]">
                   <a
                     href="https://molstar.org"
                     target="_blank"
@@ -906,7 +906,7 @@ function App() {
                     🔍 SEQUENCING
                   </p>
                 </div> 
-                <div className="border-t-2 border-[#0F172A] pt-[8px]">
+                <div className="border-t-2 border-[#0F172A] pt-[8px] mt-[20px] mb-[10px]">
                   <a
                     href="https://uniprot.org"
                     target="_blank"
@@ -930,7 +930,7 @@ function App() {
                     🔬 RNA EXPRESSION
                   </p>
                 </div> 
-                <div className="border-t-2 border-[#0F172A] pt-[8px]">
+                <div className="border-t-2 border-[#0F172A] pt-[8px] mt-[20px] mb-[10px]">
                   <a
                     href="https://proteinatlas.org"
                     target="_blank"
@@ -953,7 +953,7 @@ function App() {
                     🧬 GENE ONTOLOGY
                   </p>
                 </div> 
-                <div className="border-t-2 border-[#0F172A] pt-[8px]">
+                <div className="border-t-2 border-[#0F172A] pt-[8px] mt-[20px] mb-[10px]">
                   <a
                     href="https://geneontology.org"
                     target="_blank"
