@@ -378,7 +378,7 @@ function App() {
 
         {/* EXTERNAL RESOURCE NAVIGATION -------------------------------------------------------------------------------------------------------- */}
         <div className="w-full mb-[20px]">
-          <nav className="border-y border-[#F1F5F9]/60 mt-[4px] mb-[4px] py-[10px]">
+          <nav className="border-y border-[#F1F5F9] mt-[4px] mb-[4px] py-[10px]">
             <div className="flex justify-between items-center w-full">
               {navLinks.map((link) => (
                 <a
