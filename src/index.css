@@ -54,10 +54,10 @@
   }
 
   /* 3. Reset the position so it's not "stuck" to the right side of a blank page */
-  /* #analysis-panel-container {
+  #analysis-panel-container {
     position: static !important;
     display: block;
-    top: 0px;
+    top: 10px;
     right: 0px;
     left: 0px;
     width: 100% !important;
@@ -65,9 +65,8 @@
     padding: 0px !important;
     box-shadow: none !important;
     overflow: visible;
-  } */
-   
-  #char
+  }
+
   #str, 
   #seq
   {
