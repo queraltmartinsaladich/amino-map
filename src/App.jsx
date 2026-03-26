@@ -842,21 +842,21 @@ function App() {
                     className="mt-[-30px]"
                     label="ESM1b likelihood ratio" 
                     value={selectedVariant.ESM1b_LLR} 
-                    color={selectedVariant.ESM1b_LLR < 7.5 ? "text-[#91142d]" : "text-[#0c701b]"}
+                    color={selectedVariant.ESM1b_LLR < -7.5 ? "text-[#df3721ff]" : "text-[#2a9723ff]"}
                   />
                   {/* AM Pathogenicity */}
                   <DataPoint 
                     className="mt-[-30px]"
                     label="AM pathogenicity score" 
                     value={selectedVariant.am_pathogenicity} 
-                    color={selectedVariant.am_pathogenicity > 0.564 ? "text-[#91142d]" : "text-[#0c701b]"}
+                    color={selectedVariant.am_pathogenicity > 0.564 ? "text-[#df3721ff]" : selectedVariant.am_pathogenicity < 0.34 ? "text-[#2a9723ff]" : "text-[#d8a122ff]"}
                   />
                   {/* Stability */}
                   <DataPoint 
                     className="mt-[-30px]"
                     label="Stability (ΔΔG)" 
                     value={selectedVariant.pred_ddg} 
-                    color={selectedVariant.pred_ddg > 0.0 ? "text-[#91142d]" : "text-[#0c701b]"}
+                    color={selectedVariant.pred_ddg > 0.0 ? "text-[#df3721ff]" : "text-[#2a9723ff]"}
                   />
                 </div>
 
