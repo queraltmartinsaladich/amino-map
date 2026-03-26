@@ -48,14 +48,13 @@
   }
   
   /* 2. Show ONLY the analysis panel and its children */
-  /* Replace '.analysis-panel' with the actual ID or class of your right container */
   #analysis-panel-container, 
   #analysis-panel-container * {
     visibility: visible;
   }
 
   /* 3. Reset the position so it's not "stuck" to the right side of a blank page */
-  #analysis-panel-container {
+  /* #analysis-panel-container {
     position: static !important;
     display: block;
     top: 0px;
@@ -66,8 +65,9 @@
     padding: 0px !important;
     box-shadow: none !important;
     overflow: visible;
-  }
-
+  } */
+   
+  #char
   #str, 
   #seq
   {
