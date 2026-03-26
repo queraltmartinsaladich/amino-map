@@ -887,7 +887,7 @@ function App() {
 
                 {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
                 <div id="str" className='mt-[30px]'>
-                  <p className="text-[20px] border-b-2 border-[#0F172A] pb-[8px]  font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
+                  <p className="text-[20px] border-b-2 border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     ⚙️ 3D Structure
                   </p>
                   <a
