@@ -856,7 +856,7 @@ function App() {
                     className="mt-[-30px]"
                     label="Stability (ΔΔG)" 
                     value={selectedVariant.pred_ddg} 
-                    color={Math.abs(selectedVariant.pred_ddg) > 0 ? "text-[#91142d]" : "text-[#0c701b]"}
+                    color={selectedVariant.am_pathogenicity > 0 ? "text-[#91142d]" : "text-[#0c701b]"}
                   />
                 </div>
 
