@@ -344,8 +344,8 @@ function App() {
 
         {/* MAIN TITLE SECTION -------------------------------------------------------------------------------------------------------- */}
         <header id="header" className="flex flex-col items-center w-full py-[8px]">
-          <div className="flex items-center justify-between w-full overflow-hidden">
-            <div className="mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[300px]">
+          <div className="flex items-center justify-between w-full overflow-hidden px-2">
+            <div className="hidden md:block mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[300px]">
               <svg 
                 viewBox="0 0 240 40" 
                 className="w-full h-auto" 
@@ -359,11 +359,11 @@ function App() {
               </svg>
             </div>
 
-            <h1 className="flex-shrink text-[36px] sm:text-[36px] md:text-[56px] text-center text-[#006C84] font-black tracking-[0.2em] whitespace-nowrap">
+            <h1 className="flex-shrink text-3xl md:text-[56px] text-center text-[#006C84] font-black tracking-[0.2em] whitespace-nowrap">
               AMINO-MAP
             </h1>
 
-            <div className="mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[300px] scale-x-[-1]">
+            <div className="hidden md:block mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[300px] scale-x-[-1]">
               <svg 
                 viewBox="0 0 240 40" 
                 className="w-full h-auto" 
@@ -378,7 +378,7 @@ function App() {
             </div>
           </div>
 
-          <h2 className="text-[18px] mt-[-20px] font-mono uppercase text-center tracking-[0.4em] text-[#6EB5C0] max-w-2xl">
+          <h2 className="text-[14px] md:text-[18px] mt-[-5px] md:mt-[-20px] font-mono uppercase text-center tracking-[0.2em] md:tracking-[0.4em] text-[#6EB5C0] max-w-2xl">            
             An open-source protein mutation browser
           </h2>
           <h3 className="text-[12px] mt-[0px] font-['Elephant',_'Playfair_Display',_serif] text-center tracking-[0.1em] text-[#94A3B8] max-w-2xl">
@@ -408,10 +408,10 @@ function App() {
         {/* EXTERNAL RESOURCE NAVIGATION -------------------------------------------------------------------------------------------------------- */}
 
         {/* MAIN BODY ------------------------------------------------------------------------------------------------------------------------- */}
-        <div className="flex items-start gap-[40px]">
+        <div className="flex flex-col md:flex-row items-start gap-[20px] md:gap-[40px]">
           
           {/* LEFT HALF ------------------------------------------------------------------------------------------------------------------------- */}
-          <div className="w-1/2 table-container flex-grow-0 flex-col">
+          <div className="w-full md:w-1/2 table-container flex-grow-0 flex flex-col">
 
             {/* TOP CONTROL BAR: MODERN AESTHETIC --------------------------------------------------------------------------- */}
             <div className="w-full mb-[8px] flex justify-between items-center">
@@ -569,7 +569,7 @@ function App() {
           {/* LEFT HALF ------------------------------------------------------------------------------------------------------------------------- */}
 
           {/* RIGHT HALF:  ---------------------------------------------------------------------------------------------------------------------- */}
-          <div id="analysis-panel-container" className="flex-shrink-0 flex-col w-1/2 gap-[10px]">
+          <div id="analysis-panel-container" className="flex-shrink-0 flex flex-col w-full md:w-1/2 gap-[10px]">
             {selectedVariant ? (
             <div id='char'>
               <div key={selectedVariant.variant_id} className="mt-[-1px] sticky bg-[#FFFFFF] animate-in fade-in duration-300">
