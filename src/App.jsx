@@ -343,8 +343,8 @@ function App() {
       <div className="mx-auto"> 
 
         {/* MAIN TITLE SECTION -------------------------------------------------------------------------------------------------------- */}
-        <header className="flex flex-col items-center w-full py-[8px]">
-          <div id="header" className="flex items-center justify-between w-full overflow-hidden">
+        <header id="header" className="flex flex-col items-center w-full py-[8px]">
+          <div className="flex items-center justify-between w-full overflow-hidden">
             <div className="mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[300px]">
               <svg 
                 viewBox="0 0 240 40" 
