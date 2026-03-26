@@ -1,4 +1,3 @@
-```markdown
 # 🧬 Amino-Mapp
 ### An Interactive Protein Mutation Browser
 
@@ -112,4 +111,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 **This was developed as an interview test for:** [Beltrao Group - ETH Zürich](https://imsb.ethz.ch/research/beltrao.html)  
 **Project Link:** [https://github.com/queraltmartinsaladich/amino-map](https://github.com/queraltmartinsaladich/amino-map)
-```
