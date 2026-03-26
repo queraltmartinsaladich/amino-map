@@ -6,7 +6,7 @@ Stewart, R., Laval, F., Coppin, G., Spirohn-Fitzgerald, K., Tixhon, M., Hao, T.,
 ## Molstar
 Sehnal, D., Bittrich, S., Deshpande, M., Svobodová, R., Berka, K., Bazgier, V., Velankar, S., Burley, S. K., Koča, J., & Rose, A. S. (2021). Mol* Viewer: modern web app for 3D visualization and analysis of large biomolecular structures. Nucleic acids research, 49(W1), W431–W437. https://doi.org/10.1093/nar/gkab314
 
-> Webiste: https://molstar.org <br>
+> Webiste: https://molstar.org
 
 ## UniProt
 Bairoch, A., Apweiler, R., Wu, C. H., Barker, W. C., Boeckmann, B., Ferro, S., Gasteiger, E., Huang, H., Lopez, R., Magrane, M., Martin, M. J., Natale, D. A., O'Donovan, C., Redaschi, N., & Yeh, L. S. (2005). The Universal Protein Resource (UniProt). Nucleic acids research, 33(Database issue), D154–D159. https://doi.org/10.1093/nar/gki070
@@ -25,7 +25,7 @@ Gene Ontology Consortium (2026). The Gene Ontology knowledgebase in 2026. Nuclei
 ## AlphaMissense
 Cheng, J., Novati, G., Pan, J., Bycroft, C., Žemgulytė, A., Applebaum, T., Pritzel, A., Wong, L. H., Zielinski, M., Sargeant, T., Schneider, R. G., Senior, A. W., Jumper, J., Hassabis, D., Kohli, P., & Avsec, Ž. (2023). Accurate proteome-wide missense variant effect prediction with AlphaMissense. Science (New York, N.Y.), 381(6664), eadg7492. https://doi.org/10.1126/science.adg7492
 
-> Webiste: https://alphamissense.hegelab.org <br>
+> Webiste: https://alphamissense.hegelab.org
 
 ## AlphaFold
 Jumper, J., Evans, R., Pritzel, A., Green, T., Figurnov, M., Ronneberger, O., Tunyasuvunakool, K., Bates, R., Žídek, A., Potapenko, A., Bridgland, A., Meyer, C., Kohl, S. A. A., Ballard, A. J., Cowie, A., Romera-Paredes, B., Nikolov, S., Jain, R., Adler, J., Back, T., … Hassabis, D. (2021). Highly accurate protein structure prediction with AlphaFold. Nature, 596(7873), 583–589. https://doi.org/10.1038/s41586-021-03819-2
@@ -37,4 +37,4 @@ Fleming, J., Magana, P., Nair, S., Tsenkov, M., Bertoni, D., Pidruchna, I., Lima
 ## ESM1b
 Rives, A., Meier, J., Sercu, T., Goyal, S., Lin, Z., Liu, J., Guo, D., Ott, M., Zitnick, C. L., Ma, J., & Fergus, R. (2021). Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences. Proceedings of the National Academy of Sciences of the United States of America, 118(15), e2016239118. https://doi.org/10.1073/pnas.2016239118
 
-> Repository:https://github.com/facebookresearch/esm <br>
+> Repository: https://github.com/facebookresearch/esm
