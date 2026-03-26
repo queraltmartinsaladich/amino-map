@@ -68,8 +68,8 @@
     overflow: visible;
   }
 
-  #str, 
   #seq
+  #go
   {
     break-before: page !important;
     page-break-before: always !important; /* Legacy support */
