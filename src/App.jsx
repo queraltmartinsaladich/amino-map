@@ -336,8 +336,24 @@ function App() {
   }
   
   return (
+    <>
+    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0F172A] p-10 text-center md:hidden">
+      <div className="mb-6 text-[#6EB5C0]">
+        <svg className="mx-auto h-16 w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </div>
+      <h1 className="font-mono text-xl font-black uppercase tracking-[0.2em] text-[#FFFFFF]">
+        Only Desktop Available
+      </h1>
+      <p className="mt-4 font-mono text-sm tracking-widest text-[#94A3B8]">
+        AMINO-MAP requires a larger screen to render 3D structures and complex protein data. 
+        Please switch to a desktop browser.
+      </p>
+    </div>
+      
     // MAIN FUNCTION ·········································
-    <div className="bg-[#FFFFFF] ml-[40px] mr-[40px] mt-[20px] mb-[30px] pl-[10px] pr-[10px] text-[#0F172A]"> 
+    <div className="hidden md:block bg-[#FFFFFF] ml-[40px] mr-[40px] mt-[20px] mb-[30px] pl-[10px] pr-[10px] text-[#0F172A]"> 
       
       {/* Opens GLOBAL */}
       <div className="mx-auto"> 
@@ -992,7 +1008,7 @@ function App() {
       {/* closes GLOBAL */}
 
     </div>
-    // MAIN FUNCTION·········································
+    </>
   );
 }
 
