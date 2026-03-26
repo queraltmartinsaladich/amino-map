@@ -345,7 +345,7 @@ function App() {
         {/* MAIN TITLE SECTION -------------------------------------------------------------------------------------------------------- */}
         <header id="header" className="flex flex-col items-center w-full py-[8px]">
           <div className="flex items-center justify-between w-full overflow-hidden">
-            <div className="mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[300px]">
+            <div className="mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[50px]">
               <svg 
                 viewBox="0 0 240 40" 
                 className="w-full h-auto" 
@@ -363,7 +363,7 @@ function App() {
               AMINO-MAP
             </h1>
 
-            <div className="mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[300px] scale-x-[-1]">
+            <div className="mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[50px] scale-x-[-1]">
               <svg 
                 viewBox="0 0 240 40" 
                 className="w-full h-auto" 
