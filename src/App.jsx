@@ -569,7 +569,7 @@ function App() {
           {/* LEFT HALF ------------------------------------------------------------------------------------------------------------------------- */}
 
           {/* RIGHT HALF:  ---------------------------------------------------------------------------------------------------------------------- */}
-          <div id="analysis-panel-container" className="flex-shrink-0 flex-col w-full md: w-1/2 gap-[10px]">
+          <div id="analysis-panel-container" className="flex-shrink-0 flex-col w-full md:w-1/2 gap-[10px]">
             {selectedVariant ? (
             <div id='char'>
               <div key={selectedVariant.variant_id} className="mt-[-1px] sticky bg-[#FFFFFF] animate-in fade-in duration-300">
