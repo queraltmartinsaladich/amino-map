@@ -353,7 +353,7 @@ function App() {
     </div>
       
     // MAIN FUNCTION ·········································
-    <div className="md:block bg-[#FFFFFF] ml-[40px] mr-[40px] mt-[20px] mb-[30px] pl-[10px] pr-[10px] text-[#0F172A]"> 
+    <div className="md:hidden bg-[#FFFFFF] ml-[40px] mr-[40px] mt-[20px] mb-[30px] pl-[10px] pr-[10px] text-[#0F172A]"> 
       
       {/* Opens GLOBAL */}
       <div className="mx-auto"> 
