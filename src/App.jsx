@@ -360,7 +360,7 @@ function App() {
         {/* MAIN TITLE SECTION -------------------------------------------------------------------------------------------------------- */}
         <header id="header" className="flex flex-col items-center w-full py-[8px]">
           <div className="flex items-center justify-between w-full overflow-hidden">
-            <div className="mt-[-30px] mr-[-10px] w-1/2 max-w-2xl flex-shrink min-w-[50px]">
+            <div className="mt-[-30px] w-1/2 max-w-2xl flex-shrink min-w-[50px]">
               <svg 
                 viewBox="0 0 240 40" 
                 className="w-full h-auto" 
