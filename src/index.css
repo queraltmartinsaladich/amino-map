@@ -70,6 +70,9 @@
     break-before: page !important;
     page-break-before: always !important; /* Legacy support */
     display: block !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    max-width: 100% !important;
   }
 
   .data-block, canvas, svg {
