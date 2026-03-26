@@ -31,10 +31,6 @@
 }
 
 @media print {
-  /* 1. Hide contents */
-  /* body * {
-    visibility: hidden;
-  } */
 
   #header, 
   #nav,
@@ -58,7 +54,7 @@
   #analysis-panel-container {
     position: static !important;
     display: block;
-    top: -10cm;
+    top: 0cm;
     right: 0px;
     left: 0px;
     width: 100% !important;

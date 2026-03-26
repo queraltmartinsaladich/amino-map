@@ -886,8 +886,8 @@ function App() {
                 {/* CHARACTERISTICS ----------------------------------------------------------------------------------------- */}
 
                 {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
-                <div id="str" className='mt-[30px]'>
-                  <p className="text-[20px] border-b-2 border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
+                <div id="str">
+                  <p className="text-[20px] border-b-2 mt-[30px] border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     ⚙️ 3D Structure
                   </p>
                   <a
@@ -909,8 +909,8 @@ function App() {
                 {/* 3D STRUCTURE SECTION ------------------------------------------------------------------------------------ */}
 
                 {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
-                <div id="seq" className='mt-[30px]'>
-                  <p className="text-[20px] border-b-2 border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
+                <div id="seq">
+                  <p className="text-[20px] mt-[30px] border-b-2 border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🔍 SEQUENCING
                   </p>
                   <a
@@ -932,8 +932,8 @@ function App() {
                 {/* SEQUENCE SECTION ------------------------------------------------------------------------------------ */}
 
                 {/* GEX SECTION ------------------------------------------------------------------------------------------ */}
-                <div id="gex" className='mt-[30px]'>
-                  <p className="text-[20px] border-b-2 border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
+                <div id="gex">
+                  <p className="text-[20px] mt-[30px] border-b-2 border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🔬 RNA EXPRESSION
                   </p>
                   <a
@@ -954,8 +954,8 @@ function App() {
                 {/* GEX SECTION ------------------------------------------------------------------------------------------ */}
 
                 {/* Gene Ontology SECTION ------------------------------------------------------------------------------------ */}
-                <div id="go" className='mt-[30px]'>
-                  <p className="text-[20px] border-b-2 border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
+                <div id="go">
+                  <p className="text-[20px] mt-[30px] border-b-2 border-[#0F172A] pb-[8px] font-black text-[#475569] uppercase tracking-[0.2em] leading-none">
                     🧬 GENE ONTOLOGY
                   </p>
                   <a
