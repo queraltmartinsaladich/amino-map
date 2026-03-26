@@ -1,7 +1,7 @@
-# 🧬 Amino-Mapp
+# 🧬 Amino-Map
 ### An Interactive Protein Mutation Browser
 
-**Amino-Mapp** is a specialized React-based dashboard designed for the exploration and analysis of protein variants. Developed by Queralt Martín-Saladich as an interview test for the Beltrao Group (ETH Zürich), it bridges the gap between raw mutation data and biological context by integrating sequence visualization, 3D structural modeling, and functional annotations into a single, cohesive research tool.
+**Amino-Map** is a specialized React-based dashboard designed for the exploration and analysis of protein variants. Developed by Queralt Martín-Saladich as an interview test for the Beltrao Group (ETH Zürich), it bridges the gap between raw mutation data and biological context by integrating sequence visualization, 3D structural modeling, and functional annotations into a single, cohesive research tool.
 
 ---
 

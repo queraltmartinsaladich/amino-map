@@ -360,7 +360,7 @@ function App() {
             </div>
 
             <h1 className="flex-shrink text-[36px] sm:text-[36px] md:text-[56px] text-center text-[#006C84] font-black tracking-[0.2em] whitespace-nowrap">
-              AMINO-MAPP
+              AMINO-MAP
             </h1>
 
             <div className="mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[300px] scale-x-[-1]">
