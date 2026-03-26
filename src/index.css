@@ -36,7 +36,8 @@
     visibility: hidden;
   } */
 
-  nav, 
+  #header, 
+  #nav,
   .table-container, 
   .variant-list,
   footer {

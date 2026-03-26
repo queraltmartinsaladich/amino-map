@@ -344,7 +344,7 @@ function App() {
 
         {/* MAIN TITLE SECTION -------------------------------------------------------------------------------------------------------- */}
         <header className="flex flex-col items-center w-full py-[8px]">
-          <div className="flex items-center justify-between w-full overflow-hidden">
+          <div id="header" className="flex items-center justify-between w-full overflow-hidden">
             <div className="mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[300px]">
               <svg 
                 viewBox="0 0 240 40" 
@@ -388,7 +388,7 @@ function App() {
         {/* MAIN TITLE SECTION -------------------------------------------------------------------------------------------------------- */}
 
         {/* EXTERNAL RESOURCE NAVIGATION -------------------------------------------------------------------------------------------------------- */}
-        <div className="w-full mb-[20px]">
+        <div id="nav" className="w-full mb-[20px]">
           <nav className="border-y-2 border-[#F1F5F9] mb-[4px] py-[10px]">
             <div className="flex justify-between items-center w-full">
               {navLinks.map((link) => (
