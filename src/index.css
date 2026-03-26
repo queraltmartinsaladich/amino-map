@@ -31,62 +31,46 @@
 }
 
 @media print {
-  /* 1. Hide contents */
-  body * {
-    visibility: hidden;
-  }
-
-  nav, 
-  .table-container, 
-  .variant-list,
-  footer {
+  /* 1. COMPLETELY hide the root and all default content layout */
+  /* This removes the blank space occupied by hidden elements */
+  #root > :not(#analysis-panel-container),
+  nav, .table-container, .variant-list, footer {
     display: none !important;
-    height: 0 !important;
-    width: 0 !important;
-    position: absolute !important;
-    overflow: hidden !important;
-  }
-  
-  /* 2. Show ONLY the analysis panel and its children */
-  #analysis-panel-container, 
-  #analysis-panel-container * {
-    visibility: visible;
   }
 
-  /* 3. Reset the position so it's not "stuck" to the right side of a blank page */
-  #analysis-panel-container {
-    position: static !important;
-    display: block;
-    top: -10cm;
-    right: 0px;
-    left: 0px;
-    width: 100% !important;
+  /* 2. Ensure the body and root don't have padding/margins pushing content down */
+  html, body, #root {
     margin: 0 !important;
-    padding: 0px !important;
-    box-shadow: none !important;
-    overflow: visible;
+    padding: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
   }
 
-  #str, 
-  #seq
-  {
-    break-before: page !important;
-    page-break-before: always !important; /* Legacy support */
+  /* 3. Setup the container as the "New Top" of the document */
+  #analysis-panel-container {
+    visibility: visible !important;
     display: block !important;
+    position: relative !important; /* Changed from static/absolute to relative */
+    width: 100% !important;
+    top: 0 !important; /* Ensure it starts at the very top */
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  .data-block, canvas, svg {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-    max-width: 100% !important;
+  /* 4. Ensure children are visible */
+  #analysis-panel-container * {
+    visibility: visible !important;
   }
 
-  /* 4. Hide the "Download" and "Close" icons in the PDF itself */
-  .action-icon-group {
-    display: none !important;
+  /* 5. Page Breaks */
+  #str, #seq {
+    break-before: page !important;
+    page-break-before: always !important;
+    margin-top: 0 !important; /* Prevent double gaps on new pages */
+    padding-top: 1cm !important; 
   }
 
-  /* 5. Clean up page margins */
+  /* 6. Clean up page margins */
   @page {
     margin: 1cm;
   }
