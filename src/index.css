@@ -90,6 +90,30 @@
   }
 }
 
+#mobile-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding-top: 20%;
+  z-index: 9999; /* Ensures it sits on top of everything */
+}
+
+/* 2. Show overlay and hide content on screens smaller than 1024px */
+@media only screen and (max-width: 1024px) {
+  #mobile-overlay {
+    display: block;
+  }
+  #main-content {
+    display: none;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
