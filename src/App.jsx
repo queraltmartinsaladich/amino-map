@@ -359,7 +359,7 @@ function App() {
               </svg>
             </div>
 
-            <h1 className="flex-shrink text-[36px] sm:text-[36px] md:text-[56px] text-center text-[#006C84] font-black tracking-[0.2em] whitespace-nowrap">
+            <h1 className="flex-shrink text-[36px] max-w-2xl md:text-[16px] text-center text-[#006C84] font-black tracking-[0.2em] whitespace-nowrap">
               AMINO-MAP
             </h1>
 
@@ -411,7 +411,7 @@ function App() {
         <div className="flex items-start gap-[40px]">
           
           {/* LEFT HALF ------------------------------------------------------------------------------------------------------------------------- */}
-          <div className="w-full md:w-1/2 table-container flex-grow-0 flex-col">
+          <div className="w-1/2 table-container flex-grow-0 flex-col">
 
             {/* TOP CONTROL BAR: MODERN AESTHETIC --------------------------------------------------------------------------- */}
             <div className="w-full mb-[8px] flex justify-between items-center">
@@ -569,7 +569,7 @@ function App() {
           {/* LEFT HALF ------------------------------------------------------------------------------------------------------------------------- */}
 
           {/* RIGHT HALF:  ---------------------------------------------------------------------------------------------------------------------- */}
-          <div id="analysis-panel-container" className="flex-shrink-0 flex-col w-full md:w-1/2 gap-[10px]">
+          <div id="analysis-panel-container" className="flex-shrink-0 flex-col w-1/2 gap-[10px]">
             {selectedVariant ? (
             <div id='char'>
               <div key={selectedVariant.variant_id} className="mt-[-1px] sticky bg-[#FFFFFF] animate-in fade-in duration-300">
