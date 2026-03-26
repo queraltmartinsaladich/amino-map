@@ -104,7 +104,7 @@
   z-index: 9999; /* Ensures it sits on top of everything */
 }
 
-/* 2. Show overlay and hide content on screens smaller than 1024px */
+/* Show overlay and hide content on screens smaller than 1024px */
 @media only screen and (max-width: 1024px) {
   #mobile-overlay {
     display: block;
