@@ -68,11 +68,9 @@
   #go
   {
     break-before: page !important;
-    page-break-before: always !important; /* Legacy support */
+     /* page-break-before: always !important; Legacy support */
     display: block !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-    max-width: 100% !important;
+    top: 1cm;
   }
 
   .data-block, canvas, svg {
