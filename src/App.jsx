@@ -344,7 +344,7 @@ function App() {
 
         {/* MAIN TITLE SECTION -------------------------------------------------------------------------------------------------------- */}
         <header className="flex flex-col items-center w-full py-[8px]">
-          <div className="flex items-center justify-between w-full gap-[10px] overflow-hidden px-[4px]">
+          <div className="flex items-center justify-between w-full overflow-hidden">
             <div className="mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[300px]">
               <svg 
                 viewBox="0 0 240 40" 
@@ -363,7 +363,7 @@ function App() {
               AMINO-MAPP
             </h1>
 
-            <div className="mt-[-30px] w-1/2 max-w-[500px] flex-shrink min-w-[300px] scale-x-[-1]">
+            <div className="mt-[-30px] w-1/2 max-w-[700px] flex-shrink min-w-[300px] scale-x-[-1]">
               <svg 
                 viewBox="0 0 240 40" 
                 className="w-full h-auto" 
@@ -382,7 +382,7 @@ function App() {
             An open-source protein mutation browser
           </h2>
           <h3 className="text-[12px] mt-[0px] font-['Elephant',_'Playfair_Display',_serif] text-center tracking-[0.1em] text-[#94A3B8] max-w-2xl">
-            Beta version, 2026
+            beta version, 2026
           </h3>
         </header>
         {/* MAIN TITLE SECTION -------------------------------------------------------------------------------------------------------- */}
