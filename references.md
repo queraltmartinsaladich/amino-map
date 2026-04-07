@@ -1,7 +1,7 @@
 # REFERENCES
 
 ## Original research paper
-Stewart, R., Laval, F., Coppin, G., Spirohn-Fitzgerald, K., Tixhon, M., Hao, T., Calderwood, M. A., Mort, M., Cooper, D. N., Vidal, M., & Radivojac, P. (2025). Predicting interaction-specific protein–protein interaction perturbations by missense variants with MutPred-PPI. bioRxiv. https://doi.org/10.64898/2025.12.20.695738
+Jänes, J., Müller, M., Selvaraj, S., Manoel, D., Stephenson, J., Gonçalves, C., Lafita, A., Polacco, B., Obernier, K., Alasoo, K., Lemos, M.C., Krogan, N., Martin, M., Saraiva, L.R., Burke, D., Beltrao, P. Predicted mechanistic impacts of human protein missense variants. bioRxiv 2024.05.29.596373.  doi: https://doi.org/10.1101/2024.05.29.596373
 
 ## Molstar
 Sehnal, D., Bittrich, S., Deshpande, M., Svobodová, R., Berka, K., Bazgier, V., Velankar, S., Burley, S. K., Koča, J., & Rose, A. S. (2021). Mol* Viewer: modern web app for 3D visualization and analysis of large biomolecular structures. Nucleic acids research, 49(W1), W431–W437. https://doi.org/10.1093/nar/gkab314
